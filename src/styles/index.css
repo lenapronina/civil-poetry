@@ -5,6 +5,9 @@
 @import url(../blocks/news/news.css);
 @import url(../blocks/card-list/card-list.css);
 @import url(../blocks/card/card.css);
+@import url(../blocks/popular/popular.css);
+@import url(../blocks/claim-list/claim-list.css);
+@import url(../blocks/claim/claim.css);
 
 /* подключаем элементы */
 @import url(../blocks/problems-list/__heading/problems-list__heading.css);
@@ -12,4 +15,11 @@
 @import url(../blocks/problem/__name/problem__name.css);
 @import url(../blocks/news/__heading/news__heading.css);
 @import url(../blocks/card/__heading/card__heading.css);
+@import url(../blocks/popular/__heading/popular__heading.css);
+@import url(../blocks/popular/__more/popular__more.css);
+@import url(../blocks/popular/__button/popular__button.css);
+@import url(../blocks/claim/__id/claim__id.css);
+@import url(../blocks/claim/__info/claim__info.css);
+@import url(../blocks/claim/__cathegory/claim__cathegory.css);
+@import url(../blocks/claim/__verse/claim__verse.css);
 
