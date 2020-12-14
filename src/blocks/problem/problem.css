@@ -1,0 +1,10 @@
+.problem {
+  background: #FFFFFF;
+  border-radius: 16px;
+  height: 96px;
+  width: 97px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}

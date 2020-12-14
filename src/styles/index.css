@@ -1,1 +1,10 @@
+@import url(../blocks/page/page.css);
 @import url(../blocks/app/app.css);
+@import url(../blocks/problems-list/problems-list.css);
+@import url(../blocks/problem/problem.css);
+
+/* подключаем элементы */
+@import url(../blocks/problems-list/__heading/problems-list__heading.css);
+@import url(../blocks/problems-list/__wrapper/problems-list__wrapper.css);
+@import url(../blocks/problem/__name/problem__name.css);
+
