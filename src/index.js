@@ -1,8 +1,11 @@
+import { mySwiper } from './utils/utils.js'
 import './styles/index.css';
 
-const numbers = [2, 3, 5];
+// пока так сделала прокрутку по клику, потом может перепишем на что-то получше
+const arrowBottom = document.querySelector('.hello__arrow-bottom');
+const problemsList = document.querySelector('.problems-list');
 
-// Стрелочная функция. Не запнётся ли на ней Internet Explorer?
-const doubledNumbers = numbers.map(number => number * 2);
+arrowBottom.addEventListener('click', () => {
+  problemsList.scrollIntoView();
+});
 
-console.log(doubledNumbers); // 4, 6, 10

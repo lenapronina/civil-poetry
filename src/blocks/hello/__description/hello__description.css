@@ -1,0 +1,10 @@
+.hello__description {
+  margin: 0;
+  max-width: 242px;
+  align-self: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+}
