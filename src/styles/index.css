@@ -1,3 +1,1 @@
-.app {
- background-color: #f74;
-}
+@import url(../blocks/app/app.css);
