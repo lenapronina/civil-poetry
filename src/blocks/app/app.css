@@ -1,3 +1,6 @@
 .app {
   background-color: #f74452;
+  width: 375px;
+  font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
+  margin: 0 auto;
  }
