@@ -2,9 +2,14 @@
 @import url(../blocks/app/app.css);
 @import url(../blocks/problems-list/problems-list.css);
 @import url(../blocks/problem/problem.css);
+@import url(../blocks/news/news.css);
+@import url(../blocks/card-list/card-list.css);
+@import url(../blocks/card/card.css);
 
 /* подключаем элементы */
 @import url(../blocks/problems-list/__heading/problems-list__heading.css);
 @import url(../blocks/problems-list/__wrapper/problems-list__wrapper.css);
 @import url(../blocks/problem/__name/problem__name.css);
+@import url(../blocks/news/__heading/news__heading.css);
+@import url(../blocks/card/__heading/card__heading.css);
 
