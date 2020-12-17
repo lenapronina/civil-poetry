@@ -32,3 +32,6 @@
 @import url(../blocks/swiper-slide/swiper-slide.css);
 @import url(../blocks/swiper-pagination-bullet/swiper-pagination-bullet.css);
 
+@import url(../blocks/ticker/ticker.css);
+@import url(../blocks/ticker/__line/ticker__line.css);
+
