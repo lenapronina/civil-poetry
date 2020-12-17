@@ -1,0 +1,7 @@
+.ticker__line {
+  margin: 8px 0;
+  font-size: 16px;
+  white-space: nowrap;
+  display: inline-block;
+  color: #F36755;
+}
