@@ -24,8 +24,10 @@
 .hello{padding:64px 0;min-height:478px;display:flex;flex-direction:column;background-color:#fff}
 .hello__heading{margin:48px 0 24px;align-self:center;font-style:normal;font-weight:700;font-size:32px;line-height:37px}
 .hello__description{margin:0;max-width:242px;align-self:center;font-style:normal;font-weight:400;font-size:16px;line-height:19px;text-align:center}
-.hello__arrow-bottom{margin-top:48px;width:14px;height:8px;align-self:center;background-color:transparent;background-image:url(935e58063e57900dafa4.svg);background-position:50%;background-size:cover;border:none;outline:none;-webkit-animation:bounce 3s ease-in-out infinite;animation:bounce 3s ease-in-out infinite;cursor:pointer}@-webkit-keyframes bounce{50%{transform:translateY(-10px)}}@keyframes bounce{50%{transform:translateY(-10px)}}
+.hello__arrow-bottom{margin:48px auto;width:14px;height:8px;align-self:center;background-color:transparent;background-image:url(935e58063e57900dafa4.svg);background-position:50%;background-size:cover;border:none;outline:none;-webkit-animation:bounce 3s ease-in-out infinite;animation:bounce 3s ease-in-out infinite;cursor:pointer}@-webkit-keyframes bounce{50%{transform:translateY(-10px)}}@keyframes bounce{50%{transform:translateY(-10px)}}
 .swiper-container{height:290px;width:320px;padding:0;z-index:1}
 .swiper-slide{margin:0;width:320px;height:238px;-o-object-fit:cover;object-fit:cover;border-radius:16px}
 .swiper-pagination-bullet{width:12px;height:12px;margin:0 6px;background:#c4c4c4;opacity:1}.swiper-pagination-bullet-active{background:#343434}
+.ticker{overflow:hidden;min-height:36px;border-top:1px solid #f36755;border-bottom:1px solid #f36755;white-space:nowrap;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+.ticker__line{margin:8px 0;font-size:16px;white-space:nowrap;display:inline-block;color:#f36755}
 
