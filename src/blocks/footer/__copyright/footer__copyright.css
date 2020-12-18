@@ -1,0 +1,9 @@
+.footer__copyright {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: left;
+  width: fit-content;
+  margin: 0;
+}

@@ -8,6 +8,7 @@
 @import url(../blocks/popular/popular.css);
 @import url(../blocks/claim-list/claim-list.css);
 @import url(../blocks/claim/claim.css);
+@import url(../blocks/footer/footer.css);
 
 /* подключаем элементы */
 @import url(../blocks/problems-list/__heading/problems-list__heading.css);
@@ -22,6 +23,7 @@
 @import url(../blocks/claim/__info/claim__info.css);
 @import url(../blocks/claim/__cathegory/claim__cathegory.css);
 @import url(../blocks/claim/__verse/claim__verse.css);
+@import url(../blocks/footer/__copyright/footer__copyright.css);
 
 
 @import url(../blocks/hello/hello.css);
