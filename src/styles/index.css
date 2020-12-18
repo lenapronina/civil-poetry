@@ -9,6 +9,8 @@
 @import url(../blocks/claim-list/claim-list.css);
 @import url(../blocks/claim/claim.css);
 @import url(../blocks/footer/footer.css);
+@import url(../blocks/button/button.css);
+@import url(../blocks/popup/popup.css);
 
 /* подключаем элементы */
 @import url(../blocks/problems-list/__heading/problems-list__heading.css);
@@ -24,6 +26,15 @@
 @import url(../blocks/claim/__cathegory/claim__cathegory.css);
 @import url(../blocks/claim/__verse/claim__verse.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
+@import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__backward-button/popup__backward-button.css);
+@import url(../blocks/popup/__back-text/popup__back-text.css);
+@import url(../blocks/popup/__wrapper/popup__wrapper.css);
+@import url(../blocks/popup/__heading/popup__heading.css);
+
+@import url(../blocks/problems-list/__wrapper/_popup/problem-list__wrapper_popup.css);
+@import url(../blocks/problem/_popup/problem_popup.css);
+@import url(../blocks/popup/_opened/popup_opened.css);
 
 
 @import url(../blocks/hello/hello.css);

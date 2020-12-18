@@ -1,0 +1,4 @@
+.popup__backward-button {
+  transform: rotate(90deg);
+  margin: 0;
+}
