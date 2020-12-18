@@ -1,14 +1,4 @@
 .popular__button {
-  background-image: url(../../../images/next-button.svg);
-  width: 14px;
-  height: 8px;
   margin: 0 auto;
-  background-color: transparent;
-  border-style: none;
-  padding: 0;
   display: block;
-}
-
-.popular__button:focus {
-  outline: none;
 }

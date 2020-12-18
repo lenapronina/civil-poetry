@@ -1,0 +1,4 @@
+.problems-list__wrapper_popup {
+  grid-template-rows: repeat(2, 168px);
+  grid-template-columns: repeat(2, 152px);
+}
