@@ -1,0 +1,6 @@
+.popup__checkbox-field {
+    border: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}

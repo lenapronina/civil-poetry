@@ -1,0 +1,17 @@
+.popup__poem {
+    margin: 0 0 48px;
+    text-align: center;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 375px;
+    position: relative;
+    border: 1px solid #F9D3B3;
+    border-radius: 16px;
+    color: #717171;
+    letter-spacing: 0.1em;
+    line-height: 20px;
+}

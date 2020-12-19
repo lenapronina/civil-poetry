@@ -109,7 +109,7 @@
       <p class="footer__copyright">&copy; Название</p>
     </footer>
 
-    <section class="popup">
+    <section class="popup popup_subcategories">
       <div class="popup__container">
         <div class="popup__wrapper">
           <button class="popup__backward-button button"></button>
@@ -132,6 +132,49 @@
         </ul>
       </div>
     </section>
+
+    <section class="popup popup_result">
+      <div class="popup__container popup__container_result">
+        <div class="popup__wrapper">
+          <button class="popup__backward-button button"></button>
+          <p class="popup__back-text">Назад</p>
+        </div>
+        <form class="popup__form">
+          <fieldset class="popup__fieldset">
+            <label class="popup__field">
+              <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="Имя" value="">
+            </label>
+            <label class="popup__field">
+              <input class="popup__input popup__input_type_town" type="text" name="place" placeholder="Местоположение" value="">
+            </label>
+          </fieldset>
+        
+          <div class="popup__poem">
+            <p class="popup__text">
+              Умом Россию не понять,<br />
+              Аршином общим не измерить:<br />
+              У ней особенная стать —<br />
+              В Россию можно только верить.
+            </p>
+            <button class="popup__poem-button popup__poem-button_prev">
+              <img class="popup__poem-button-icon" src="./images/down-arrow2.png">
+            </button>
+            <button class="popup__poem-button popup__poem-button_next">
+              <img class="popup__poem-button-icon" src="./images/right-arrow.png">
+            </button>
+          </div>
+
+          <button class="popup__submit-button" type="submit">
+            Пожаловаться
+          </button>
+          <fieldset class="popup__checkbox-field">
+            <input class="popup__checkbox" type="checkbox" checked>
+            <label class="popup__checkbox-label">Сохранить в ленте</label>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+
   </div>
 </body>
 </html>
