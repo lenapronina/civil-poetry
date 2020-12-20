@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'PT Sans Caption';    
+    font-weight: 400;
+    font-style: normal;
+    src: url('PTSans-Caption.woff2') format('woff2'),
+        url('PTSans-Caption.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'PT Sans Caption';   
+    font-weight: 700;
+    font-style: normal;
+    src: url('PTSans-CaptionBold.woff2') format('woff2'),
+        url('PTSans-CaptionBold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'PT Sans';
+    font-weight: 700;
+    font-style: normal;
+    src: url('PTSans-Bold.woff2') format('woff2'),
+        url('PTSans-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'PT Sans';   
+    font-weight: 700;
+    font-style: italic;
+    src: url('PTSans-BoldItalic.woff2') format('woff2'),
+        url('PTSans-BoldItalic.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'PT Sans';
+    font-weight: 400;
+    font-style: normal;
+    src: url('PTSans-Regular.woff2') format('woff2'),
+        url('PTSans-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'PT Sans';
+    font-weight: 400;
+    font-style: italic;
+    src: url('PTSans-Italic.woff2') format('woff2'),
+        url('PTSans-Italic.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Neue Machina';
+    font-weight: 400;
+    font-style: normal;
+    src: url('NeueMachina-Regular.woff2') format('woff2'),
+        url('NeueMachina-Regular.woff') format('woff');
+}
+
+

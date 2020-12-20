@@ -1,5 +1,5 @@
 import './styles/index.css';
-import { mySwiper, animateTicker } from './utils/utils.js'
+import { animateTicker } from './utils/utils.js'
 
 // пока так сделала прокрутку по клику, потом может перепишем на что-то получше
 const arrowBottom = document.querySelector('.hello__arrow-bottom');
