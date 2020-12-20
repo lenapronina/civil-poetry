@@ -1,10 +1,13 @@
 .hello__description {
   margin: 0;
-  max-width: 242px;
+  max-width: 320px;
   align-self: center;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
-  line-height: 19px;
+  line-height: 21px;
   text-align: center;
+  color: #191919;
+  font-family: PT Sans;
+  font-weight: 400;
 }

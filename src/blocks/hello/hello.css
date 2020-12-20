@@ -1,7 +1,8 @@
 .hello {
-  padding: 64px 0;
+  padding: 84px 0 48px;
   min-height:100vh;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
+  box-sizing: border-box;
 }

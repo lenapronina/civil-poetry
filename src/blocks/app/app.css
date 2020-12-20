@@ -6,6 +6,7 @@
 .app {
   margin: 0 auto;
   width: 100%;
-  font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
+  font-family: 'PT Sans Caption';
+  font-weight: 400;
   background-color: #f74452;
  }

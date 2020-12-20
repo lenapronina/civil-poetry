@@ -1,12 +1,13 @@
 .hello__arrow-bottom {
   margin: 48px auto;
+  padding: 20px;
   width: 14px;
   height: 8px;
   align-self: center;
   background-color: rgba(0,0,0,0);
   background-image: url(../../../images/hello-arrow-bottom.svg);
   background-position: center;
-  background-size: cover;
+  background-repeat: no-repeat;
   border: none;
   outline: none;
   animation: bounce 3s infinite ease-in-out;

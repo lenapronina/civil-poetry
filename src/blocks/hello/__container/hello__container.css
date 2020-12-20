@@ -1,0 +1,5 @@
+.hello__container {
+  padding: 0 27px 0 28px;
+  display: flex;
+  justify-content: center;
+}
