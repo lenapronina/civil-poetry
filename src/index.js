@@ -1,5 +1,6 @@
 import './styles/index.css';
 import FormValidator from './FormValidator.js';
+import { animateTicker } from './utils/utils.js'
 
 // пока так сделала прокрутку по клику, потом может перепишем на что-то получше
 const arrowBottom = document.querySelector('.hello__arrow-bottom');
@@ -16,8 +17,6 @@ arrowBottom.addEventListener('click', () => {
 });
 
 //popop eventListener
-
-const categoryIcon = document.querySelectorAll('.problem');
 
 const categoryIcons = Array.from(document.querySelectorAll('.problem'));
 const subcategoryIcons = Array.from(document.querySelectorAll('.problem_popup'));
