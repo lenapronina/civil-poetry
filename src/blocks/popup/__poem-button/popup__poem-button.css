@@ -1,0 +1,15 @@
+.popup__poem-button {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    background-color: inherit;
+}
+
+@media(min-width: 1024px) {
+    .popup__poem-button:hover {
+        cursor: pointer;
+    }
+}

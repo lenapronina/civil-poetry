@@ -1,0 +1,9 @@
+.popup__checkbox-label {
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.popup__checkbox:hover {
+    cursor: pointer;
+}

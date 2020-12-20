@@ -15,3 +15,14 @@ arrowBottom.addEventListener('click', () => {
   problemsList.scrollIntoView();
 });
 
+//popop eventListener
+
+const categoryIcon = document.querySelectorAll('.problem');
+
+const subcategoryPopup = document.querySelector('.popup_categories');
+
+categoryIcon.forEach((icon) => {
+  icon.addEventListener('click', () => {
+    subcategoryPopup.classList.add('popup_opened');
+  });
+});
