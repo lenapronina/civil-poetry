@@ -1,5 +1,5 @@
 import './styles/index.css';
-import { animateTicker } from './utils/utils.js'
+import FormValidator from './FormValidator.js';
 
 // пока так сделала прокрутку по клику, потом может перепишем на что-то получше
 const arrowBottom = document.querySelector('.hello__arrow-bottom');
@@ -35,19 +35,23 @@ categoryIcons.forEach((icon) => {
 subcategoryIcons.forEach((icon) => {
     icon.addEventListener('click', () => {
         resultPopup.classList.add('popup_opened');
+        formValidator.resetValidation();
     });
 });
 
 goBackToCategoriesButton.addEventListener('click', () => {
     subcategoryPopup.classList.remove('popup_opened');
+    
 });
 
 goBackToSubcategoriesButton.addEventListener('click', () => {
     resultPopup.classList.remove('popup_opened');
+    formValidator.resetValidation();
 });
 
-categoryIcon.forEach((icon) => {
-  icon.addEventListener('click', () => {
-    subcategoryPopup.classList.add('popup_opened');
-  });
-});
+//enable form validation
+const formValidator = new FormValidator();
+formValidator.enableValidation();
+
+
+// form submit

@@ -4,7 +4,7 @@
     min-height: 44px;
     margin-bottom: 16px;
     padding-left: 28px;
-    border: 1px solid #F9D3B3;
+    border: 1px solid #F36755;
     border-radius: 16px;
     font-weight: 400;
     font-style: normal;
@@ -12,7 +12,3 @@
     color: #717171;
 }
 
-.popup__input:focus {
-    color: #191919;
-    border-color: #F36755;
-}
