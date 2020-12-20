@@ -1,8 +1,8 @@
 import './styles/index.css';
+
 import { animateTicker } from './utils/utils.js';
 import claimList from './datasets/claims.js';
-
-
+import FormValidator from './FormValidator.js';
 
 const claimContainer = document.querySelector('.claim-list');
 console.log(claimContainer)
@@ -45,14 +45,13 @@ arrowBottom.addEventListener('click', () => {
 
 //popop eventListener
 
-const categoryIcon = document.querySelectorAll('.problem');
-
 const categoryIcons = Array.from(document.querySelectorAll('.problem'));
 const subcategoryIcons = Array.from(document.querySelectorAll('.problem_popup'));
 const resultPopup = document.querySelector('.popup_result');
 const subcategoryPopup = document.querySelector('.popup_subcategories');
 const goBackToCategoriesButton = document.querySelector('.popup__wrapper_subcategories');
 const goBackToSubcategoriesButton = document.querySelector('.popup__wrapper_result');
+const submitButton = document.querySelector('.popup__submit-button');
 
 categoryIcons.forEach((icon) => {
   icon.addEventListener('click', () => {
@@ -63,19 +62,23 @@ categoryIcons.forEach((icon) => {
 subcategoryIcons.forEach((icon) => {
     icon.addEventListener('click', () => {
         resultPopup.classList.add('popup_opened');
+        formValidator.resetValidation();
     });
 });
 
 goBackToCategoriesButton.addEventListener('click', () => {
     subcategoryPopup.classList.remove('popup_opened');
+    
 });
 
 goBackToSubcategoriesButton.addEventListener('click', () => {
     resultPopup.classList.remove('popup_opened');
+    formValidator.resetValidation();
 });
 
-categoryIcon.forEach((icon) => {
-  icon.addEventListener('click', () => {
-    subcategoryPopup.classList.add('popup_opened');
-  });
-});
+//enable form validation
+const formValidator = new FormValidator();
+formValidator.enableValidation();
+
+
+// form submit
