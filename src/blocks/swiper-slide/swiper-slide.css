@@ -1,0 +1,7 @@
+.swiper-slide {
+  margin: 0;
+  width: 320px;
+  height: 238px;
+  object-fit: cover;
+  border-radius: 16px;
+}

@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Гражданин_поэт_2025</title>
-  <link rel="stylesheet" href="styles/index.css">
 </head>
 <body class="page">
   <div class="app">
-    <header class="header">Здесь будет шапка</header>
     <section class="hello">
-      <h1>Xочешь поделиться?</h1>
+      <div class="hello__container">
+        <img class="hello__image" alt="Цензура" src="<%=require('./images/hello-image.png')%>">
+      </div>
+      <h1 class="hello__heading">Xочешь поделиться?</h1>
+      <p class="hello__description">Отправляй жалобы безопасно, без смс и регистраций онлайн!</p>
+      <button class="hello__arrow-bottom"></button>
+      <div class="ticker">
+        <p class="ticker__line">#ПРОВЕРЕНО_ДЛЯ_ЦЕНЗУРЫ&nbsp;&nbsp;&nbsp;#ПРОВЕРЕНО_ДЛЯ_ЦЕНЗУРЫ</p>
+      </div>
     </section>
     <section class="problems-list">
       <h2 class="problems-list__heading">Выбери категорию</h2>
@@ -89,10 +95,88 @@
         </li>
       </ul>
       <h4 class="popular__more">Смотреть больше</h4>
-      <button class="popular__button"></button>
+      <button class="popular__button button"></button>
     </section>
 
-    <footer class="footer">что-то там в конце</footer>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; Название</p>
+    </footer>
+
+    <section class="popup popup_subcategories">
+      <div class="popup__container">
+        <div class="popup__wrapper popup__wrapper_subcategories">
+          <button class="popup__backward-button button"></button>
+          <p class="popup__back-text">Назад</p>
+        </div>
+        <h2 class="popup__heading">Подкатегория</h2>
+        <ul class= "problems-list__wrapper problems-list__wrapper_popup">
+          <li class="problem problem_popup">
+            <h3 class="problem__name">Тема</h3>
+          </li>
+          <li class="problem problem_popup">
+            <h3 class="problem__name">Тема</h3>
+          </li>
+          <li class="problem problem_popup">
+            <h3 class="problem__name">Тема</h3>
+          </li>
+          <li class="problem problem_popup">
+            <h3 class="problem__name">Тема</h3>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="popup popup_result">
+      <div class="popup__container popup__container_result">
+
+        <div class="popup__wrapper popup__wrapper_result">
+
+        <div class="popup__wrapper">
+
+          <button class="popup__backward-button button"></button>
+          <p class="popup__back-text">Назад</p>
+        </div>
+        <form class="popup__form">
+          <fieldset class="popup__fieldset">
+            <label class="popup__field">
+              <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="Имя" value="">
+            </label>
+            <label class="popup__field">
+
+              <input class="popup__input popup__input_type_town" type="text" name="place" placeholder="Местоположение" value="" required>
+
+            </label>
+          </fieldset>
+        
+          <div class="popup__poem">
+            <p class="popup__text">
+              Умом Россию не понять,<br />
+              Аршином общим не измерить:<br />
+              У ней особенная стать —<br />
+              В Россию можно только верить.
+            </p>
+            <button class="popup__poem-button popup__poem-button_prev">
+              <img class="popup__poem-button-icon" src="<%=require('./images/down-arrow2.png')%>">
+            </button>
+            <button class="popup__poem-button popup__poem-button_next">
+              <img class="popup__poem-button-icon" src="<%=require('./images/right-arrow.png')%>">
+              
+            </button>
+          </div>
+
+
+          <button class="popup__submit-button popup__submit-button_inactive" type="submit">
+
+            Пожаловаться
+          </button>
+          <fieldset class="popup__checkbox-field">
+            <input class="popup__checkbox" type="checkbox" checked>
+            <label class="popup__checkbox-label">Сохранить в ленте</label>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+
   </div>
 </body>
 </html>

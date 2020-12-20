@@ -1,6 +1,12 @@
+/* это грязь, так нельзя, буду потом переделывать */
+* {
+  scroll-behavior: smooth;
+}
+
 .app {
-  background-color: #f74452;
-  width: 375px;
-  font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
   margin: 0 auto;
+  width: 100%;
+  font-family: 'PT Sans Caption';
+  font-weight: 400;
+  background-color: #f74452;
  }

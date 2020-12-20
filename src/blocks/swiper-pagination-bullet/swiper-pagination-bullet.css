@@ -1,0 +1,12 @@
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  margin: 0 6px;
+  background: #C4C4C4;
+  opacity: 1;
+}
+
+/* добавила  блок сюда, потому что он не совсем по БЭМ */
+.swiper-pagination-bullet-active {
+  background: #343434;
+}

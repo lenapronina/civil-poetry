@@ -1,0 +1,11 @@
+.popup__back-text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  margin: 0;
+  margin-left: 8px;
+  padding: 0;
+  width: fit-content;
+  display: block;
+}

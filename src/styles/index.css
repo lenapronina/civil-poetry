@@ -1,3 +1,4 @@
+@import url(../fonts/font.css);
 @import url(../blocks/page/page.css);
 @import url(../blocks/app/app.css);
 @import url(../blocks/problems-list/problems-list.css);
@@ -8,6 +9,9 @@
 @import url(../blocks/popular/popular.css);
 @import url(../blocks/claim-list/claim-list.css);
 @import url(../blocks/claim/claim.css);
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/button/button.css);
+@import url(../blocks/popup/popup.css);
 
 /* подключаем элементы */
 @import url(../blocks/problems-list/__heading/problems-list__heading.css);
@@ -22,4 +26,41 @@
 @import url(../blocks/claim/__info/claim__info.css);
 @import url(../blocks/claim/__cathegory/claim__cathegory.css);
 @import url(../blocks/claim/__verse/claim__verse.css);
+@import url(../blocks/footer/__copyright/footer__copyright.css);
+@import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__container/_result/popup__container_result.css);
+@import url(../blocks/popup/__form/popup__form.css);
+@import url(../blocks/popup/__backward-button/popup__backward-button.css);
+@import url(../blocks/popup/__back-text/popup__back-text.css);
+@import url(../blocks/popup/__wrapper/popup__wrapper.css);
+@import url(../blocks/popup/__heading/popup__heading.css);
+@import url(../blocks/popup/__fieldset/popup__fieldset.css);
+@import url(../blocks/popup/__input/popup__input.css);
+@import url(../blocks/popup/__poem/popup__poem.css);
+@import url(../blocks/popup/__poem-button/popup__poem-button.css);
+@import url(../blocks/popup/__poem-button/_next/popup__poem-button_next.css);
+@import url(../blocks/popup/__poem-button/_prev/popup__poem-button_prev.css);
+@import url(../blocks/popup/__submit-button/popup__submit-button.css);
+@import url(../blocks/popup/__checkbox-field/popup__checkbox-field.css);
+@import url(../blocks/popup/__checkbox/popup__checkbox.css);
+@import url(../blocks/popup/__checkbox-label/popup__checkbox-label.css);
+@import url(../blocks/popup/__poem-button-icon/popup__poem-button-icon.css);
+
+@import url(../blocks/problems-list/__wrapper/_popup/problem-list__wrapper_popup.css);
+@import url(../blocks/problem/_popup/problem_popup.css);
+@import url(../blocks/popup/_opened/popup_opened.css);
+
+
+@import url(../blocks/hello/hello.css);
+@import url(../blocks/hello/__container/hello__container.css);
+@import url(../blocks/hello/__image/hello__image.css);
+@import url(../blocks/hello/__heading/hello__heading.css);
+@import url(../blocks/hello/__description/hello__description.css);
+@import url(../blocks/hello/__arrow-bottom/hello__arrow-bottom.css);
+@import url(../blocks/swiper-container/swiper-container.css);
+@import url(../blocks/swiper-slide/swiper-slide.css);
+@import url(../blocks/swiper-pagination-bullet/swiper-pagination-bullet.css);
+
+@import url(../blocks/ticker/ticker.css);
+@import url(../blocks/ticker/__line/ticker__line.css);
 

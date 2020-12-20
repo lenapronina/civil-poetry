@@ -11,4 +11,6 @@
 
 .popular__button:focus {
   outline: none;
+  margin: 0 auto;
+  display: block;
 }
