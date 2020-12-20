@@ -36,15 +36,18 @@
 @import url(../blocks/popup/__heading/popup__heading.css);
 @import url(../blocks/popup/__fieldset/popup__fieldset.css);
 @import url(../blocks/popup/__input/popup__input.css);
+@import url(../blocks/popup/__input/_invalid/popup__input_invalid.css);
 @import url(../blocks/popup/__poem/popup__poem.css);
 @import url(../blocks/popup/__poem-button/popup__poem-button.css);
-@import url(../blocks/popup/__poem-button/_next/popup__poem-button_next.css);
-@import url(../blocks/popup/__poem-button/_prev/popup__poem-button_prev.css);
 @import url(../blocks/popup/__submit-button/popup__submit-button.css);
+@import url(../blocks/popup/__submit-button/_inactive/popup__submit-button_inactive.css);
 @import url(../blocks/popup/__checkbox-field/popup__checkbox-field.css);
 @import url(../blocks/popup/__checkbox/popup__checkbox.css);
 @import url(../blocks/popup/__checkbox-label/popup__checkbox-label.css);
 @import url(../blocks/popup/__poem-button-icon/popup__poem-button-icon.css);
+@import url(../blocks/popup/__switch/popup__switch.css);
+@import url(../blocks/popup/__text/popup__text.css);
+@import url(../blocks/popup/__text/_switch/popup__text_switch.css);
 
 @import url(../blocks/problems-list/__wrapper/_popup/problem-list__wrapper_popup.css);
 @import url(../blocks/problem/_popup/problem_popup.css);
