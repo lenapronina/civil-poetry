@@ -80,5 +80,16 @@ goBackToSubcategoriesButton.addEventListener('click', () => {
 const formValidator = new FormValidator();
 formValidator.enableValidation();
 
+//переключатель стихотворений
+const poemSwitchToPrevButton = document.querySelector('.popup__poem-button_prev');
+const poemSwitchToNextButton = document.querySelector('.popup__poem-button_next');
 
-// form submit
+poemSwitchToNextButton.addEventListener('click', (evt) => {
+  evt.preventDefault();
+  alert('Стихотворение переключится на следующее');
+});
+
+poemSwitchToPrevButton.addEventListener('click', (evt) => {
+  evt.preventDefault();
+  alert('Стихотворениме переключится на предыдущее');
+});
