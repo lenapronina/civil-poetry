@@ -24,6 +24,7 @@ const resultPopup = document.querySelector('.popup_result');
 const subcategoryPopup = document.querySelector('.popup_subcategories');
 const goBackToCategoriesButton = document.querySelector('.popup__wrapper_subcategories');
 const goBackToSubcategoriesButton = document.querySelector('.popup__wrapper_result');
+const submitButton = document.querySelector('.popup__submit-button');
 
 categoryIcons.forEach((icon) => {
   icon.addEventListener('click', () => {

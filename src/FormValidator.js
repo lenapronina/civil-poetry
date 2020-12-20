@@ -17,6 +17,7 @@ export default class FormValidator {
       this._formElement.addEventListener('submit', (evt) => {
         evt.preventDefault();
         this.resetValidation();
+        alert('Жалоба отправлена кому надо, возвращайтесь на главное окно. Позже добавим для этого кнопочку. Сохранена ли жалоба в ленте, выясним позже.');
       });
     };
   
