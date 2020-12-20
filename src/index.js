@@ -5,7 +5,8 @@ import claimList from './datasets/claims.js';
 import FormValidator from './FormValidator.js';
 
 const claimContainer = document.querySelector('.claim-list');
-console.log(claimContainer)
+const popularText = document.querySelector('.popular__more');
+
 
 function renderClaim (claimArray, container){
   claimArray.forEach( item => {
@@ -13,11 +14,26 @@ function renderClaim (claimArray, container){
     const claimImage = claimElement.querySelector('.claim__id');
     const claimHeader = claimElement.querySelector('.claim__cathegory');
     const claimPreview = claimElement.querySelector('.claim__verse');
+    const claimBlock = claimElement.querySelector('.claim');
+    const author = claimElement.querySelector('.claim__author');
     
     claimImage.src = item.image;
     claimHeader.textContent = item.cathegory;
     claimPreview.textContent = item.preview;
+
+    let claimClicked = false;
     
+    claimBlock.addEventListener('click', ()=>{
+      if(claimClicked === false){
+        claimPreview.textContent = item.text;
+        claimClicked = true;
+        author.textContent =item.author
+      } else {
+        claimPreview.textContent = item.preview;
+        claimClicked = false;
+        author.textContent =''
+      } 
+    })
     container.append(claimElement);
   })
 }
@@ -26,7 +42,9 @@ renderClaim(claimList.slice(0,3), claimContainer)
 
 const moreClaimsButton = document.querySelector('.popular__button');
 moreClaimsButton.addEventListener('click', ()=>{
-  renderClaim(claimList.slice(3,6), claimContainer)
+  renderClaim(claimList.slice(3,6), claimContainer);
+  popularText.textContent = "Чуть позже добавим еще новости!";
+  moreClaimsButton.style.display = 'none';
 })
 
 // пока так сделала прокрутку по клику, потом может перепишем на что-то получше

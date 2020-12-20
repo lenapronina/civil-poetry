@@ -2,11 +2,14 @@
   background-image: url(../../../images/next-button.svg);
   width: 14px;
   height: 8px;
-  margin: 0 auto;
+  margin: 10px auto;
+  padding: 10px;
   background-color: transparent;
   border-style: none;
   padding: 0;
   display: block;
+  animation: bounce2 3s infinite ease-in-out;
+  cursor: pointer;
 }
 
 .popular__button:focus {
@@ -14,3 +17,10 @@
   margin: 0 auto;
   display: block;
 }
+
+
+@keyframes bounce2 {
+  50% {
+      transform: translateY(-5px);
+    }
+  }
