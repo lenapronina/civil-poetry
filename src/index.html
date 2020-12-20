@@ -111,7 +111,7 @@
 
     <section class="popup popup_subcategories">
       <div class="popup__container">
-        <div class="popup__wrapper">
+        <div class="popup__wrapper popup__wrapper_subcategories">
           <button class="popup__backward-button button"></button>
           <p class="popup__back-text">Назад</p>
         </div>
@@ -135,7 +135,11 @@
 
     <section class="popup popup_result">
       <div class="popup__container popup__container_result">
+
+        <div class="popup__wrapper popup__wrapper_result">
+
         <div class="popup__wrapper">
+
           <button class="popup__backward-button button"></button>
           <p class="popup__back-text">Назад</p>
         </div>
@@ -145,7 +149,9 @@
               <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="Имя" value="">
             </label>
             <label class="popup__field">
-              <input class="popup__input popup__input_type_town" type="text" name="place" placeholder="Местоположение" value="">
+
+              <input class="popup__input popup__input_type_town" type="text" name="place" placeholder="Местоположение" value="" required>
+
             </label>
           </fieldset>
         
@@ -164,7 +170,9 @@
             </button>
           </div>
 
-          <button class="popup__submit-button" type="submit">
+
+          <button class="popup__submit-button popup__submit-button_inactive" type="submit">
+
             Пожаловаться
           </button>
           <fieldset class="popup__checkbox-field">
@@ -176,5 +184,6 @@
     </section>
 
   </div>
+  <script src="categories.js"></script>
 </body>
 </html>

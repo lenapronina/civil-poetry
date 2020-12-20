@@ -19,3 +19,8 @@
     transition: opacity 0.3s;
     }  
 }
+
+.popup__submit-button_inactive {
+    background-color: #D0D0D0;
+    color: #717171;
+}
