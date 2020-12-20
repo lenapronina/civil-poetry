@@ -51,3 +51,17 @@ categoryIcon.forEach((icon) => {
     subcategoryPopup.classList.add('popup_opened');
   });
 });
+
+const newsCards = Array.from(document.querySelectorAll('.card'));
+const newsPopup = document.querySelector('.popup_news');
+const newsPopupButton = newsPopup.querySelector('.button');
+
+newsCards.forEach((card) => {
+  card.addEventListener('click', () => {
+    newsPopup.classList.add('popup_opened');
+  })
+})
+
+newsPopupButton.addEventListener('click', function() {
+  newsPopup.classList.remove('popup_opened');
+})
