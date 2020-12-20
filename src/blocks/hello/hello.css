@@ -1,6 +1,6 @@
 .hello {
   padding: 64px 0;
-  min-height: 478px;
+  min-height:100vh;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
