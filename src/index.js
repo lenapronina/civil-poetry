@@ -55,7 +55,12 @@ const problemsList = document.querySelector('.problems-list');
 const tickerContainer = document.querySelector('.ticker');
 const tickerLine = tickerContainer.querySelector('.ticker__line');
 
-animateTicker('.ticker', '.ticker__line', 10000);
+const tickerArray = document.querySelectorAll('.ticker')
+
+tickerArray.forEach( item => {
+  animateTicker(item, '.ticker__line', 10000);
+});
+
 
 arrowBottom.addEventListener('click', () => {
   problemsList.scrollIntoView();
