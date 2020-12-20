@@ -1,5 +1,5 @@
-import { mySwiper, animateTicker } from './utils/utils.js'
 import './styles/index.css';
+import { mySwiper, animateTicker } from './utils/utils.js'
 
 // пока так сделала прокрутку по клику, потом может перепишем на что-то получше
 const arrowBottom = document.querySelector('.hello__arrow-bottom');
@@ -19,7 +19,32 @@ arrowBottom.addEventListener('click', () => {
 
 const categoryIcon = document.querySelectorAll('.problem');
 
-const subcategoryPopup = document.querySelector('.popup_categories');
+const categoryIcons = Array.from(document.querySelectorAll('.problem'));
+const subcategoryIcons = Array.from(document.querySelectorAll('.problem_popup'));
+const resultPopup = document.querySelector('.popup_result');
+const subcategoryPopup = document.querySelector('.popup_subcategories');
+const goBackToCategoriesButton = document.querySelector('.popup__wrapper_subcategories');
+const goBackToSubcategoriesButton = document.querySelector('.popup__wrapper_result');
+
+categoryIcons.forEach((icon) => {
+  icon.addEventListener('click', () => {
+    subcategoryPopup.classList.add('popup_opened');
+  });
+});
+
+subcategoryIcons.forEach((icon) => {
+    icon.addEventListener('click', () => {
+        resultPopup.classList.add('popup_opened');
+    });
+});
+
+goBackToCategoriesButton.addEventListener('click', () => {
+    subcategoryPopup.classList.remove('popup_opened');
+});
+
+goBackToSubcategoriesButton.addEventListener('click', () => {
+    resultPopup.classList.remove('popup_opened');
+});
 
 categoryIcon.forEach((icon) => {
   icon.addEventListener('click', () => {
