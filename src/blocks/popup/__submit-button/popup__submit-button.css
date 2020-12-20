@@ -8,9 +8,9 @@
     font-style: normal;
     font-size: 16px;
     min-height: 64px;
-    margin-bottom: 16px;
+    margin: 48px auto 0;
+    width: 100%;
 }
-
 
 @media(min-width: 1024px) {
     .popup__submit-button:hover {
@@ -18,9 +18,4 @@
     opacity: 0.6;
     transition: opacity 0.3s;
     }  
-}
-
-.popup__submit-button_inactive {
-    background-color: #D0D0D0;
-    color: #717171;
 }
