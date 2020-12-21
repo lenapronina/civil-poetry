@@ -66,31 +66,43 @@ arrowBottom.addEventListener('click', () => {
   problemsList.scrollIntoView();
 });
 
-//popop eventListener
+//popop eventListeners
 
 const categoryIcons = Array.from(document.querySelectorAll('.problem'));
-const subcategoryIcons = Array.from(document.querySelectorAll('.problem_popup'));
 const resultPopup = document.querySelector('.popup_result');
 const subcategoryPopup = document.querySelector('.popup_subcategories');
 const goBackToCategoriesButton = document.querySelector('.popup__wrapper_subcategories');
 const goBackToSubcategoriesButton = document.querySelector('.popup__wrapper_result');
 const submitButton = document.querySelector('.popup__submit-button');
+const subcategoriesContainer = document.querySelector('.problems-list__wrapper_popup');
+
 
 categoryIcons.forEach((icon) => {
-  icon.addEventListener('click', () => {
+  icon.addEventListener('click', (evt) => {
+    const categoryKey = evt.currentTarget.id;
+    const categoryInfo = categoriesList[categoryKey];
+    
+    categoryInfo.subcategories.forEach(subcategory => {
+      const card = new InitialSubcategories(subcategory, resultPopup);
+      subcategoriesContainer.append(card.createElement());
+    });
+
     subcategoryPopup.classList.add('popup_opened');
   });
 });
 
-subcategoryIcons.forEach((icon) => {
-    icon.addEventListener('click', () => {
-        resultPopup.classList.add('popup_opened');
-        formValidator.resetValidation();
-    });
-});
+// subcategoryIcons.forEach((icon) => {
+//     icon.addEventListener('click', () => {
+//         resultPopup.classList.add('popup_opened');
+//         formValidator.resetValidation();
+//     });
+// });
 
 goBackToCategoriesButton.addEventListener('click', () => {
-    subcategoryPopup.classList.remove('popup_opened');
+  subcategoryPopup.querySelectorAll('.problem_popup').forEach(elem => {
+    elem.remove();
+  });
+  subcategoryPopup.classList.remove('popup_opened');
     
 });
 
@@ -130,3 +142,79 @@ poemSwitchToPrevButton.addEventListener('click', (evt) => {
   evt.preventDefault();
   alert('Стихотворениме переключится на предыдущее');
 });
+
+//категории
+
+const categoriesList = {
+  roads: {
+      name: 'Дороги',
+      subcategories: ['Снег', 'Ямы', 'Пробки', 'Общественный транспорт']
+  },
+
+  homeService: {
+      name: 'ЖКХ',
+      subcategories: ['Отопление', 'Свет', 'Вода', 'Сосульки', 'Не убирают', 'Не чинят']
+  },
+
+  neighbors: {
+      name: 'Дороги',
+      subcategories: ['Снег', 'Ямы', 'Пробки', 'Общественный транспорт']
+  },
+
+  idiots: {
+      name: 'ЖКХ',
+      subcategories: ['Отопление', 'Свет', 'Вода', 'Сосульки', 'Не убирают', 'Не чинят']
+  },
+
+  disasters: {
+      name: 'Дороги',
+      subcategories: ['Снег', 'Ямы', 'Пробки', 'Общественный транспорт']
+  },
+
+  ecology: {
+      name: 'ЖКХ',
+      subcategories: ['Отопление', 'Свет', 'Вода', 'Сосульки', 'Не убирают', 'Не чинят']
+  },
+
+  prices: {
+    name: 'ЖКХ',
+    subcategories: ['Отопление', 'Свет', 'Вода', 'Сосульки', 'Не убирают', 'Не чинят']
+  },
+
+  governance: {
+    name: 'ЖКХ',
+    subcategories: ['Отопление', 'Свет', 'Вода', 'Сосульки', 'Не убирают', 'Не чинят']
+  },
+};
+
+
+
+class InitialSubcategories {
+  constructor(cardName, resultPopup) {
+    this._cardName = cardName;
+    this._resultPopup = resultPopup;
+  }
+
+  _getSubcategoryTemplate() {
+    return document
+    .querySelector('.popup-subcategory-template')
+    .content
+    .children[0]
+    .cloneNode(true);
+  }
+
+  _setEventListeners() {
+    this._element.addEventListener('click', () => {
+      this._resultPopup.classList.add('popup_opened');
+    });
+  }
+
+  createElement() {
+    this._element = this._getSubcategoryTemplate();
+    console.log(this._element);
+    this._element.querySelector('.problem__name').textContent = this._cardName;
+    this._setEventListeners();
+
+    return this._element;
+  }
+}
