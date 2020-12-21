@@ -1,7 +1,7 @@
 .problems-list__wrapper {
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4,1fr);
+  grid-template-columns: repeat(2,1fr);
   gap: 16px;
   position: relative;
   padding: 0;

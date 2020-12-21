@@ -1,7 +1,7 @@
 .problem__name {
   font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
-  margin: 0 0 8px 0;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 23px;
+  margin: 10px 0 8px;
 }
