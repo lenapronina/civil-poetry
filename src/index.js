@@ -1,8 +1,12 @@
 import './styles/index.css';
 
-import { animateTicker } from './utils/utils.js';
+import { animateTicker, categoriesList } from './utils/utils.js';
 import claimList from './datasets/claims.js';
-import FormValidator from './FormValidator.js';
+import FormValidator from './components/FormValidator.js';
+import InitialSubcategories from './components/InitialSubcategories.js';
+
+
+
 
 const claimContainer = document.querySelector('.claim-list');
 const popularText = document.querySelector('.popular__more');
@@ -71,9 +75,9 @@ arrowBottom.addEventListener('click', () => {
 const categoryIcons = Array.from(document.querySelectorAll('.problem'));
 const resultPopup = document.querySelector('.popup_result');
 const subcategoryPopup = document.querySelector('.popup_subcategories');
+const subcategoryPopupHeading = subcategoryPopup.querySelector('.popup__heading');
 const goBackToCategoriesButton = document.querySelector('.popup__wrapper_subcategories');
 const goBackToSubcategoriesButton = document.querySelector('.popup__wrapper_result');
-const submitButton = document.querySelector('.popup__submit-button');
 const subcategoriesContainer = document.querySelector('.problems-list__wrapper_popup');
 
 
@@ -86,6 +90,9 @@ categoryIcons.forEach((icon) => {
       const card = new InitialSubcategories(subcategory, resultPopup);
       subcategoriesContainer.append(card.createElement());
     });
+    console.log(subcategoryPopupHeading.textContent);
+    console.log(categoryInfo.name);
+    subcategoryPopupHeading.textContent = categoryInfo.name;
 
     subcategoryPopup.classList.add('popup_opened');
   });
@@ -145,76 +152,4 @@ poemSwitchToPrevButton.addEventListener('click', (evt) => {
 
 //категории
 
-const categoriesList = {
-  roads: {
-      name: 'Дороги',
-      subcategories: ['Снег', 'Ямы', 'Пробки', 'Общественный транспорт']
-  },
 
-  homeService: {
-      name: 'ЖКХ',
-      subcategories: ['Отопление', 'Свет', 'Вода', 'Сосульки', 'Не убирают', 'Не чинят']
-  },
-
-  neighbors: {
-      name: 'Дороги',
-      subcategories: ['Снег', 'Ямы', 'Пробки', 'Общественный транспорт']
-  },
-
-  idiots: {
-      name: 'ЖКХ',
-      subcategories: ['Отопление', 'Свет', 'Вода', 'Сосульки', 'Не убирают', 'Не чинят']
-  },
-
-  disasters: {
-      name: 'Дороги',
-      subcategories: ['Снег', 'Ямы', 'Пробки', 'Общественный транспорт']
-  },
-
-  ecology: {
-      name: 'ЖКХ',
-      subcategories: ['Отопление', 'Свет', 'Вода', 'Сосульки', 'Не убирают', 'Не чинят']
-  },
-
-  prices: {
-    name: 'ЖКХ',
-    subcategories: ['Отопление', 'Свет', 'Вода', 'Сосульки', 'Не убирают', 'Не чинят']
-  },
-
-  governance: {
-    name: 'ЖКХ',
-    subcategories: ['Отопление', 'Свет', 'Вода', 'Сосульки', 'Не убирают', 'Не чинят']
-  },
-};
-
-
-
-class InitialSubcategories {
-  constructor(cardName, resultPopup) {
-    this._cardName = cardName;
-    this._resultPopup = resultPopup;
-  }
-
-  _getSubcategoryTemplate() {
-    return document
-    .querySelector('.popup-subcategory-template')
-    .content
-    .children[0]
-    .cloneNode(true);
-  }
-
-  _setEventListeners() {
-    this._element.addEventListener('click', () => {
-      this._resultPopup.classList.add('popup_opened');
-    });
-  }
-
-  createElement() {
-    this._element = this._getSubcategoryTemplate();
-    console.log(this._element);
-    this._element.querySelector('.problem__name').textContent = this._cardName;
-    this._setEventListeners();
-
-    return this._element;
-  }
-}
