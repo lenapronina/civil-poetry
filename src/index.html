@@ -21,38 +21,7 @@
     <section class="problems-list">
       <h2 class="problems-list__heading">Выбери тему</h2>
       <ul class="problems-list__wrapper">
-        <li class="problem" id="neighbors">
-          <img src="<%=require('./images/problem-sosedi.svg')%>" alt="Иконка Соседи">
-          <h3 class="problem__name">Соседи</h3>
-        </li>
-        <li class="problem" id="homeService">
-          <img src="<%=require('./images/problem-gkh.svg')%>" alt="Иконка ЖКХ">
-          <h3 class="problem__name">ЖКХ</h3>
-        </li>
-        <li class="problem" id="idiots">
-          <img src="<%=require('./images/problem-duraki.svg')%>" alt="Иконка дураки">
-          <h3 class="problem__name">Дураки</h3>
-        </li>
-        <li class="problem" id="roads">
-          <img src="<%=require('./images/problem-dorogi.svg')%>" alt="Иконка дороги">
-          <h3 class="problem__name">Дороги</h3>
-        </li>
-        <li class="problem" id="disasters">
-          <img src="<%=require('./images/problem-bedstviya.svg')%>" alt="Иконка бедствия">
-          <h3 class="problem__name">Бедствия</h3>
-        </li>
-        <li class="problem" id="ecology">
-          <img src="<%=require('./images/problem-ekologia.svg')%>" alt="Иконка экология">
-          <h3 class="problem__name">Экология</h3>
-        </li>
-        <li class="problem" id="prices">
-          <img src="<%=require('./images/problem-nalogi.svg')%>" alt="Иконка цены и налоги">
-          <h3 class="problem__name">Цены и налоги</h3>
-        </li>
-        <li class="problem" id="governance">
-          <img src="<%=require('./images/problem-vlast.svg')%>" alt="Иконка власть">
-          <h3 class="problem__name">Власть</h3>
-        </li>
+
       </ul>
     </section>
 
@@ -101,8 +70,6 @@
       </div>
     </section>
 
-
-
     <section class="popup popup_result">
       <div class="popup__container popup__container_result">
         <div class="popup__wrapper popup__wrapper_result">
@@ -121,32 +88,13 @@
 
           <div class="popup__poem">
             <p class="popup__text">
-              Умом Россию не понять,<br />
-              Аршином общим не измерить:<br />
-              У ней особенная стать —<br />
-              В Россию можно только верить.<br />
-              Умом Россию не понять,<br />
-              Аршином общим не измерить:<br />
-              У ней особенная стать —<br />
-              В Россию можно только верить.<br />
-              Умом Россию не понять,<br />
-              Аршином общим не измерить:<br />
-              У ней особенная стать —<br />
-              В Россию можно только верить.<br />
-              Умом Россию не понять,<br />
-              Аршином общим не измерить:<br />
-              У ней особенная стать —<br />
-              В Россию можно только верить.<br />
-              Умом Россию не понять,<br />
-              Аршином общим не измерить:<br />
-              У ней особенная стать —<br />
-              В Россию можно только верить.
+              
             </p>
           </div>
 
           <div class="popup__switch">
             <button class="popup__poem-button popup__poem-button_prev">
-              <img class="popup__poem-button-icon" src="<%=require('./images/down-arrow2.png')%>">
+              <img class="popup__poem-button-icon" src="<%=require('./images/left-arrow.png')%>">
             </button>
             <p class="popup__text popup__text_switch">Смотреть больше стихов</p>
             <button class="popup__poem-button popup__poem-button_next">
@@ -175,6 +123,14 @@
     </section>
 
   </div>
+
+  <template class="problem-template">
+    <li class="problem" id="">
+      <img class="problem__image" src="//:0" alt="null">
+      <h3 class="problem__name"></h3>
+    </li>
+  </template>
+  
   <template class="claim-template">
     <li class="claim">
       <img class="claim__id" alt="картинка" src="">

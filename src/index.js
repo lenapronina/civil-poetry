@@ -1,53 +1,73 @@
 import './styles/index.css';
 
-import { animateTicker, categoriesList } from './utils/utils.js';
+import { animateTicker } from './utils/utils.js';
 import claimList from './datasets/claims.js';
 import FormValidator from './components/FormValidator.js';
 import InitialSubcategories from './components/InitialSubcategories.js';
+import InitialCategories from './components/InicialCategories.js'
 import { categoriesList } from './utils/constants.js';
 
-
+import arrowNextInactive from './images/right-arrow-inactive.png';
+import arrowPrevInactive from './images/left-arrow-inactive.png';
+import arrowNextActive from './images/right-arrow.png';
+import arrowPrevActive from './images/left-arrow.png';
 
 
 const claimContainer = document.querySelector('.claim-list');
 const popularText = document.querySelector('.popular__more');
 
+const resultPopup = document.querySelector('.popup_result');
 
-function renderClaim (claimArray, container){
-  claimArray.forEach( item => {
+const problemList = document.querySelector('.problems-list__wrapper');
+const subcategoriesList = document.querySelector('.problems-list__wrapper_popup');
+const arrowNext = resultPopup.querySelector('.popup__poem-button_next');
+const arrowPrev = resultPopup.querySelector('.popup__poem-button_prev');
+
+const subcategoryPopup = document.querySelector('.popup_subcategories');
+const subcategoryPopupHeading = subcategoryPopup.querySelector('.popup__heading');
+const goBackToCategoriesButton = document.querySelector('.popup__wrapper_subcategories');
+const goBackToSubcategoriesButton = document.querySelector('.popup__wrapper_result');
+
+const newsCards = Array.from(document.querySelectorAll('.card'));
+const newsPopup = document.querySelector('.popup_news');
+const newsPopupButton = newsPopup.querySelector('.button');
+
+
+function renderClaim(claimArray, container) {
+  claimArray.forEach(item => {
     const claimElement = document.querySelector('.claim-template').content.cloneNode(true);
     const claimImage = claimElement.querySelector('.claim__id');
     const claimHeader = claimElement.querySelector('.claim__cathegory');
     const claimPreview = claimElement.querySelector('.claim__verse');
     const claimBlock = claimElement.querySelector('.claim');
     const author = claimElement.querySelector('.claim__author');
-    
+
     claimImage.src = item.image;
     claimHeader.textContent = item.cathegory;
     claimPreview.textContent = item.preview;
 
     let claimClicked = false;
-    
-    claimBlock.addEventListener('click', ()=>{
-      if(claimClicked === false){
+
+    claimBlock.addEventListener('click', () => {
+      if (claimClicked === false) {
         claimPreview.textContent = item.text;
         claimClicked = true;
-        author.textContent =item.author
+        author.textContent = item.author
       } else {
         claimPreview.textContent = item.preview;
         claimClicked = false;
-        author.textContent =''
-      } 
+        author.textContent = ''
+      }
     })
     container.append(claimElement);
   })
 }
 
-renderClaim(claimList.slice(0,3), claimContainer)
+renderClaim(claimList.slice(0, 3), claimContainer)
 
 const moreClaimsButton = document.querySelector('.popular__button');
-moreClaimsButton.addEventListener('click', ()=>{
-  renderClaim(claimList.slice(3,6), claimContainer);
+moreClaimsButton.addEventListener('click', () => {
+  renderClaim(claimList.slice(3, 6), claimContainer);
   popularText.textContent = "Чуть позже добавим еще новости!";
   moreClaimsButton.style.display = 'none';
 })
@@ -62,7 +82,7 @@ const tickerLine = tickerContainer.querySelector('.ticker__line');
 
 const tickerArray = document.querySelectorAll('.ticker')
 
-tickerArray.forEach( item => {
+tickerArray.forEach(item => {
   animateTicker(item, '.ticker__line', 10000);
 });
 
@@ -73,55 +93,18 @@ arrowBottom.addEventListener('click', () => {
 
 //popop eventListeners
 
-const categoryIcons = Array.from(document.querySelectorAll('.problem'));
-const resultPopup = document.querySelector('.popup_result');
-const subcategoryPopup = document.querySelector('.popup_subcategories');
-const subcategoryPopupHeading = subcategoryPopup.querySelector('.popup__heading');
-const goBackToCategoriesButton = document.querySelector('.popup__wrapper_subcategories');
-const goBackToSubcategoriesButton = document.querySelector('.popup__wrapper_result');
-const subcategoriesContainer = document.querySelector('.problems-list__wrapper_popup');
-
-
-categoryIcons.forEach((icon) => {
-  icon.addEventListener('click', (evt) => {
-    const categoryKey = evt.currentTarget.id;
-    const categoryInfo = categoriesList[categoryKey];
-    
-    categoryInfo.subcategories.forEach(subcategory => {
-      const card = new InitialSubcategories(subcategory, resultPopup);
-      subcategoriesContainer.append(card.createElement());
-    });
-    console.log(subcategoryPopupHeading.textContent);
-    console.log(categoryInfo.name);
-    subcategoryPopupHeading.textContent = categoryInfo.name;
-
-    subcategoryPopup.classList.add('popup_opened');
-  });
-});
-
-// subcategoryIcons.forEach((icon) => {
-//     icon.addEventListener('click', () => {
-//         resultPopup.classList.add('popup_opened');
-//         formValidator.resetValidation();
-//     });
-// });
-
 goBackToCategoriesButton.addEventListener('click', () => {
   subcategoryPopup.querySelectorAll('.problem_popup').forEach(elem => {
     elem.remove();
   });
   subcategoryPopup.classList.remove('popup_opened');
-    
+
 });
 
 goBackToSubcategoriesButton.addEventListener('click', () => {
-    resultPopup.classList.remove('popup_opened');
-    formValidator.resetValidation();
+  resultPopup.classList.remove('popup_opened');
+  formValidator.resetValidation();
 });
-
-const newsCards = Array.from(document.querySelectorAll('.card'));
-const newsPopup = document.querySelector('.popup_news');
-const newsPopupButton = newsPopup.querySelector('.button');
 
 newsCards.forEach((card) => {
   card.addEventListener('click', () => {
@@ -129,28 +112,101 @@ newsCards.forEach((card) => {
   })
 })
 
-newsPopupButton.addEventListener('click', function() {
+newsPopupButton.addEventListener('click', function () {
   newsPopup.classList.remove('popup_opened');
 })
 
 //enable form validation
+
 const formValidator = new FormValidator();
 formValidator.enableValidation();
-
-//переключатель стихотворений
-const poemSwitchToPrevButton = document.querySelector('.popup__poem-button_prev');
-const poemSwitchToNextButton = document.querySelector('.popup__poem-button_next');
-
-poemSwitchToNextButton.addEventListener('click', (evt) => {
-  evt.preventDefault();
-  alert('Стихотворение переключится на следующее');
-});
-
-poemSwitchToPrevButton.addEventListener('click', (evt) => {
-  evt.preventDefault();
-  alert('Стихотворениме переключится на предыдущее');
-});
 
 //категории
 
 
+const createSubcategoryPopup = (subcategories, categoryName) => {
+  subcategories.forEach(subcategory => {
+    const subcategoryCard = new InitialSubcategories(subcategory.name, subcategory.poems, openResultPopup);
+    subcategoriesList.append(subcategoryCard.createElement());
+  });
+  subcategoryPopupHeading.textContent = categoryName;
+  subcategoryPopup.classList.add('popup_opened');
+};
+
+
+
+//настраиваем и открываем попап со стихотворениями
+//принимаем в функцию массив стихотворений по данной субкатегории и выстраиваем попап с результатом
+
+const openResultPopup = (poems) => {
+
+  //объявляем переменную, которая будет считать клики по стрелочкам налево (+1) и направо (-1)
+  //значения click соответствуют индексу стихотворения в массиве
+
+  let click = 0;
+
+  //объявляем переменные, в которые записана реакция на клик по стрелочкам. 
+
+  let arrowNextListener = (evt) => {
+    evt.preventDefault();
+    click++;
+    toggleRightArrowState(click, poems);
+    toggleLeftArrowState(click, poems);
+    resultPopup.querySelector('.popup__text').innerHTML = poems[click];
+  };
+
+  let arrowPrevListener = (evt) => {
+    evt.preventDefault();
+    click--;
+    resultPopup.querySelector('.popup__text').innerHTML = poems[click];
+    toggleRightArrowState(click, poems);
+    toggleLeftArrowState(click, poems);
+  };
+
+  //объявляем функцию, которая отвечает за сосрояние стрелочки направо
+
+  const toggleRightArrowState = (click, poems) => {
+    if (poems[click + 1] == undefined) {
+      arrowNext.querySelector('.popup__poem-button-icon').src = arrowNextInactive;
+      arrowNext.removeEventListener('click', arrowNextListener);
+    } else {
+      arrowNext.querySelector('.popup__poem-button-icon').src = arrowNextActive;
+      arrowNext.addEventListener('click', arrowNextListener);
+    }
+  };
+
+  //объявляем функцию, которая отвечает за сосрояние стрелочки налево
+
+  const toggleLeftArrowState = (click, poems) => {
+    if (poems[click - 1] == undefined) {
+      arrowPrev.querySelector('.popup__poem-button-icon').src = arrowPrevInactive;
+      arrowPrev.removeEventListener('click', arrowPrevListener);
+    } else {
+      arrowPrev.querySelector('.popup__poem-button-icon').src = arrowPrevActive;
+      arrowPrev.addEventListener('click', arrowPrevListener);
+    }
+  };
+
+  //вставляем в разметку первое стихотворение
+
+  resultPopup.querySelector('.popup__text').innerHTML = poems[click];
+
+  //объявляем eventListeners
+
+  arrowNext.addEventListener('click', arrowNextListener);
+  arrowPrev.addEventListener('click', arrowPrevListener);
+
+  //переключаем состояние стрелочек на актуальное
+
+  toggleRightArrowState(click, poems);
+  toggleLeftArrowState(click, poems);
+
+  //после всех этих настроек открываем попап
+
+  resultPopup.classList.add('popup_opened');
+};
+
+categoriesList.forEach(category => {
+  const categoryCard = new InitialCategories(category.name, category.src, category.subcategories, '.problem-template', createSubcategoryPopup);
+  problemList.append(categoryCard.createCategory());
+});
