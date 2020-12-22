@@ -1,43 +1,153 @@
-const categoriesList = {
-    roads: {
-        name: 'Дороги',
-        subcategories: ['Снег', 'Ямы', 'Пробки', 'Общественный транспорт']
-    },
-  
-    homeService: {
-        name: 'ЖКХ',
-        subcategories: ['Отопление', 'Свет', 'Вода', 'Сосульки', 'Не убирают', 'Не чинят']
-    },
-  
-    neighbors: {
+import sosediImg from '../images/problem-sosedi.svg';
+import GKHImg from '../images/problem-gkh.svg';
+import durakiImg from '../images/problem-duraki.svg';
+import dorogiImg from '../images/problem-dorogi.svg';
+import bedstviyaImg from '../images/problem-bedstviya.svg';
+import ekologiaImg from '../images/problem-ekologia.svg';
+import nalogiImg from '../images/problem-nalogi.svg';
+import vlastImg from '../images/problem-vlast.svg';
+
+  const categoriesList = [
+    {
         name: 'Соседи',
-        subcategories: ['Шумят']
+        src: sosediImg,
+        subcategories: [
+            {
+                name: 'Шумят',
+                poems: ''
+            }
+        ]
     },
-  
-    idiots: {
+    {
+        name: 'ЖКХ',
+        src: GKHImg,
+        subcategories: [
+            {
+                name: 'Отопление',
+                poems: ''
+            },
+            {
+                name: 'Свет',
+                poems: ''
+            },
+            {
+                name: 'Вода',
+                poems: ''
+            },
+            {
+                name: 'Сосульки',
+                poems: ''
+            },
+            {
+                name: 'Не убирают',
+                poems: ''
+            },
+            {
+                name: 'Не чинят',
+                poems: ''
+            },
+        ]
+    },
+    {
         name: 'Дураки',
-        subcategories: ['Ну дураки и дураки']
+        src: durakiImg,
+        subcategories: [
+            {
+                name: 'Ну дураки и дураки',
+                poems: ''
+            }
+        ]
     },
-  
-    disasters: {
+    {
+        name: 'Дороги',
+        src: dorogiImg,
+        subcategories: [
+            {
+                name: 'Снег',
+                poems: ''
+            },
+            {
+                name: 'Ямы',
+                poems: ''
+            },
+            {
+                name: 'Пробки',
+                poems: ''
+            },
+            {
+                name: 'Общественный транспорт',
+                poems: ''
+            }
+        ]
+    },
+    {
         name: 'Бедствия',
-        subcategories: ['Мне плохо', 'Другому плохо', 'Пожар', 'Потоп']
+        src: bedstviyaImg,
+        subcategories: [
+            {
+                name: 'Мне плохо',
+                poems: ''
+            },
+            {
+                name: 'Другому плохо',
+                poems: ''
+            },
+            {
+                name: 'Пожар',
+                poems: ''
+            },
+            {
+                name: 'Потоп',
+                poems: ''
+            }
+        ]
     },
-  
-    ecology: {
+    {
         name: 'Экология',
-        subcategories: ['Пропали птицы']
+        src: ekologiaImg,
+        subcategories: [
+            {
+                name: 'Пропали птицы',
+                poems: ''
+            },
+            {
+                name: 'Вырубают леса',
+                poems: ''
+            },
+        ]
     },
-  
-    prices: {
-      name: 'Цены и налоги',
-      subcategories: ['Отопление', 'Свет', 'Вода', 'Сосульки', 'Не убирают', 'Не чинят']
+    {
+        name: 'Цены и налоги',
+        src: nalogiImg,
+        subcategories: [
+            {
+                name: 'Пропали птицы',
+                poems: ''
+            },
+            {
+                name: 'Вырубают леса',
+                poems: ''
+            },
+        ]
     },
-  
-    governance: {
-      name: 'Гос. структуры',
-      subcategories: ['Бюрократия', 'Свободы нет', 'Врачи', 'Школы']
+    {
+        name: 'Гос. структуры',
+        src: vlastImg,
+        subcategories: [
+            {
+                name: 'Медицина',
+                poems: ''
+            },
+            {
+                name: 'Школы',
+                poems: ''
+            },
+            {
+                name: 'Бюрократия',
+                poems: ''
+            },
+        ]
     },
-  };
+  ]
 
   export { categoriesList };

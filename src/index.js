@@ -1,10 +1,12 @@
 import './styles/index.css';
 
-import { animateTicker, categoriesList } from './utils/utils.js';
+import { animateTicker } from './utils/utils.js';
 import claimList from './datasets/claims.js';
 import FormValidator from './components/FormValidator.js';
 import InitialSubcategories from './components/InitialSubcategories.js';
+import InitialCategories from './components/InicialCategories.js'
 import { categoriesList } from './utils/constants.js';
+
 
 
 
@@ -82,22 +84,19 @@ const goBackToSubcategoriesButton = document.querySelector('.popup__wrapper_resu
 const subcategoriesContainer = document.querySelector('.problems-list__wrapper_popup');
 
 
-categoryIcons.forEach((icon) => {
-  icon.addEventListener('click', (evt) => {
-    const categoryKey = evt.currentTarget.id;
-    const categoryInfo = categoriesList[categoryKey];
+// categoryIcons.forEach((icon) => {
+//   icon.addEventListener('click', (evt) => {
+//     const categoryKey = evt.currentTarget.id;
+//     const categoryInfo = categoriesList[categoryKey];
     
-    categoryInfo.subcategories.forEach(subcategory => {
-      const card = new InitialSubcategories(subcategory, resultPopup);
-      subcategoriesContainer.append(card.createElement());
-    });
-    console.log(subcategoryPopupHeading.textContent);
-    console.log(categoryInfo.name);
-    subcategoryPopupHeading.textContent = categoryInfo.name;
-
-    subcategoryPopup.classList.add('popup_opened');
-  });
-});
+//     categoryInfo.subcategories.forEach(subcategory => {
+//       const card = new InitialSubcategories(subcategory, resultPopup);
+//       subcategoriesContainer.append(card.createElement());
+//     });
+//     subcategoryPopupHeading.textContent = categoryInfo.name;
+//     subcategoryPopup.classList.add('popup_opened');
+//   });
+// });
 
 // subcategoryIcons.forEach((icon) => {
 //     icon.addEventListener('click', () => {
@@ -152,5 +151,19 @@ poemSwitchToPrevButton.addEventListener('click', (evt) => {
 });
 
 //категории
+const problemList = document.querySelector('.problems-list__wrapper');
+const subcategoriesList = document.querySelector('.problems-list__wrapper_popup');
 
+const createSubcategoryPopup = (subcategories, categoryName) => {
+  subcategories.forEach(subcategory => {
+    const subcategoryCard = new InitialSubcategories(subcategory.name, resultPopup);
+    subcategoriesList.append(subcategoryCard.createElement());
+  });
+    subcategoryPopupHeading.textContent = categoryName;
+    subcategoryPopup.classList.add('popup_opened');
+}
 
+categoriesList.forEach(category => {
+  const categoryCard = new InitialCategories(category.name, category.src, category.subcategories, '.problem-template', createSubcategoryPopup);
+  problemList.append(categoryCard.createCategory());
+});
