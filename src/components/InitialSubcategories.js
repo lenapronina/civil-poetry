@@ -1,8 +1,9 @@
 export default class InitialSubcategories {
     
-    constructor(cardName, resultPopup) {
+    constructor(cardName, poems, openResultPopup) {
       this._cardName = cardName;
-      this._resultPopup = resultPopup;
+      this._openResultPopup = openResultPopup;
+      this._poems = poems;
     }
   
     _getSubcategoryTemplate() {
@@ -15,13 +16,12 @@ export default class InitialSubcategories {
   
     _setEventListeners() {
       this._element.addEventListener('click', () => {
-        this._resultPopup.classList.add('popup_opened');
+        this._openResultPopup(this._poems);
       });
     }
   
     createElement() {
       this._element = this._getSubcategoryTemplate();
-      console.log(this._element);
       this._element.querySelector('.problem__name').textContent = this._cardName;
       this._setEventListeners();
   

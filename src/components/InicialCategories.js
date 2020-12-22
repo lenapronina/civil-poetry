@@ -22,14 +22,6 @@ export default class InitialCategories {
     _setEventListeners() {
         this._element.addEventListener('click', () => {
            this._createSubcategoryPopup(this._subcategories, this._name);
-            // const categoryKey = evt.currentTarget.id;
-            // const categoryInfo = categoriesList[categoryKey];
-            
-            // categoryInfo.subcategories.forEach(subcategory => {
-            //   const card = new InitialSubcategories(subcategory, resultPopup);
-            //   subcategoriesContainer.append(card.createElement());
-            // });
-            // subcategoryPopupHeading.textContent = categoryInfo.name;
           });
     }
 

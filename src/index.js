@@ -83,28 +83,6 @@ const goBackToCategoriesButton = document.querySelector('.popup__wrapper_subcate
 const goBackToSubcategoriesButton = document.querySelector('.popup__wrapper_result');
 const subcategoriesContainer = document.querySelector('.problems-list__wrapper_popup');
 
-
-// categoryIcons.forEach((icon) => {
-//   icon.addEventListener('click', (evt) => {
-//     const categoryKey = evt.currentTarget.id;
-//     const categoryInfo = categoriesList[categoryKey];
-    
-//     categoryInfo.subcategories.forEach(subcategory => {
-//       const card = new InitialSubcategories(subcategory, resultPopup);
-//       subcategoriesContainer.append(card.createElement());
-//     });
-//     subcategoryPopupHeading.textContent = categoryInfo.name;
-//     subcategoryPopup.classList.add('popup_opened');
-//   });
-// });
-
-// subcategoryIcons.forEach((icon) => {
-//     icon.addEventListener('click', () => {
-//         resultPopup.classList.add('popup_opened');
-//         formValidator.resetValidation();
-//     });
-// });
-
 goBackToCategoriesButton.addEventListener('click', () => {
   subcategoryPopup.querySelectorAll('.problem_popup').forEach(elem => {
     elem.remove();
@@ -156,12 +134,19 @@ const subcategoriesList = document.querySelector('.problems-list__wrapper_popup'
 
 const createSubcategoryPopup = (subcategories, categoryName) => {
   subcategories.forEach(subcategory => {
-    const subcategoryCard = new InitialSubcategories(subcategory.name, resultPopup);
+    const subcategoryCard = new InitialSubcategories(subcategory.name, subcategory.poems, openResultPopup);
     subcategoriesList.append(subcategoryCard.createElement());
   });
     subcategoryPopupHeading.textContent = categoryName;
     subcategoryPopup.classList.add('popup_opened');
-}
+};
+
+const openResultPopup = (poems) => {
+  poems.forEach(poem => {
+    resultPopup.querySelector('.popup__text').innerHTML = poem;
+  });
+  resultPopup.classList.add('popup_opened');
+};
 
 categoriesList.forEach(category => {
   const categoryCard = new InitialCategories(category.name, category.src, category.subcategories, '.problem-template', createSubcategoryPopup);
