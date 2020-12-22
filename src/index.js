@@ -8,7 +8,10 @@ import InitialCategories from './components/InicialCategories.js'
 import { categoriesList } from './utils/constants.js';
 
 
-
+import arrowNextInactive from './images/right-arrow-inactive.png';
+import arrowPrevInactive from './images/left-arrow-inactive.png';
+import arrowNextActive from './images/right-arrow.png';
+import arrowPrevActive from './images/left-arrow.png';
 
 
 const claimContainer = document.querySelector('.claim-list');
@@ -117,23 +120,41 @@ formValidator.enableValidation();
 
 //переключатель стихотворений
 
-const poemSwitchToPrevButton = document.querySelector('.popup__poem-button_prev');
-const poemSwitchToNextButton = document.querySelector('.popup__poem-button_next');
+// const poemSwitchToPrevButton = document.querySelector('.popup__poem-button_prev');
+// const poemSwitchToNextButton = document.querySelector('.popup__poem-button_next');
 
-poemSwitchToNextButton.addEventListener('click', (evt) => {
-  evt.preventDefault();
-  alert('Стихотворение переключится на следующее');
-});
+// poemSwitchToNextButton.addEventListener('click', (evt) => {
+//   evt.preventDefault();
+//   alert('Стихотворение переключится на следующее');
+// });
 
-poemSwitchToPrevButton.addEventListener('click', (evt) => {
-  evt.preventDefault();
-  alert('Стихотворениме переключится на предыдущее');
-});
+// poemSwitchToPrevButton.addEventListener('click', (evt) => {
+//   evt.preventDefault();
+//   alert('Стихотворениме переключится на предыдущее');
+// });
 
 //категории
 
 const problemList = document.querySelector('.problems-list__wrapper');
 const subcategoriesList = document.querySelector('.problems-list__wrapper_popup');
+const arrowNext = resultPopup.querySelector('.popup__poem-button_next');
+const arrowPrev = resultPopup.querySelector('.popup__poem-button_prev');
+
+const toggleRightArrowState = (click, poems) => {
+  if (poems[click + 1] == undefined) {
+    arrowNext.querySelector('.popup__poem-button-icon').src = arrowNextInactive;
+  } else {
+    arrowNext.querySelector('.popup__poem-button-icon').src = arrowNextActive;
+  }
+};
+
+const toggleLefttArrowState = (click, poems) => {
+  if (poems[click - 1] == undefined) {
+    arrowPrev.querySelector('.popup__poem-button-icon').src = arrowPrevInactive;
+  } else {
+    arrowPrev.querySelector('.popup__poem-button-icon').src = arrowPrevActive;
+  }
+};
 
 const createSubcategoryPopup = (subcategories, categoryName) => {
   subcategories.forEach(subcategory => {
@@ -145,9 +166,28 @@ const createSubcategoryPopup = (subcategories, categoryName) => {
 };
 
 const openResultPopup = (poems) => {
-  poems.forEach(poem => {
-    resultPopup.querySelector('.popup__text').innerHTML = poem;
+  let click = 0;
+  resultPopup.querySelector('.popup__text').innerHTML = poems[click];
+
+  toggleRightArrowState(click, poems);
+  toggleLefttArrowState(click, poems);
+
+  arrowNext.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    click++;
+    toggleRightArrowState(click, poems);
+    toggleLefttArrowState(click, poems);
+    resultPopup.querySelector('.popup__text').innerHTML = poems[click];
   });
+
+  arrowPrev.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    click--;
+    resultPopup.querySelector('.popup__text').innerHTML = poems[click];
+    toggleRightArrowState(click, poems);
+    toggleLefttArrowState(click, poems);
+  });
+
   resultPopup.classList.add('popup_opened');
 };
 
@@ -155,3 +195,9 @@ categoriesList.forEach(category => {
   const categoryCard = new InitialCategories(category.name, category.src, category.subcategories, '.problem-template', createSubcategoryPopup);
   problemList.append(categoryCard.createCategory());
 });
+
+class InitialPoem {
+  constructor(poem) {
+    this._poem = poem;
+  }
+}
