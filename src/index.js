@@ -4,6 +4,7 @@ import { animateTicker, categoriesList } from './utils/utils.js';
 import claimList from './datasets/claims.js';
 import FormValidator from './components/FormValidator.js';
 import InitialSubcategories from './components/InitialSubcategories.js';
+import { categoriesList } from './utils/constants.js';
 
 
 

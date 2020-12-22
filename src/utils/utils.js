@@ -68,4 +68,4 @@ const categoriesList = {
   },
 };
 
-export {animateTicker, categoriesList};
+export { animateTicker };
