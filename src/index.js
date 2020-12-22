@@ -1,8 +1,13 @@
 import './styles/index.css';
 
-import { animateTicker } from './utils/utils.js';
+import { animateTicker, categoriesList } from './utils/utils.js';
 import claimList from './datasets/claims.js';
-import FormValidator from './FormValidator.js';
+import FormValidator from './components/FormValidator.js';
+import InitialSubcategories from './components/InitialSubcategories.js';
+import { categoriesList } from './utils/constants.js';
+
+
+
 
 const claimContainer = document.querySelector('.claim-list');
 const popularText = document.querySelector('.popular__more');
@@ -66,31 +71,46 @@ arrowBottom.addEventListener('click', () => {
   problemsList.scrollIntoView();
 });
 
-//popop eventListener
+//popop eventListeners
 
 const categoryIcons = Array.from(document.querySelectorAll('.problem'));
-const subcategoryIcons = Array.from(document.querySelectorAll('.problem_popup'));
 const resultPopup = document.querySelector('.popup_result');
 const subcategoryPopup = document.querySelector('.popup_subcategories');
+const subcategoryPopupHeading = subcategoryPopup.querySelector('.popup__heading');
 const goBackToCategoriesButton = document.querySelector('.popup__wrapper_subcategories');
 const goBackToSubcategoriesButton = document.querySelector('.popup__wrapper_result');
-const submitButton = document.querySelector('.popup__submit-button');
+const subcategoriesContainer = document.querySelector('.problems-list__wrapper_popup');
+
 
 categoryIcons.forEach((icon) => {
-  icon.addEventListener('click', () => {
+  icon.addEventListener('click', (evt) => {
+    const categoryKey = evt.currentTarget.id;
+    const categoryInfo = categoriesList[categoryKey];
+    
+    categoryInfo.subcategories.forEach(subcategory => {
+      const card = new InitialSubcategories(subcategory, resultPopup);
+      subcategoriesContainer.append(card.createElement());
+    });
+    console.log(subcategoryPopupHeading.textContent);
+    console.log(categoryInfo.name);
+    subcategoryPopupHeading.textContent = categoryInfo.name;
+
     subcategoryPopup.classList.add('popup_opened');
   });
 });
 
-subcategoryIcons.forEach((icon) => {
-    icon.addEventListener('click', () => {
-        resultPopup.classList.add('popup_opened');
-        formValidator.resetValidation();
-    });
-});
+// subcategoryIcons.forEach((icon) => {
+//     icon.addEventListener('click', () => {
+//         resultPopup.classList.add('popup_opened');
+//         formValidator.resetValidation();
+//     });
+// });
 
 goBackToCategoriesButton.addEventListener('click', () => {
-    subcategoryPopup.classList.remove('popup_opened');
+  subcategoryPopup.querySelectorAll('.problem_popup').forEach(elem => {
+    elem.remove();
+  });
+  subcategoryPopup.classList.remove('popup_opened');
     
 });
 
@@ -130,3 +150,7 @@ poemSwitchToPrevButton.addEventListener('click', (evt) => {
   evt.preventDefault();
   alert('Стихотворениме переключится на предыдущее');
 });
+
+//категории
+
+
