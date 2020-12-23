@@ -13,20 +13,12 @@ export default class FormValidator {
           this._toggleButtonState();
         });
       });
-  
-      this._formElement.addEventListener('submit', (evt) => {
-        evt.preventDefault();
-        this.resetValidation();
-        alert('Жалоба отправлена кому надо, возвращайтесь на главное окно. Позже добавим для этого кнопочку. Сохранена ли жалоба в ленте, выясним позже.');
-      });
     };
   
     _isValid(inputElement) {
       if (!inputElement.validity.valid) {
-        // this._showInputError(inputElement, inputElement.validationMessage);
         inputElement.classList.add('popup__input_invalid');
       } else {
-        // this._hideInputError(inputElement);
         inputElement.classList.remove('popup__input_invalid');
       };
     };
@@ -63,13 +55,7 @@ export default class FormValidator {
   
     resetValidation() {
       
-      // this._errors.forEach((error) => {
-      //   error.classList.remove(this._errorClass);
-      //   this._hideInputError(form, input);
-      // });
       this._inputList.forEach((inputElement) => {
-        // this._hideInputError(inputElement);
-        // inputElement.classList.remove('popup__input_invalid');
         inputElement.value = '';
         this._isValid(inputElement);
       });

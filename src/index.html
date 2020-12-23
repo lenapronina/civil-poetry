@@ -25,7 +25,7 @@
       </ul>
     </section>
 
-    <section class="news">
+    <section class="news" id="news">
       <h2 class="news__heading">Новости</h2>
       <ul class="card-list">
         <li class="card">
@@ -82,7 +82,7 @@
               <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="Имя" value="Аноним" required>
             </label>
             <label class="popup__field">
-              <input class="popup__input popup__input_type_town" type="text" name="place" placeholder="Местоположение" value="" minlength="2" required>
+              <input class="popup__input popup__input_type_town" type="text" name="location" placeholder="Местоположение" value="" minlength="2" required>
             </label>
           </fieldset>
 
@@ -119,6 +119,15 @@
         <h2 class="popup__heading">Заголовок</h2>
         <p class="popup__news-info">Описание новости со всеми подробностями</p>
         <h3 class ="popup__news-city">Город-место происшествия</h3>
+      </div>
+    </section>
+
+    <section class="popup popup_submit-success">
+      <div class="popup__container popup__container_submit-success">
+        <img class="popup__image" alt="Галочка вверх" src="<%=require('./images/popup-success-image.svg')%>">
+        <h2 class="popup__heading popup__heading_submit-success">Успех!</h2>
+        <p class="popup__heading">Жалоба отправлена</p>
+        <a class="popup__link" href="#news">Перейти к интересному</a>
       </div>
     </section>
 
