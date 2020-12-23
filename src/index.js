@@ -166,6 +166,7 @@ const createSubcategoryPopup = (subcategories, categoryName) => {
 };
 
 
+const backToMainPageButton = resultPopup.querySelector('.popup__go-to-main-button');
 
 //настраиваем и открываем попап со стихотворениями
 //принимаем в функцию массив стихотворений по данной субкатегории и выстраиваем попап с результатом
@@ -227,11 +228,18 @@ const openResultPopup = (poems) => {
 
   arrowNext.addEventListener('click', arrowNextListener);
   arrowPrev.addEventListener('click', arrowPrevListener);
+  backToMainPageButton.addEventListener('click', () => {
+    popupAll.forEach(popup => {
+      popup.classList.remove('popup_opened');
+    });
+  });
+  
 
   //переключаем состояние стрелочек на актуальное
 
   toggleRightArrowState(click, poems);
   toggleLeftArrowState(click, poems);
+
 
   //после всех этих настроек открываем попап
 
