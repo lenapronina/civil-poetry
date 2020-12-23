@@ -54,6 +54,10 @@
 .problem_popup{width:100%;height:100%;min-height:48px;border:1px solid #f36755;box-shadow:none}@media(min-width:1024px){.problem_popup:hover{color:#fff;background-color:#f36755;border:none;cursor:pointer}}
 .popup_opened{display:flex}
 .popup__container_news{display:flex;justify-content:center;align-items:center;flex-direction:column;box-shadow:0 4px 10px rgba(0,0,0,.25);border-radius:40px;width:90%;height:-webkit-fit-content;height:-moz-fit-content;height:fit-content}
+.popup__link{font-family:PT Sans;font-style:normal;font-weight:400;font-size:16px;line-height:21px;text-align:center;-webkit-text-decoration-line:underline;text-decoration-line:underline;color:#ff4040}
+.popup__image{width:126px;height:126px}
+.popup__container_submit-success{display:flex;justify-content:center;align-items:center;flex-direction:column;box-shadow:0 4px 10px rgba(0,0,0,.25);border-radius:40px;width:90%;height:-webkit-fit-content;height:-moz-fit-content;height:fit-content}
+.popup__heading_submit-success{font-family:PT Sans Caption;font-style:normal;font-weight:700;font-size:32px;line-height:41px;text-align:center;color:#ffed00}
 .hello{padding:84px 0 48px;min-height:100vh;display:flex;flex-direction:column;justify-content:center;background-color:#fff;box-sizing:border-box}
 .hello__container{padding:0 27px 0 28px;display:flex;justify-content:center}
 .hello__image{width:100%;-o-object-fit:contain;object-fit:contain;border-radius:16px}
