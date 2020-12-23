@@ -135,7 +135,6 @@ goBackToCategoriesButton.addEventListener('click', () => {
 
 goBackToSubcategoriesButton.addEventListener('click', () => {
   resultPopup.classList.remove('popup_opened');
-  formValidator.resetValidation();
 });
 
 newsCards.forEach((card) => {
@@ -172,6 +171,8 @@ const backToMainPageButton = resultPopup.querySelector('.popup__go-to-main-butto
 //принимаем в функцию массив стихотворений по данной субкатегории и выстраиваем попап с результатом
 
 const openResultPopup = (poems) => {
+
+  formValidator.resetValidation();
 
   //объявляем переменную, которая будет считать клики по стрелочкам налево (+1) и направо (-1)
   //значения click соответствуют индексу стихотворения в массиве
