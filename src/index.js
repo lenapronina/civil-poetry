@@ -192,9 +192,9 @@ const openResultPopup = (poems) => {
   let arrowPrevListener = (evt) => {
     evt.preventDefault();
     click--;
-    resultPopup.querySelector('.popup__text').innerHTML = poems[click];
     toggleRightArrowState(click, poems);
     toggleLeftArrowState(click, poems);
+    resultPopup.querySelector('.popup__text').innerHTML = poems[click];
   };
 
   //объявляем функцию, которая отвечает за сосрояние стрелочки направо
@@ -234,6 +234,12 @@ const openResultPopup = (poems) => {
       popup.classList.remove('popup_opened');
     });
   });
+
+  goBackToSubcategoriesButton.addEventListener('click', () => {
+    resultPopup.classList.remove('popup_opened');
+    poems = null;
+    click = null;
+  });
   
 
   //переключаем состояние стрелочек на актуальное
@@ -245,6 +251,7 @@ const openResultPopup = (poems) => {
   //после всех этих настроек открываем попап
 
   resultPopup.classList.add('popup_opened');
+
 };
 
 categoriesList.forEach(category => {
