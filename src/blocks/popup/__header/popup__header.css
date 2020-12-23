@@ -1,0 +1,16 @@
+.popup__header {
+    display: flex;
+    justify-content: space-between;
+    height: max-content;
+}
+
+.popup__go-to-main-button {
+    background: none;
+    border: none;
+    text-shadow: none;
+    font: inherit;
+    color: #FF4040;
+    text-decoration: underline;
+    height: max-content;
+    padding: 0;
+}
