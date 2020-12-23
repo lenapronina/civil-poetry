@@ -44,6 +44,7 @@
 @import url(../blocks/popup/__submit-button/_inactive/popup__submit-button_inactive.css);
 @import url(../blocks/popup/__checkbox-field/popup__checkbox-field.css);
 @import url(../blocks/popup/__checkbox/popup__checkbox.css);
+@import url(../blocks/popup/__visible-checkbox/popup__visible-checkbox.css);
 @import url(../blocks/popup/__checkbox-label/popup__checkbox-label.css);
 @import url(../blocks/popup/__poem-button-icon/popup__poem-button-icon.css);
 @import url(../blocks/popup/__header/popup__header.css);

@@ -13,7 +13,7 @@
   scrollbar-color: #FF4040 #D0D0D0;
   align-items: flex-start;
   background-clip: content-box;
-  padding: 30px;
+  padding: 20px;
   height: calc(100vh - 530px);
 }
 
