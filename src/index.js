@@ -11,6 +11,38 @@ import arrowNextInactive from './images/right-arrow-inactive.png';
 import arrowPrevInactive from './images/left-arrow-inactive.png';
 import arrowNextActive from './images/right-arrow.png';
 import arrowPrevActive from './images/left-arrow.png';
+import { Api } from './components/Api.js';
+import PopupWithForm from './components/PopupWithForm.js'
+
+// new Api instanse
+const api = new Api({
+  baseUrl: 'https://civil-poetry-app.herokuapp.com',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+});
+
+const popupSuccess = document.querySelector('.popup_submit-success');
+const popupAll = document.querySelectorAll('.popup');
+const newsLink = document.querySelector('.popup__link');
+
+const submitNewClaim = (claimProps) => {
+
+  api.postNewClaim(claimProps)
+    .then((res) => {
+      popupSuccess.classList.add('popup_opened');
+      newsLink.addEventListener('click', ()=>{
+        popupAll.forEach(popup => {
+          popup.classList.remove('popup_opened');
+        })
+      })
+    })
+    .catch(err => console.log(err))
+}
+
+const form = new PopupWithForm('.popup_result', submitNewClaim);
+form.setEventListeners();
+
 
 
 const claimContainer = document.querySelector('.claim-list');

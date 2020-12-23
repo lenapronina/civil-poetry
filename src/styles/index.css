@@ -60,6 +60,10 @@
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__container/_news/popup__container_news.css);
 
+@import url(../blocks/popup/__link/popup__link.css);
+@import url(../blocks/popup/__image/popup__image.css);
+@import url(../blocks/popup/__container/_submit-success/popup__container_submit-success.css);
+@import url(../blocks/popup/__heading/_submit-success/popup__heading_submit-success.css);
 
 @import url(../blocks/hello/hello.css);
 @import url(../blocks/hello/__container/hello__container.css);
