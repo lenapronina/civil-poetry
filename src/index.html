@@ -72,9 +72,12 @@
 
     <section class="popup popup_result">
       <div class="popup__container popup__container_result">
-        <div class="popup__wrapper popup__wrapper_result">
-          <button class="popup__backward-button button"></button>
-          <p class="popup__back-text">Назад</p>
+        <div class="popup__header">
+          <div class="popup__wrapper popup__wrapper_result">
+            <button class="popup__backward-button button"></button>
+            <p class="popup__back-text">Назад</p>
+          </div>
+          <button type="button" class="popup__go-to-main-button">Вернуться на главную</button>
         </div>
         <form class="popup__form">
           <fieldset class="popup__fieldset">
@@ -102,13 +105,18 @@
             </button>
           </div>
 
+          <fieldset class="popup__checkbox-field">
+            <label class="popup__checkbox-label" for="checkbox">
+              <input class="popup__checkbox" type="checkbox" id="checkbox" checked="checked">
+              <span class="popup__visible-checkbox"></span>
+              <span>Сохранить в ленте</span>
+          </label>
+          </fieldset>
+          
           <button class="popup__submit-button" type="submit">
             Пожаловаться
           </button>
-          <fieldset class="popup__checkbox-field">
-            <input class="popup__checkbox" type="checkbox" checked>
-            <label class="popup__checkbox-label">Сохранить в ленте</label>
-          </fieldset>
+
         </form>
       </div>
     </section>

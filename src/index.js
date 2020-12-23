@@ -135,7 +135,6 @@ goBackToCategoriesButton.addEventListener('click', () => {
 
 goBackToSubcategoriesButton.addEventListener('click', () => {
   resultPopup.classList.remove('popup_opened');
-  formValidator.resetValidation();
 });
 
 newsCards.forEach((card) => {
@@ -166,11 +165,14 @@ const createSubcategoryPopup = (subcategories, categoryName) => {
 };
 
 
+const backToMainPageButton = resultPopup.querySelector('.popup__go-to-main-button');
 
 //настраиваем и открываем попап со стихотворениями
 //принимаем в функцию массив стихотворений по данной субкатегории и выстраиваем попап с результатом
 
 const openResultPopup = (poems) => {
+
+  formValidator.resetValidation();
 
   //объявляем переменную, которая будет считать клики по стрелочкам налево (+1) и направо (-1)
   //значения click соответствуют индексу стихотворения в массиве
@@ -190,9 +192,9 @@ const openResultPopup = (poems) => {
   let arrowPrevListener = (evt) => {
     evt.preventDefault();
     click--;
-    resultPopup.querySelector('.popup__text').innerHTML = poems[click];
     toggleRightArrowState(click, poems);
     toggleLeftArrowState(click, poems);
+    resultPopup.querySelector('.popup__text').innerHTML = poems[click];
   };
 
   //объявляем функцию, которая отвечает за сосрояние стрелочки направо
@@ -227,15 +229,29 @@ const openResultPopup = (poems) => {
 
   arrowNext.addEventListener('click', arrowNextListener);
   arrowPrev.addEventListener('click', arrowPrevListener);
+  backToMainPageButton.addEventListener('click', () => {
+    popupAll.forEach(popup => {
+      popup.classList.remove('popup_opened');
+    });
+  });
+
+  goBackToSubcategoriesButton.addEventListener('click', () => {
+    resultPopup.classList.remove('popup_opened');
+    poems = null;
+    click = null;
+  });
+  
 
   //переключаем состояние стрелочек на актуальное
 
   toggleRightArrowState(click, poems);
   toggleLeftArrowState(click, poems);
 
+
   //после всех этих настроек открываем попап
 
   resultPopup.classList.add('popup_opened');
+
 };
 
 categoriesList.forEach(category => {
