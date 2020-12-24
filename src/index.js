@@ -33,7 +33,7 @@ const submitNewClaim = (claimProps) => {
       popupSuccess.classList.add('popup_opened');
       newsLink.addEventListener('click', ()=>{
         popupAll.forEach(popup => {
-          popup.classList.remove('popup_opened');
+          closePopup(popup);
         })
       })
     })
@@ -125,27 +125,40 @@ arrowBottom.addEventListener('click', () => {
 
 //popop eventListeners
 
-goBackToCategoriesButton.addEventListener('click', () => {
-  subcategoryPopup.querySelectorAll('.problem_popup').forEach(elem => {
+const subcategoryElements = subcategoryPopup.querySelectorAll('.problem_popup');
+
+const removeSubcategoryElements = () => {
+  subcategoryElements.forEach(elem => {
     elem.remove();
   });
-  subcategoryPopup.classList.remove('popup_opened');
+};
 
+const closePopup = (popupToClose) => {
+  popupToClose.classList.remove('popup_opened');
+};
+
+const openPopup = (popupToOpen) => {
+  popupToOpen.classList.add('popup_opened');
+};
+
+goBackToCategoriesButton.addEventListener('click', () => {
+  removeSubcategoryElements();
+  closePopup(subcategoryPopup);
 });
 
 goBackToSubcategoriesButton.addEventListener('click', () => {
-  resultPopup.classList.remove('popup_opened');
+  closePopup(resultPopup);
 });
 
 newsCards.forEach((card) => {
   card.addEventListener('click', () => {
-    newsPopup.classList.add('popup_opened');
+    openPopup(newsPopup);
   })
 })
 
 newsPopupButton.addEventListener('click', function () {
-  newsPopup.classList.remove('popup_opened');
-})
+  closePopup(newsPopup);
+});
 
 //enable form validation
 
@@ -154,18 +167,20 @@ formValidator.enableValidation();
 
 //категории
 
-
 const createSubcategoryPopup = (subcategories, categoryName) => {
   subcategories.forEach(subcategory => {
     const subcategoryCard = new InitialSubcategories(subcategory.name, subcategory.poems, openResultPopup);
     subcategoriesList.append(subcategoryCard.createElement());
   });
   subcategoryPopupHeading.textContent = categoryName;
-  subcategoryPopup.classList.add('popup_opened');
+  openPopup(subcategoryPopup);
 };
 
 
 const backToMainPageButton = resultPopup.querySelector('.popup__go-to-main-button');
+const poemField = resultPopup.querySelector('.popup__text');
+const arrowNextImage = arrowNext.querySelector('.popup__poem-button-icon');
+const arrowPrevImage = arrowPrev.querySelector('.popup__poem-button-icon');
 
 //настраиваем и открываем попап со стихотворениями
 //принимаем в функцию массив стихотворений по данной субкатегории и выстраиваем попап с результатом
@@ -185,7 +200,7 @@ const openResultPopup = (poems) => {
     click++;
     toggleRightArrowState(click, poems);
     toggleLeftArrowState(click, poems);
-    resultPopup.querySelector('.popup__text').innerHTML = poems[click];
+    poemField.innerHTML = poems[click];
   };
 
   let arrowPrevListener = (evt) => {
@@ -193,29 +208,29 @@ const openResultPopup = (poems) => {
     click--;
     toggleRightArrowState(click, poems);
     toggleLeftArrowState(click, poems);
-    resultPopup.querySelector('.popup__text').innerHTML = poems[click];
+    poemField.innerHTML = poems[click];
   };
 
   //объявляем функцию, которая отвечает за сосрояние стрелочки направо
 
   const toggleRightArrowState = (click, poems) => {
     if (click === poems.length - 1) {
-      arrowNext.querySelector('.popup__poem-button-icon').src = arrowNextInactive;
+      arrowNextImage.src = arrowNextInactive;
       arrowNext.removeEventListener('click', arrowNextListener);
     } else {
-      arrowNext.querySelector('.popup__poem-button-icon').src = arrowNextActive;
+      arrowNextImage.src = arrowNextActive;
       arrowNext.addEventListener('click', arrowNextListener);
-    }
+    };
   };
 
   //объявляем функцию, которая отвечает за сосрояние стрелочки налево
 
   const toggleLeftArrowState = (click, poems) => {
     if (click === 0) {
-      arrowPrev.querySelector('.popup__poem-button-icon').src = arrowPrevInactive;
+      arrowPrevImage.src = arrowPrevInactive;
       arrowPrev.removeEventListener('click', arrowPrevListener);
     } else {
-      arrowPrev.querySelector('.popup__poem-button-icon').src = arrowPrevActive;
+      arrowPrevImage.src = arrowPrevActive;
       arrowPrev.addEventListener('click', arrowPrevListener);
     }
   };
@@ -230,8 +245,9 @@ const openResultPopup = (poems) => {
   arrowPrev.addEventListener('click', arrowPrevListener);
   backToMainPageButton.addEventListener('click', () => {
     popupAll.forEach(popup => {
-      popup.classList.remove('popup_opened');
+      closePopup(popup);
     });
+    removeSubcategoryElements();
   });
 
   goBackToSubcategoriesButton.addEventListener('click', () => {
@@ -249,7 +265,7 @@ const openResultPopup = (poems) => {
 
   //после всех этих настроек открываем попап
 
-  resultPopup.classList.add('popup_opened');
+  openPopup(resultPopup);
 
 };
 
