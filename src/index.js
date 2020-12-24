@@ -64,7 +64,6 @@ const newsCards = Array.from(document.querySelectorAll('.card'));
 const newsPopup = document.querySelector('.popup_news');
 const newsPopupButton = newsPopup.querySelector('.button');
 
-
 function renderClaim(claimArray, container) {
   claimArray.forEach(item => {
     const claimElement = document.querySelector('.claim-template').content.cloneNode(true);
@@ -139,9 +138,16 @@ goBackToSubcategoriesButton.addEventListener('click', () => {
 });
 
 newsCards.forEach((card) => {
-  card.addEventListener('click', () => {
-    newsPopup.classList.add('popup_opened');
+  card.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('card')) {
+      newsPopup.classList.add('popup_opened');
+    }
   })
+
+  const newsLikeButton = card.querySelector('.card__like-button');
+  newsLikeButton.addEventListener('click', function() {
+    newsLikeButton.classList.toggle('card__like-button_active');
+  });
 })
 
 newsPopupButton.addEventListener('click', function () {
@@ -242,3 +248,4 @@ categoriesList.forEach(category => {
   const categoryCard = new InitialCategories(category.name, category.src, category.subcategories, '.problem-template', createSubcategoryPopup);
   problemList.append(categoryCard.createCategory());
 });
+

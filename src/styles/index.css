@@ -50,6 +50,7 @@
 @import url(../blocks/card/__text-wrapper/card__text-wrapper.css);
 @import url(../blocks/card/__like-button/card__like-button.css);
 @import url(../blocks/card/__like-counter/card__like-counter.css);
+@import url(../blocks/card/__like-button/_active/card__like-button_active.css);
 
 @import url(../blocks/popup/__close-button/popup__close-button.css);
 @import url(../blocks/popup/__news-info/popup__news-info.css);
