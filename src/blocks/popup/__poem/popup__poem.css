@@ -1,16 +1,19 @@
 .popup__poem {
-    margin: 0;
-    box-sizing: border-box;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-height: 240px;
-    position: relative;
-    border: 1px solid #F36755;
-    border-radius: 16px;
-    color: #191919;
-    line-height: 20px;
-    overflow: scroll;
-    scroll-padding: 16px 10px;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #F36755;
+  border-radius: 16px;
+  color: #191919;
+  line-height: 20px;
+  overflow: scroll;
+  scrollbar-color: #FF4040 #D0D0D0;
+  align-items: flex-start;
+  background-clip: content-box;
+  padding: 20px;
+  height: calc(100vh - 530px);
 }
+

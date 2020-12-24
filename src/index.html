@@ -19,39 +19,13 @@
       </div>
     </section>
     <section class="problems-list">
-      <h2 class="problems-list__heading">Выбери категорию</h2>
+      <h2 class="problems-list__heading">Выбери тему</h2>
       <ul class="problems-list__wrapper">
-        <li class="problem">
-          <h3 class="problem__name">Соседи</h3>
-        </li>
-        <li class="problem">
-          <h3 class="problem__name">Дураки</h3>
-        </li>
-        <li class="problem">
-          <h3 class="problem__name">Дороги</h3>
-        </li>
-        <li class="problem">
-          <h3 class="problem__name">ЖКХ</h3>
-        </li>
-        <li class="problem">
-          <h3 class="problem__name">Налоги</h3>
-        </li>
-        <li class="problem">
-          <h3 class="problem__name">Цены</h3>
-        </li>
-        <li class="problem">
-          <h3 class="problem__name">Экология</h3>
-        </li>
-        <li class="problem">
-          <h3 class="problem__name">ЧС</h3>
-        </li>
-        <li class="problem">
-          <h3 class="problem__name">Власть</h3>
-        </li>
+
       </ul>
     </section>
 
-    <section class="news">
+    <section class="news" id="news">
       <h2 class="news__heading">Новости</h2>
       <ul class="card-list">
         <li class="card">
@@ -67,17 +41,20 @@
           <h3 class="card__heading">Название/тема</h3>
         </li>
       </ul>
+      <div class="ticker">
+        <p class="ticker__line">#ПРОВЕРЕНО_ДЛЯ_ЦЕНЗУРЫ&nbsp;&nbsp;&nbsp;#ПРОВЕРЕНО_ДЛЯ_ЦЕНЗУРЫ</p>
+      </div>
     </section>
 
     <section class="popular">
       <h2 class="popular__heading">Популярное</h2>
       <ul class="claim-list"></ul>
       <h4 class="popular__more">Смотреть больше</h4>
-      <button class="popular__button button"></button>
+      <button class="popular__button"></button>
     </section>
 
     <footer class="footer">
-      <p class="footer__copyright">&copy; Название</p>
+      <p class="footer__copyright">&copy; ГражданинПоэт#2025#10</p>
     </footer>
 
     <section class="popup popup_subcategories">
@@ -88,27 +65,19 @@
         </div>
         <h2 class="popup__heading">Подкатегория</h2>
         <ul class= "problems-list__wrapper problems-list__wrapper_popup">
-          <li class="problem problem_popup">
-            <h3 class="problem__name">Тема</h3>
-          </li>
-          <li class="problem problem_popup">
-            <h3 class="problem__name">Тема</h3>
-          </li>
-          <li class="problem problem_popup">
-            <h3 class="problem__name">Тема</h3>
-          </li>
-          <li class="problem problem_popup">
-            <h3 class="problem__name">Тема</h3>
-          </li>
+
         </ul>
       </div>
     </section>
 
     <section class="popup popup_result">
       <div class="popup__container popup__container_result">
-        <div class="popup__wrapper popup__wrapper_result">
-          <button class="popup__backward-button button"></button>
-          <p class="popup__back-text">Назад</p>
+        <div class="popup__header">
+          <div class="popup__wrapper popup__wrapper_result">
+            <button class="popup__backward-button button"></button>
+            <p class="popup__back-text">Назад</p>
+          </div>
+          <button type="button" class="popup__go-to-main-button">Вернуться на главную</button>
         </div>
         <form class="popup__form">
           <fieldset class="popup__fieldset">
@@ -116,38 +85,19 @@
               <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="Имя" value="Аноним" required>
             </label>
             <label class="popup__field">
-              <input class="popup__input popup__input_type_town" type="text" name="place" placeholder="Местоположение" value="" minlength="2" required>
+              <input class="popup__input popup__input_type_town" type="text" name="location" placeholder="Местоположение" value="" minlength="2" required>
             </label>
           </fieldset>
-        
+
           <div class="popup__poem">
             <p class="popup__text">
-              Умом Россию не понять,<br />
-              Аршином общим не измерить:<br />
-              У ней особенная стать —<br />
-              В Россию можно только верить.<br />
-              Умом Россию не понять,<br />
-              Аршином общим не измерить:<br />
-              У ней особенная стать —<br />
-              В Россию можно только верить.<br />
-              Умом Россию не понять,<br />
-              Аршином общим не измерить:<br />
-              У ней особенная стать —<br />
-              В Россию можно только верить.<br />
-              Умом Россию не понять,<br />
-              Аршином общим не измерить:<br />
-              У ней особенная стать —<br />
-              В Россию можно только верить.<br />
-              Умом Россию не понять,<br />
-              Аршином общим не измерить:<br />
-              У ней особенная стать —<br />
-              В Россию можно только верить.
+              
             </p>
           </div>
 
           <div class="popup__switch">
             <button class="popup__poem-button popup__poem-button_prev">
-              <img class="popup__poem-button-icon" src="<%=require('./images/down-arrow2.png')%>">
+              <img class="popup__poem-button-icon" src="<%=require('./images/left-arrow.png')%>">
             </button>
             <p class="popup__text popup__text_switch">Смотреть больше стихов</p>
             <button class="popup__poem-button popup__poem-button_next">
@@ -155,26 +105,65 @@
             </button>
           </div>
 
+          <fieldset class="popup__checkbox-field">
+            <label class="popup__checkbox-label" for="checkbox">
+              <input class="popup__checkbox" type="checkbox" id="checkbox" checked="checked">
+              <span class="popup__visible-checkbox"></span>
+              <span>Сохранить в ленте</span>
+          </label>
+          </fieldset>
+          
           <button class="popup__submit-button" type="submit">
             Пожаловаться
           </button>
-          <fieldset class="popup__checkbox-field">
-            <input class="popup__checkbox" type="checkbox" checked>
-            <label class="popup__checkbox-label">Сохранить в ленте</label>
-          </fieldset>
+
         </form>
       </div>
     </section>
 
+    <section class="popup popup_news">
+      <div class="popup__container popup__container_news">
+        <button class="popup__close-button button" type="button" aria-label="Закрыть окно"></button>
+        <h2 class="popup__heading">Заголовок</h2>
+        <p class="popup__news-info">Описание новости со всеми подробностями</p>
+        <h3 class ="popup__news-city">Город-место происшествия</h3>
+      </div>
+    </section>
+
+    <section class="popup popup_submit-success">
+      <div class="popup__container popup__container_submit-success">
+        <img class="popup__image" alt="Галочка вверх" src="<%=require('./images/popup-success-image.svg')%>">
+        <h2 class="popup__heading popup__heading_submit-success">Успех!</h2>
+        <p class="popup__heading">Жалоба отправлена</p>
+        <a class="popup__link" href="#news">Перейти к интересному</a>
+      </div>
+    </section>
+
   </div>
+
+  <template class="problem-template">
+    <li class="problem" id="">
+      <img class="problem__image" src="//:0" alt="null">
+      <h3 class="problem__name"></h3>
+    </li>
+  </template>
+  
   <template class="claim-template">
     <li class="claim">
       <img class="claim__id" alt="картинка" src="">
       <div class="claim__info">
         <h3 class="claim__cathegory">Категория</h3>
         <p class="claim__verse">Стих</p>
+        <p class="claim__author"></p>
       </div>
     </li>
   </template>
+
+  <template class="popup-subcategory-template">
+    <li class="problem problem_popup">
+      <h3 class="problem__name"></h3>
+    </li>
+  </template>
+
 </body>
 </html>

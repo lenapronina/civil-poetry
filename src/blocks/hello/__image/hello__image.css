@@ -3,15 +3,3 @@
   object-fit: contain;
   border-radius: 16px;
 }
-
-@media (min-width: 600px){
-  .hello__image{
-    width: 50%;
-  }
-}
-
-@media (min-width: 800px){
-  .hello__image{
-    width: 30%;
-  }
-}

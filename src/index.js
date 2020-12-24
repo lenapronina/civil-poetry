@@ -2,31 +2,106 @@ import './styles/index.css';
 
 import { animateTicker } from './utils/utils.js';
 import claimList from './datasets/claims.js';
-import FormValidator from './FormValidator.js';
+import FormValidator from './components/FormValidator.js';
+import InitialSubcategories from './components/InitialSubcategories.js';
+import InitialCategories from './components/InicialCategories.js'
+import { categoriesList } from './utils/constants.js';
+
+import arrowNextInactive from './images/right-arrow-inactive.png';
+import arrowPrevInactive from './images/left-arrow-inactive.png';
+import arrowNextActive from './images/right-arrow.png';
+import arrowPrevActive from './images/left-arrow.png';
+import { Api } from './components/Api.js';
+import PopupWithForm from './components/PopupWithForm.js'
+
+// new Api instanse
+const api = new Api({
+  baseUrl: 'https://civil-poetry-app.herokuapp.com',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+});
+
+const popupSuccess = document.querySelector('.popup_submit-success');
+const popupAll = document.querySelectorAll('.popup');
+const newsLink = document.querySelector('.popup__link');
+
+const submitNewClaim = (claimProps) => {
+
+  api.postNewClaim(claimProps)
+    .then((res) => {
+      popupSuccess.classList.add('popup_opened');
+      newsLink.addEventListener('click', ()=>{
+        popupAll.forEach(popup => {
+          closePopup(popup);
+        })
+      })
+    })
+    .catch(err => console.log(err))
+}
+
+const form = new PopupWithForm('.popup_result', submitNewClaim);
+form.setEventListeners();
+
+
 
 const claimContainer = document.querySelector('.claim-list');
-console.log(claimContainer)
+const popularText = document.querySelector('.popular__more');
 
-function renderClaim (claimArray, container){
-  claimArray.forEach( item => {
+const resultPopup = document.querySelector('.popup_result');
+
+const problemList = document.querySelector('.problems-list__wrapper');
+const subcategoriesList = document.querySelector('.problems-list__wrapper_popup');
+const arrowNext = resultPopup.querySelector('.popup__poem-button_next');
+const arrowPrev = resultPopup.querySelector('.popup__poem-button_prev');
+
+const subcategoryPopup = document.querySelector('.popup_subcategories');
+const subcategoryPopupHeading = subcategoryPopup.querySelector('.popup__heading');
+const goBackToCategoriesButton = document.querySelector('.popup__wrapper_subcategories');
+const goBackToSubcategoriesButton = document.querySelector('.popup__wrapper_result');
+
+const newsCards = Array.from(document.querySelectorAll('.card'));
+const newsPopup = document.querySelector('.popup_news');
+const newsPopupButton = newsPopup.querySelector('.button');
+
+
+function renderClaim(claimArray, container) {
+  claimArray.forEach(item => {
     const claimElement = document.querySelector('.claim-template').content.cloneNode(true);
     const claimImage = claimElement.querySelector('.claim__id');
     const claimHeader = claimElement.querySelector('.claim__cathegory');
     const claimPreview = claimElement.querySelector('.claim__verse');
-    
+    const claimBlock = claimElement.querySelector('.claim');
+    const author = claimElement.querySelector('.claim__author');
+
     claimImage.src = item.image;
     claimHeader.textContent = item.cathegory;
     claimPreview.textContent = item.preview;
-    
+
+    let claimClicked = false;
+
+    claimBlock.addEventListener('click', () => {
+      if (claimClicked === false) {
+        claimPreview.textContent = item.text;
+        claimClicked = true;
+        author.textContent = item.author
+      } else {
+        claimPreview.textContent = item.preview;
+        claimClicked = false;
+        author.textContent = ''
+      }
+    })
     container.append(claimElement);
   })
 }
 
-renderClaim(claimList.slice(0,3), claimContainer)
+renderClaim(claimList.slice(0, 3), claimContainer)
 
 const moreClaimsButton = document.querySelector('.popular__button');
-moreClaimsButton.addEventListener('click', ()=>{
-  renderClaim(claimList.slice(3,6), claimContainer)
+moreClaimsButton.addEventListener('click', () => {
+  renderClaim(claimList.slice(3, 6), claimContainer);
+  popularText.textContent = "Чуть позже добавим еще новости!";
+  moreClaimsButton.style.display = 'none';
 })
 
 // пока так сделала прокрутку по клику, потом может перепишем на что-то получше
@@ -37,48 +112,164 @@ const problemsList = document.querySelector('.problems-list');
 const tickerContainer = document.querySelector('.ticker');
 const tickerLine = tickerContainer.querySelector('.ticker__line');
 
-animateTicker('.ticker', '.ticker__line', 10000);
+const tickerArray = document.querySelectorAll('.ticker')
+
+tickerArray.forEach(item => {
+  animateTicker(item, '.ticker__line', 10000);
+});
+
 
 arrowBottom.addEventListener('click', () => {
   problemsList.scrollIntoView();
 });
 
-//popop eventListener
+//popop eventListeners
 
-const categoryIcons = Array.from(document.querySelectorAll('.problem'));
-const subcategoryIcons = Array.from(document.querySelectorAll('.problem_popup'));
-const resultPopup = document.querySelector('.popup_result');
-const subcategoryPopup = document.querySelector('.popup_subcategories');
-const goBackToCategoriesButton = document.querySelector('.popup__wrapper_subcategories');
-const goBackToSubcategoriesButton = document.querySelector('.popup__wrapper_result');
-const submitButton = document.querySelector('.popup__submit-button');
+const subcategoryElements = subcategoryPopup.querySelectorAll('.problem_popup');
 
-categoryIcons.forEach((icon) => {
-  icon.addEventListener('click', () => {
-    subcategoryPopup.classList.add('popup_opened');
+const removeSubcategoryElements = () => {
+  subcategoryElements.forEach(elem => {
+    elem.remove();
   });
-});
+};
 
-subcategoryIcons.forEach((icon) => {
-    icon.addEventListener('click', () => {
-        resultPopup.classList.add('popup_opened');
-        formValidator.resetValidation();
-    });
-});
+const closePopup = (popupToClose) => {
+  popupToClose.classList.remove('popup_opened');
+};
+
+const openPopup = (popupToOpen) => {
+  popupToOpen.classList.add('popup_opened');
+};
 
 goBackToCategoriesButton.addEventListener('click', () => {
-    subcategoryPopup.classList.remove('popup_opened');
-    
+  removeSubcategoryElements();
+  closePopup(subcategoryPopup);
 });
 
 goBackToSubcategoriesButton.addEventListener('click', () => {
-    resultPopup.classList.remove('popup_opened');
-    formValidator.resetValidation();
+  closePopup(resultPopup);
+});
+
+newsCards.forEach((card) => {
+  card.addEventListener('click', () => {
+    openPopup(newsPopup);
+  })
+})
+
+newsPopupButton.addEventListener('click', function () {
+  closePopup(newsPopup);
 });
 
 //enable form validation
+
 const formValidator = new FormValidator();
 formValidator.enableValidation();
 
+//категории
 
-// form submit
+const createSubcategoryPopup = (subcategories, categoryName) => {
+  subcategories.forEach(subcategory => {
+    const subcategoryCard = new InitialSubcategories(subcategory.name, subcategory.poems, openResultPopup);
+    subcategoriesList.append(subcategoryCard.createElement());
+  });
+  subcategoryPopupHeading.textContent = categoryName;
+  openPopup(subcategoryPopup);
+};
+
+
+const backToMainPageButton = resultPopup.querySelector('.popup__go-to-main-button');
+const poemField = resultPopup.querySelector('.popup__text');
+const arrowNextImage = arrowNext.querySelector('.popup__poem-button-icon');
+const arrowPrevImage = arrowPrev.querySelector('.popup__poem-button-icon');
+
+//настраиваем и открываем попап со стихотворениями
+//принимаем в функцию массив стихотворений по данной субкатегории и выстраиваем попап с результатом
+
+const openResultPopup = (poems) => {
+  formValidator.resetValidation();
+
+  //объявляем переменную, которая будет считать клики по стрелочкам налево (+1) и направо (-1)
+  //значения click соответствуют индексу стихотворения в массиве
+
+  let click = 0;
+
+  //объявляем переменные, в которые записана реакция на клик по стрелочкам. 
+
+  let arrowNextListener = (evt) => {
+    evt.preventDefault();
+    click++;
+    toggleRightArrowState(click, poems);
+    toggleLeftArrowState(click, poems);
+    poemField.innerHTML = poems[click];
+  };
+
+  let arrowPrevListener = (evt) => {
+    evt.preventDefault();
+    click--;
+    toggleRightArrowState(click, poems);
+    toggleLeftArrowState(click, poems);
+    poemField.innerHTML = poems[click];
+  };
+
+  //объявляем функцию, которая отвечает за сосрояние стрелочки направо
+
+  const toggleRightArrowState = (click, poems) => {
+    if (click === poems.length - 1) {
+      arrowNextImage.src = arrowNextInactive;
+      arrowNext.removeEventListener('click', arrowNextListener);
+    } else {
+      arrowNextImage.src = arrowNextActive;
+      arrowNext.addEventListener('click', arrowNextListener);
+    };
+  };
+
+  //объявляем функцию, которая отвечает за сосрояние стрелочки налево
+
+  const toggleLeftArrowState = (click, poems) => {
+    if (click === 0) {
+      arrowPrevImage.src = arrowPrevInactive;
+      arrowPrev.removeEventListener('click', arrowPrevListener);
+    } else {
+      arrowPrevImage.src = arrowPrevActive;
+      arrowPrev.addEventListener('click', arrowPrevListener);
+    }
+  };
+
+  //вставляем в разметку первое стихотворение
+
+  resultPopup.querySelector('.popup__text').innerHTML = poems[click];
+
+  //объявляем eventListeners
+
+  arrowNext.addEventListener('click', arrowNextListener);
+  arrowPrev.addEventListener('click', arrowPrevListener);
+  backToMainPageButton.addEventListener('click', () => {
+    popupAll.forEach(popup => {
+      closePopup(popup);
+    });
+    removeSubcategoryElements();
+  });
+
+  goBackToSubcategoriesButton.addEventListener('click', () => {
+    resultPopup.classList.remove('popup_opened');
+    arrowNext.removeEventListener('click', arrowNextListener);
+    arrowPrev.removeEventListener('click', arrowPrevListener);
+  });
+  
+
+  //переключаем состояние стрелочек на актуальное
+
+  toggleRightArrowState(click, poems);
+  toggleLeftArrowState(click, poems);
+
+
+  //после всех этих настроек открываем попап
+
+  openPopup(resultPopup);
+
+};
+
+categoriesList.forEach(category => {
+  const categoryCard = new InitialCategories(category.name, category.src, category.subcategories, '.problem-template', createSubcategoryPopup);
+  problemList.append(categoryCard.createCategory());
+});

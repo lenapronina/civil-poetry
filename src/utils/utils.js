@@ -1,5 +1,5 @@
-const animateTicker = (containerSelector, innerElementSelector, duration) => {
-  const outerElement = document.querySelector(containerSelector);
+const animateTicker = (item, innerElementSelector, duration) => {
+  const outerElement = item;
   const innerEl = outerElement.querySelector(innerElementSelector);
   const innerWidth = innerEl.offsetWidth;
   const cloneEl = innerEl.cloneNode(true);
@@ -25,4 +25,4 @@ const animateTicker = (containerSelector, innerElementSelector, duration) => {
   });
 }
 
-export {animateTicker};
+export { animateTicker };
