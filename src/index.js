@@ -171,7 +171,6 @@ const backToMainPageButton = resultPopup.querySelector('.popup__go-to-main-butto
 //принимаем в функцию массив стихотворений по данной субкатегории и выстраиваем попап с результатом
 
 const openResultPopup = (poems) => {
-
   formValidator.resetValidation();
 
   //объявляем переменную, которая будет считать клики по стрелочкам налево (+1) и направо (-1)
@@ -200,7 +199,7 @@ const openResultPopup = (poems) => {
   //объявляем функцию, которая отвечает за сосрояние стрелочки направо
 
   const toggleRightArrowState = (click, poems) => {
-    if (poems[click + 1] == undefined) {
+    if (click === poems.length - 1) {
       arrowNext.querySelector('.popup__poem-button-icon').src = arrowNextInactive;
       arrowNext.removeEventListener('click', arrowNextListener);
     } else {
@@ -212,7 +211,7 @@ const openResultPopup = (poems) => {
   //объявляем функцию, которая отвечает за сосрояние стрелочки налево
 
   const toggleLeftArrowState = (click, poems) => {
-    if (poems[click - 1] == undefined) {
+    if (click === 0) {
       arrowPrev.querySelector('.popup__poem-button-icon').src = arrowPrevInactive;
       arrowPrev.removeEventListener('click', arrowPrevListener);
     } else {
@@ -237,8 +236,8 @@ const openResultPopup = (poems) => {
 
   goBackToSubcategoriesButton.addEventListener('click', () => {
     resultPopup.classList.remove('popup_opened');
-    poems = null;
-    click = null;
+    arrowNext.removeEventListener('click', arrowNextListener);
+    arrowPrev.removeEventListener('click', arrowPrevListener);
   });
   
 
