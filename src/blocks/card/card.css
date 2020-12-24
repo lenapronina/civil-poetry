@@ -1,13 +1,15 @@
 .card {
   list-style: none;
-  background-color: #c4c4c4;
   border-radius: 16px;
-  min-width: 279px;
-  height: 192px;
+  min-width: 100%;
+  height: 208px;
   margin: 0 17px 0 0;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-end;
+  background: linear-gradient(360deg, #191919 0%, #000000 0.01%, rgba(158, 158, 158, 0) 82.21%),
+  url(../../images/news-znaki.jpg);
+  background-size: cover;
 }
 
 .card:last-of-type {

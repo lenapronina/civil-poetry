@@ -177,7 +177,7 @@ const openResultPopup = (poems) => {
 
   let click = 0;
 
-  //объявляем переменные, в которые записана реакция на клик по стрелочкам. 
+  //объявляем переменные, в которые записана реакция на клик по стрелочкам.
 
   let arrowNextListener = (evt) => {
     evt.preventDefault();

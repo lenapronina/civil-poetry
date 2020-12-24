@@ -1,0 +1,9 @@
+.card__city {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  color: white;
+  margin: 0;
+  width: fit-content;
+}
