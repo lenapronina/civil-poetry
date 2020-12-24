@@ -238,9 +238,6 @@ const openResultPopup = (poems) => {
     resultPopup.classList.remove('popup_opened');
     arrowNext.removeEventListener('click', arrowNextListener);
     arrowPrev.removeEventListener('click', arrowPrevListener);
-
-    // poems = null;
-    // click = null;
   });
   
 
