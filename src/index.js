@@ -145,8 +145,16 @@ newsCards.forEach((card) => {
   })
 
   const newsLikeButton = card.querySelector('.card__like-button');
+  let count = card.querySelector('.card__like-counter').textContent;
   newsLikeButton.addEventListener('click', function() {
     newsLikeButton.classList.toggle('card__like-button_active');
+    if (newsLikeButton.classList.contains('card__like-button_active')) {
+      count = Number(count) + 1;
+    }
+    else {
+      count = Number(count) - 1;
+    }
+    card.querySelector('.card__like-counter').textContent = count;
   });
 })
 
