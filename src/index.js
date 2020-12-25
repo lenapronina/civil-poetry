@@ -63,6 +63,7 @@ const goBackToSubcategoriesButton = document.querySelector('.popup__wrapper_resu
 const newsCards = Array.from(document.querySelectorAll('.card'));
 const newsPopup = document.querySelector('.popup_news');
 const newsPopupButton = newsPopup.querySelector('.button');
+const template = document.querySelector('.popup-news-template');
 
 function renderClaim(claimArray, container) {
   claimArray.forEach(item => {
@@ -137,9 +138,11 @@ goBackToSubcategoriesButton.addEventListener('click', () => {
   formValidator.resetValidation();
 });
 
+//реализую открытие попапа по клику на новость, слушатель нажатия на лайк со счетчиком
 newsCards.forEach((card) => {
   card.addEventListener('click', (evt) => {
     if (evt.target.classList.contains('card')) {
+      getCardElement(card);
       newsPopup.classList.add('popup_opened');
     }
   })
@@ -161,6 +164,11 @@ newsCards.forEach((card) => {
 newsPopupButton.addEventListener('click', function () {
   newsPopup.classList.remove('popup_opened');
 })
+
+const getCardElement = (card) => {
+  const newsName = newsPopup.querySelector('.popup__heading');
+  newsName.textContent = card.querySelector('.card__heading').textContent;
+}
 
 //enable form validation
 

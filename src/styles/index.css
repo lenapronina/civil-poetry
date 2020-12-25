@@ -54,7 +54,7 @@
 
 @import url(../blocks/popup/__close-button/popup__close-button.css);
 @import url(../blocks/popup/__news-info/popup__news-info.css);
-@import url(../blocks/popup/__news-city/popup__news-city.css);
+@import url(../blocks/popup/__news-image/popup__news-image.css);
 
 @import url(../blocks/popup/__switch/popup__switch.css);
 @import url(../blocks/popup/__text/popup__text.css);
