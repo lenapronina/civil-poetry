@@ -2,8 +2,6 @@
   background-image: url(../../../images/next-button.svg);
   width: 14px;
   height: 8px;
-<<<<<<< HEAD
-=======
   margin: 10px auto;
   padding: 10px;
   background-color: transparent;
@@ -16,7 +14,6 @@
 
 .popular__button:focus {
   outline: none;
->>>>>>> dev
   margin: 0 auto;
   background-color: transparent;
   border-style: none;
@@ -24,17 +21,9 @@
   display: block;
 }
 
-<<<<<<< HEAD
-.popular__button:focus {
-  outline: none;
-  margin: 0 auto;
-  display: block;
-}
-=======
 
 @keyframes bounce2 {
   50% {
       transform: translateY(-5px);
     }
   }
->>>>>>> dev

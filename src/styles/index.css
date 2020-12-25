@@ -26,6 +26,9 @@
 @import url(../blocks/claim/__info/claim__info.css);
 @import url(../blocks/claim/__cathegory/claim__cathegory.css);
 @import url(../blocks/claim/__verse/claim__verse.css);
+@import url(../blocks/claim/__city/claim__city.css);
+@import url(../blocks/claim/__control/claim__control.css);
+@import url(../blocks/claim/__open-button/claim__open-button.css);
 @import url(../blocks/claim/__author/claim__author.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/popup/__container/popup__container.css);

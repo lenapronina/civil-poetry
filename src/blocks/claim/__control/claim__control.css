@@ -1,0 +1,4 @@
+.claim__control {
+  display: flex;
+  justify-content: space-between;
+}

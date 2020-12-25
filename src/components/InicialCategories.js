@@ -1,5 +1,5 @@
 export default class InitialCategories {
-  constructor(name, src, subcategories, categoryTemplateSelector, createSubcategoryPopup) {
+  constructor(name, src, subcategories, categoryTemplateSelector, { createSubcategoryPopup }) {
     this._categoryTemplateSelector = categoryTemplateSelector;
     this._name = name;
     this._src = src;
@@ -18,7 +18,7 @@ export default class InitialCategories {
 
   _setEventListeners() {
     this._element.addEventListener('click', () => {
-      this._createSubcategoryPopup(this._subcategories, this._name);
+      this._createSubcategoryPopup();
     });
   }
 

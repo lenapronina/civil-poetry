@@ -1,0 +1,8 @@
+.claim__open-button {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-color: rgba(0,0,0,0);
+  background-image: url(../../../images/claim-arrow.svg);
+  background-repeat: no-repeat;
+}

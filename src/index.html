@@ -107,7 +107,7 @@
 
           <fieldset class="popup__checkbox-field">
             <label class="popup__checkbox-label" for="checkbox">
-              <input class="popup__checkbox" type="checkbox" id="checkbox" checked="checked">
+              <input class="popup__checkbox" type="checkbox" id="checkbox" checked>
               <span class="popup__visible-checkbox"></span>
               <span>Сохранить в ленте</span>
           </label>
@@ -152,7 +152,11 @@
     <li class="claim">
       <img class="claim__id" alt="картинка" src="">
       <div class="claim__info">
-        <h3 class="claim__cathegory">Категория</h3>
+        <div class="claim__control">
+          <h3 class="claim__cathegory">Категория</h3>
+          <button class="claim__open-button"></button>
+        </div>
+        <p class="claim__city">Город</p>
         <p class="claim__verse">Стих</p>
         <p class="claim__author"></p>
       </div>
