@@ -44,13 +44,16 @@
 @import url(../blocks/popup/__submit-button/_inactive/popup__submit-button_inactive.css);
 @import url(../blocks/popup/__checkbox-field/popup__checkbox-field.css);
 @import url(../blocks/popup/__checkbox/popup__checkbox.css);
+@import url(../blocks/popup/__visible-checkbox/popup__visible-checkbox.css);
 @import url(../blocks/popup/__checkbox-label/popup__checkbox-label.css);
 @import url(../blocks/popup/__poem-button-icon/popup__poem-button-icon.css);
+
 @import url(../blocks/card/__city/card__city.css);
 @import url(../blocks/card/__text-wrapper/card__text-wrapper.css);
 @import url(../blocks/card/__like-button/card__like-button.css);
 @import url(../blocks/card/__like-counter/card__like-counter.css);
 @import url(../blocks/card/__like-button/_active/card__like-button_active.css);
+
 
 @import url(../blocks/popup/__close-button/popup__close-button.css);
 @import url(../blocks/popup/__news-info/popup__news-info.css);

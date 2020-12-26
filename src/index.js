@@ -36,7 +36,7 @@ const submitNewClaim = (claimProps) => {
       popupSuccess.classList.add('popup_opened');
       newsLink.addEventListener('click', ()=>{
         popupAll.forEach(popup => {
-          popup.classList.remove('popup_opened');
+          closePopup(popup);
         })
       })
     })
@@ -128,17 +128,29 @@ arrowBottom.addEventListener('click', () => {
 
 //popop eventListeners
 
-goBackToCategoriesButton.addEventListener('click', () => {
-  subcategoryPopup.querySelectorAll('.problem_popup').forEach(elem => {
+const subcategoryElements = subcategoryPopup.querySelectorAll('.problem_popup');
+
+const removeSubcategoryElements = () => {
+  subcategoryElements.forEach(elem => {
     elem.remove();
   });
-  subcategoryPopup.classList.remove('popup_opened');
+};
 
+const closePopup = (popupToClose) => {
+  popupToClose.classList.remove('popup_opened');
+};
+
+const openPopup = (popupToOpen) => {
+  popupToOpen.classList.add('popup_opened');
+};
+
+goBackToCategoriesButton.addEventListener('click', () => {
+  removeSubcategoryElements();
+  closePopup(subcategoryPopup);
 });
 
 goBackToSubcategoriesButton.addEventListener('click', () => {
-  resultPopup.classList.remove('popup_opened');
-  formValidator.resetValidation();
+  closePopup(resultPopup);
 });
 
 const cardList = document.querySelector('.card-list');
@@ -220,22 +232,26 @@ formValidator.enableValidation();
 
 //категории
 
-
 const createSubcategoryPopup = (subcategories, categoryName) => {
   subcategories.forEach(subcategory => {
     const subcategoryCard = new InitialSubcategories(subcategory.name, subcategory.poems, openResultPopup);
     subcategoriesList.append(subcategoryCard.createElement());
   });
   subcategoryPopupHeading.textContent = categoryName;
-  subcategoryPopup.classList.add('popup_opened');
+  openPopup(subcategoryPopup);
 };
 
 
+const backToMainPageButton = resultPopup.querySelector('.popup__go-to-main-button');
+const poemField = resultPopup.querySelector('.popup__text');
+const arrowNextImage = arrowNext.querySelector('.popup__poem-button-icon');
+const arrowPrevImage = arrowPrev.querySelector('.popup__poem-button-icon');
 
 //настраиваем и открываем попап со стихотворениями
 //принимаем в функцию массив стихотворений по данной субкатегории и выстраиваем попап с результатом
 
 const openResultPopup = (poems) => {
+  formValidator.resetValidation();
 
   //объявляем переменную, которая будет считать клики по стрелочкам налево (+1) и направо (-1)
   //значения click соответствуют индексу стихотворения в массиве
@@ -249,37 +265,37 @@ const openResultPopup = (poems) => {
     click++;
     toggleRightArrowState(click, poems);
     toggleLeftArrowState(click, poems);
-    resultPopup.querySelector('.popup__text').innerHTML = poems[click];
+    poemField.innerHTML = poems[click];
   };
 
   let arrowPrevListener = (evt) => {
     evt.preventDefault();
     click--;
-    resultPopup.querySelector('.popup__text').innerHTML = poems[click];
     toggleRightArrowState(click, poems);
     toggleLeftArrowState(click, poems);
+    poemField.innerHTML = poems[click];
   };
 
   //объявляем функцию, которая отвечает за сосрояние стрелочки направо
 
   const toggleRightArrowState = (click, poems) => {
-    if (poems[click + 1] == undefined) {
-      arrowNext.querySelector('.popup__poem-button-icon').src = arrowNextInactive;
+    if (click === poems.length - 1) {
+      arrowNextImage.src = arrowNextInactive;
       arrowNext.removeEventListener('click', arrowNextListener);
     } else {
-      arrowNext.querySelector('.popup__poem-button-icon').src = arrowNextActive;
+      arrowNextImage.src = arrowNextActive;
       arrowNext.addEventListener('click', arrowNextListener);
-    }
+    };
   };
 
   //объявляем функцию, которая отвечает за сосрояние стрелочки налево
 
   const toggleLeftArrowState = (click, poems) => {
-    if (poems[click - 1] == undefined) {
-      arrowPrev.querySelector('.popup__poem-button-icon').src = arrowPrevInactive;
+    if (click === 0) {
+      arrowPrevImage.src = arrowPrevInactive;
       arrowPrev.removeEventListener('click', arrowPrevListener);
     } else {
-      arrowPrev.querySelector('.popup__poem-button-icon').src = arrowPrevActive;
+      arrowPrevImage.src = arrowPrevActive;
       arrowPrev.addEventListener('click', arrowPrevListener);
     }
   };
@@ -292,15 +308,30 @@ const openResultPopup = (poems) => {
 
   arrowNext.addEventListener('click', arrowNextListener);
   arrowPrev.addEventListener('click', arrowPrevListener);
+  backToMainPageButton.addEventListener('click', () => {
+    popupAll.forEach(popup => {
+      closePopup(popup);
+    });
+    removeSubcategoryElements();
+  });
+
+  goBackToSubcategoriesButton.addEventListener('click', () => {
+    resultPopup.classList.remove('popup_opened');
+    arrowNext.removeEventListener('click', arrowNextListener);
+    arrowPrev.removeEventListener('click', arrowPrevListener);
+  });
+  
 
   //переключаем состояние стрелочек на актуальное
 
   toggleRightArrowState(click, poems);
   toggleLeftArrowState(click, poems);
 
+
   //после всех этих настроек открываем попап
 
-  resultPopup.classList.add('popup_opened');
+  openPopup(resultPopup);
+
 };
 
 categoriesList.forEach(category => {
