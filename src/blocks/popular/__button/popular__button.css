@@ -8,19 +8,22 @@
   border-style: none;
   padding: 0;
   display: block;
-  animation: bounce2 3s infinite ease-in-out;
+  /* animation: bounce2 3s infinite ease-in-out; */
   cursor: pointer;
 }
 
 .popular__button:focus {
   outline: none;
   margin: 0 auto;
+  background-color: transparent;
+  border-style: none;
+  padding: 0;
   display: block;
 }
 
 
-@keyframes bounce2 {
+/* @keyframes bounce2 {
   50% {
       transform: translateY(-5px);
     }
-  }
+  } */

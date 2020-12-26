@@ -38,7 +38,8 @@ class Api {
         location: claimData.location,
         poems: claimData.poems,
         author: claimData.author,
-        type: claimData.type
+        type: claimData.type,
+        checked: claimData.checked
       })
     })
     .then(res => this._checkResStatus(res));
