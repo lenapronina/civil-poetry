@@ -1,8 +1,9 @@
 .popup__heading {
   font-style: normal;
   font-weight: bold;
-  font-size: 18px;
-  line-height: 21px;
+  font-size: 24px;
+  line-height: 31px;
+  text-align: center;
   width: fit-content;
-  margin: 0 auto 24px;
+  margin: 0 auto 16px;
 }

@@ -12,7 +12,7 @@ class Api {
   }
 
   getNews() {
-    return fetch(`${this._baseURL}/news`, {
+    return fetch(`${this._baseURL}/newslists`, {
       headers: this._headers
     })
     .then(res => this._checkResStatus(res));

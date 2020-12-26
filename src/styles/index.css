@@ -50,11 +50,17 @@
 @import url(../blocks/popup/__visible-checkbox/popup__visible-checkbox.css);
 @import url(../blocks/popup/__checkbox-label/popup__checkbox-label.css);
 @import url(../blocks/popup/__poem-button-icon/popup__poem-button-icon.css);
-@import url(../blocks/popup/__header/popup__header.css);
+
+@import url(../blocks/card/__city/card__city.css);
+@import url(../blocks/card/__text-wrapper/card__text-wrapper.css);
+@import url(../blocks/card/__like-button/card__like-button.css);
+@import url(../blocks/card/__like-counter/card__like-counter.css);
+@import url(../blocks/card/__like-button/_active/card__like-button_active.css);
+
 
 @import url(../blocks/popup/__close-button/popup__close-button.css);
 @import url(../blocks/popup/__news-info/popup__news-info.css);
-@import url(../blocks/popup/__news-city/popup__news-city.css);
+@import url(../blocks/popup/__news-image/popup__news-image.css);
 
 @import url(../blocks/popup/__switch/popup__switch.css);
 @import url(../blocks/popup/__text/popup__text.css);
@@ -64,6 +70,10 @@
 @import url(../blocks/problem/_popup/problem_popup.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__container/_news/popup__container_news.css);
+@import url(../blocks/popup/__news-city/popup__news-city.css);
+@import url(../blocks/popup/__news-wrapper/popup__news-wrapper.css);
+@import url(../blocks/popup/__close-text/popup__close-text.css);
+@import url(../blocks/popup/__image-wrapper/popup__image-wrapper.css);
 
 @import url(../blocks/popup/__link/popup__link.css);
 @import url(../blocks/popup/__image/popup__image.css);

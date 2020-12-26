@@ -1,12 +1,9 @@
-.popup__news-city {
+.card__city {
   font-style: italic;
   font-weight: normal;
   font-size: 14px;
   line-height: 18px;
-  color: #ffffff;
+  color: white;
   margin: 0;
   width: fit-content;
-  position: absolute;
-  bottom: 48px;
-  left: 24px;
 }
