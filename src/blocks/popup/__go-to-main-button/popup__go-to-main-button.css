@@ -1,0 +1,9 @@
+.popup__go-to-main-button {
+  background: none;
+  border: none;
+  text-shadow: none;
+  font: inherit;
+  color: #ff4040;
+  text-decoration: underline;
+  padding: 0;
+}

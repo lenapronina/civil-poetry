@@ -9,7 +9,7 @@ import { categoriesList } from './utils/constants.js';
 import { Claim } from './components/Claim.js';
 import { Api } from './components/Api.js';
 
-import PopupWithForm from './components/PopupWithForm.js'
+import { PopupWithForm } from './components/PopupWithForm.js'
 import popupZnaki from './images/popup-znaki.jpg';
 import popupBorba from './images/popup-borba.jpg';
 import popupUborka from './images/popup-uborka.jpg';
