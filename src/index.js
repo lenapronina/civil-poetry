@@ -32,6 +32,8 @@ const popupAll = document.querySelectorAll('.popup');
 const newsLink = document.querySelector('.popup__link');
 
 const claimContainer = document.querySelector('.claim-list');
+const popupCookies = document.querySelector('.popup_cookies');
+
 
 const submitNewClaim = (claimProps) => {
 
@@ -227,3 +229,6 @@ categoriesList.forEach(category => {
   problemList.append(categoryCard.createCategory());
 });
 
+popupCookies.querySelector('.popup__go-button').addEventListener('click', () => {
+  closePopup(popupCookies);
+});
