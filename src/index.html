@@ -27,20 +27,7 @@
 
     <section class="news" id="news">
       <h2 class="news__heading">Новости</h2>
-      <ul class="card-list">
-        <li class="card">
-          <h3 class="card__heading">Название/тема</h3>
-        </li>
-        <li class="card">
-          <h3 class="card__heading">Название/тема</h3>
-        </li>
-        <li class="card">
-          <h3 class="card__heading">Название/тема</h3>
-        </li>
-        <li class="card">
-          <h3 class="card__heading">Название/тема</h3>
-        </li>
-      </ul>
+      <ul class="card-list"></ul>
       <div class="ticker">
         <p class="ticker__line">#ПРОВЕРЕНО_ДЛЯ_ЦЕНЗУРЫ&nbsp;&nbsp;&nbsp;#ПРОВЕРЕНО_ДЛЯ_ЦЕНЗУРЫ</p>
       </div>
@@ -91,7 +78,7 @@
 
           <div class="popup__poem">
             <p class="popup__text">
-              
+
             </p>
           </div>
 
@@ -123,10 +110,16 @@
 
     <section class="popup popup_news">
       <div class="popup__container popup__container_news">
-        <button class="popup__close-button button" type="button" aria-label="Закрыть окно"></button>
+        <div class="popup__news-wrapper">
+          <p class="popup__close-text">Закрыть</p>
+          <button class="popup__close-button button" type="button" aria-label="Закрыть окно"></button>
+        </div>
+        <div class="popup__image-wrapper">
+          <img class="popup__news-image" src="<%=require('./images/news-znaki.jpg')%>" alt="Фото новость">
+          <p class="popup__news-city">Город</p>
+        </div>
         <h2 class="popup__heading">Заголовок</h2>
         <p class="popup__news-info">Описание новости со всеми подробностями</p>
-        <h3 class ="popup__news-city">Город-место происшествия</h3>
       </div>
     </section>
 
@@ -147,7 +140,7 @@
       <h3 class="problem__name"></h3>
     </li>
   </template>
-  
+
   <template class="claim-template">
     <li class="claim">
       <img class="claim__id" alt="картинка" src="">
@@ -165,5 +158,17 @@
     </li>
   </template>
 
+  <template class="card-template">
+    <li class="card">
+      <div class="card__text-wrapper">
+        <h3 class="card__heading"></h3>
+        <h4 class="card__city"></h4>
+      </div>
+      <div>
+        <button class="card__like-button button" type="button" aria-label="Поставить лайк"></button>
+        <p class="card__like-counter"></p>
+      </div>
+    </li>
+  </template>
 </body>
 </html>

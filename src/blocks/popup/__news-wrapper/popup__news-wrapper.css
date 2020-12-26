@@ -1,0 +1,5 @@
+.popup__news-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+}
