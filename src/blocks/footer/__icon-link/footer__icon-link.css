@@ -4,3 +4,8 @@
     object-fit: contain;
     object-position: center;
 }
+
+.footer__icon-link:focus {
+    box-shadow: none;
+    border: none;
+}
