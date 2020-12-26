@@ -17,19 +17,19 @@ class PopupWithForm{
     this._checkbox = this._popup.querySelector('.popup__checkbox');
     this._poem = this._form.querySelector('.popup__text');
 
-    this._prevPoemButton = this._popup.querySelector('.popup__poem-button_prev');
-    this._nextPoemButton = this._popup.querySelector('.popup__poem-button_next');  
+    this._prevPoemButton = this._form.querySelector('.popup__poem-button_prev');
+    this._nextPoemButton = this._form.querySelector('.popup__poem-button_next');  
     
-    this.count = 0
+    this.count = 0;
   }
 
   open(item, category) {
     this._subCategory = item;
     this._category = category;
-    this._popup.classList.add('popup_opened');
     this._submitButton.classList.add('popup__submit-button_inactive');
     this._setPoem(this._subCategory.poems);
     this.setEventListeners(this._subCategory.poems, this._category);
+    this._popup.classList.add('popup_opened');
   }
 
   close() {
@@ -110,11 +110,12 @@ class PopupWithForm{
     });
 
     this._backToMainPageButton.addEventListener('click', () => {
-      this.close();
+      // this.close();
       this._closeAllPopup();
     });
 
     this._form.addEventListener('submit', (evt) => {
+      console.log(1212)
       evt.preventDefault();
       this._submitForm(this._getInputValues(category, this._poems));
       this._form.reset();

@@ -18,103 +18,82 @@ const api = new Api({
   }
 });
 
-const formValidator = new FormValidator();
+// form validation instance and validate method
+const formValidator = new FormValidator('.popup__form');
 formValidator.enableValidation();
 
 const popupSuccess = document.querySelector('.popup_submit-success');
 const popupAll = document.querySelectorAll('.popup');
 const newsLink = document.querySelector('.popup__link');
 
+const claimContainer = document.querySelector('.claim-list');
 
 const submitNewClaim = (claimProps) => {
 
   api.postNewClaim(claimProps)
     .then((res) => {
+      if(res.checked === 'checked'){
+        const claimItem = new Claim('.claim-template', res);
+        claimContainer.prepend(claimItem.createClaimElement())
+      }
       popupSuccess.classList.add('popup_opened');
     })
     .catch(err => console.log(err))
 }
 
 newsLink.addEventListener('click', ()=>{
+  console.log(123)
   popupAll.forEach(popup => {
     closePopup(popup);
   })
 })
 
 
-const form = new PopupWithForm('.popup_result', {
+const formPopup = new PopupWithForm('.popup_result', {
   submitForm: (claimProps)=>{
     submitNewClaim(claimProps);
     subCategory.deleteChildren();
   }, 
-  closeAllPopup: ()=>{
-    category.close()
+  closeAllPopup: () => {
+    category.close();
   }
 });
 
-const claimContainer = document.querySelector('.claim-list');
+const popularButton = document.querySelector('.popular__button');
+const popularMore = document.querySelector('.popular__more');
 
 const getClaimsData = (container) => {
   api.getClaims()
-    .then( res => {
-      const initialClaims = res;
+    .then(res => {
+      const allClaims = res.filter(item => item.checked === 'checked');
+      let startElemntIndex = allClaims.length - 3;
+      let lastElementIndex = allClaims.length;
+      let initialClaims = allClaims.slice(startElemntIndex, lastElementIndex);
       initialClaims.forEach( item => { 
-        if(item.checked){
-          const claimItem = new Claim('.claim-template', item);
-          container.prepend(claimItem.createClaimElement())
-        }   
+        const claimItem = new Claim('.claim-template', item);
+        container.prepend(claimItem.createClaimElement());
+      })
+      popularButton.addEventListener('click', ()=> {
+        if(!(startElemntIndex<=0)){
+          let nextClaims = allClaims.slice(startElemntIndex - 3, lastElementIndex - 3);
+        
+          nextClaims.reverse().forEach( item => { 
+            const claimItem = new Claim('.claim-template', item);
+            container.append(claimItem.createClaimElement());
+          })
+          startElemntIndex = startElemntIndex - 3;
+          lastElementIndex = lastElementIndex - 3;
+        } else {
+          popularMore.textContent = "Всё!";
+        }
       })
     })
-    .catch( err => console.log(err) )
-
+    .catch(err => console.log(err));
 }
 
 getClaimsData(claimContainer)
 
-
-const popularText = document.querySelector('.popular__more');
-
 const problemList = document.querySelector('.problems-list__wrapper');
-
-
-// function renderClaim(claimArray, container) {
-//   claimArray.forEach(item => {
-//     const claimElement = document.querySelector('.claim-template').content.cloneNode(true);
-//     const claimImage = claimElement.querySelector('.claim__id');
-//     const claimHeader = claimElement.querySelector('.claim__cathegory');
-//     const claimPreview = claimElement.querySelector('.claim__verse');
-//     const claimBlock = claimElement.querySelector('.claim');
-//     const author = claimElement.querySelector('.claim__author');
-
-//     claimImage.src = item.image;
-//     claimHeader.textContent = item.cathegory;
-//     claimPreview.textContent = item.preview;
-
-//     let claimClicked = false;
-
-//     claimBlock.addEventListener('click', () => {
-//       if (claimClicked === false) {
-//         claimPreview.textContent = item.text;
-//         claimClicked = true;
-//         author.textContent = item.author
-//       } else {
-//         claimPreview.textContent = item.preview;
-//         claimClicked = false;
-//         author.textContent = ''
-//       }
-//     })
-//     container.append(claimElement);
-//   })
-// }
-
-// renderClaim(claimList.slice(0, 3), claimContainer)
-
-// const moreClaimsButton = document.querySelector('.popular__button');
-// moreClaimsButton.addEventListener('click', () => {
-//   renderClaim(claimList.slice(3, 6), claimContainer);
-//   popularText.textContent = "Чуть позже добавим еще новости!";
-//   moreClaimsButton.style.display = 'none';
-// })
 
 // пока так сделала прокрутку по клику, потом может перепишем на что-то получше
 const arrowBottom = document.querySelector('.hello__arrow-bottom');
@@ -130,6 +109,7 @@ tickerArray.forEach(item => {
 arrowBottom.addEventListener('click', () => {
   problemsList.scrollIntoView();
 });
+
 
 const closePopup = (popupToClose) => {
   popupToClose.classList.remove('popup_opened');
@@ -157,7 +137,7 @@ newsPopupButton.addEventListener('click', function () {
 
 const subCategory = new InitialSubcategories('.popup_subcategories', {
   openPopupWithForm: (allData, defCategory)=> {
-    form.open(allData, defCategory);
+    formPopup.open(allData, defCategory);
   }
 })
 
@@ -177,4 +157,3 @@ categoriesList.forEach(category => {
     });
   problemList.append(categoryCard.createCategory());
 });
-

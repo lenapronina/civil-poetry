@@ -79,44 +79,31 @@
           </div>
           <button type="button" class="popup__go-to-main-button">Вернуться на главную</button>
         </div>
-        <form class="popup__form">
+        <form class="popup__form" novalidate >
           <fieldset class="popup__fieldset">
-            <label class="popup__field">
-              <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="Имя" value="Аноним" required>
-            </label>
-            <label class="popup__field">
-              <input class="popup__input popup__input_type_town" type="text" name="location" placeholder="Местоположение" value="" minlength="2" required>
-            </label>
+            <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="Имя"value="Аноним" minlength="2" maxlength="40" required>
+            <input class="popup__input popup__input_type_town" type="text" name="location"placeholder="Местоположение" minlength="2" maxlength="40" required>     
           </fieldset>
-
           <div class="popup__poem">
-            <p class="popup__text">
-              
-            </p>
+            <p class="popup__text"></p>
           </div>
-
           <div class="popup__switch">
-            <button class="popup__poem-button popup__poem-button_prev">
+            <button class="popup__poem-button popup__poem-button_prev" type="button">
               <img class="popup__poem-button-icon" src="<%=require('./images/left-arrow.png')%>">
             </button>
             <p class="popup__text popup__text_switch">Смотреть больше стихов</p>
-            <button class="popup__poem-button popup__poem-button_next">
+            <button class="popup__poem-button popup__poem-button_next" type="button">
               <img class="popup__poem-button-icon" src="<%=require('./images/right-arrow.png')%>">
             </button>
           </div>
-
           <fieldset class="popup__checkbox-field">
             <label class="popup__checkbox-label" for="checkbox">
-              <input class="popup__checkbox" type="checkbox" id="checkbox" checked>
+              <input class="popup__checkbox" type="checkbox" id="checkbox">
               <span class="popup__visible-checkbox"></span>
               <span>Сохранить в ленте</span>
-          </label>
-          </fieldset>
-          
-          <button class="popup__submit-button" type="submit">
-            Пожаловаться
-          </button>
-
+            </label>
+          </fieldset> 
+          <button class="popup__submit-button" type="submit">Пожаловаться</button>
         </form>
       </div>
     </section>
