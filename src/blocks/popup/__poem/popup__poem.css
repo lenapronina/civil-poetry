@@ -14,6 +14,17 @@
   align-items: flex-start;
   background-clip: content-box;
   padding: 20px;
-  height: calc(100vh - 530px);
+  height: calc(100vh - 550px);
 }
 
+@media (max-width: 600px) {
+  .popup__poem {
+    height: calc(100vh - 600px);
+  }
+}
+
+@media (max-width: 360px) {
+  .popup__poem {
+      height: 45px;
+  }
+}

@@ -7,15 +7,23 @@
     font-weight: 400;
     font-style: normal;
     font-size: 16px;
-    min-height: 64px;
+    height: 64px;
     margin: 24px auto 0;
     width: 100%;
 }
 
+
+@media (max-width: 360px) {
+    .popup__submit-button {
+        height: 40px;
+        font-size: 14px;
+    }
+  }
+
 @media(min-width: 1024px) {
     .popup__submit-button:hover {
-    cursor: pointer;
-    opacity: 0.6;
-    transition: opacity 0.3s;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: opacity 0.3s;
     }  
 }

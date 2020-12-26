@@ -1,18 +1,37 @@
 .popup__input {
   width: 100%;
   box-sizing: border-box;
-  min-height: 44px;
+  min-height: 30px;
+  height: 44px;
   margin-bottom: 16px;
-  padding-left: 28px;
+  padding-left: 12px;
   border: 1px solid #F36755;
   box-shadow: none;
   border-radius: 16px;
   font-weight: 400;
+  font-family: 'PT Sans';
   font-style: normal;
   font-size: 16px;
-  color: #717171;
+  line-height: 21px;
+  color: #191919;
+}
+
+.popup__input:last-of-type {
+  margin-bottom: 4px;
 }
 
 .popup__input:focus {
   box-shadow: none;
 }
+
+.popup__input::placeholder{
+  color: #717171;
+}
+
+@media (max-width: 360px) {
+  .popup__input {
+    height: 30px;
+    font-size: 14px;
+  }
+}
+
