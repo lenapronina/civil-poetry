@@ -28,9 +28,8 @@ export default class InitialSubcategories {
   close() {
     this._popup.classList.remove('popup_opened');
     this._heading.textContent = '';
-    this. deleteChildren();
+    this.deleteChildren();
   }
-
 
   _getSubcategoryTemplate() {
     return document

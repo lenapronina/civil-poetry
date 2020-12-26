@@ -5,10 +5,11 @@ import arrowPrevActive from '../images/left-arrow.png';
 
 class PopupWithForm{
   
-  constructor(popupSelector, { submitForm, closeAllPopup }) {
+  constructor(popupSelector, { submitForm, deleteChildren, closeAllPopup }) {
     this._popup = document.querySelector(popupSelector);
     this._submitForm = submitForm;
-    this._closeAllPopup =closeAllPopup;
+    this._closeAllPopup = closeAllPopup;
+    this._deleteChildren = deleteChildren;
 
     this._form = this._popup.querySelector('.popup__form');
     this._backButton = this._popup.querySelector('.popup__wrapper_result');
@@ -24,32 +25,33 @@ class PopupWithForm{
   }
 
   open(item, category) {
+    this.count = 0;
     this._subCategory = item;
     this._category = category;
     this._submitButton.classList.add('popup__submit-button_inactive');
-    this._setPoem(this._subCategory.poems);
-    this.setEventListeners(this._subCategory.poems, this._category);
+    this._setPoem(this._subCategory.poems, this.count);
+    
     this._popup.classList.add('popup_opened');
+    this.setEventListeners(this._subCategory.poems, this._category);
   }
 
   close() {
     this._popup.classList.remove('popup_opened');
-    this._form.reset();
+    this.count = 0;
+    // this._poem.innerHTML = 'lllll';
+    
+    // //this._deleteChildren();
+    // this.count = 0;
+    // this._form.reset();
   }
 
-  _setPoem(subcategory){
-    
-    if(subcategory.length <= 1){
-      this._poem.innerHTML = subcategory[this.count];
-      this._disablePrevButton();
-      this._disableNextButton()
-    } else if(subcategory.length == 2){
-      this._poem.innerHTML = subcategory[this.count];
-      this._disablePrevButton();
-    } else {
-      this._poem.innerHTML = subcategory[this.count];
-      this._disablePrevButton();
-    }
+  _setPoem(subcategory, index){
+    this._poem.innerHTML = subcategory[index];
+   
+  }
+
+  _setPrevPoem(poemIndex){
+    this._poem.innerHTML = this._poems[poemIndex - 1];
   }
 
   _disablePrevButton(){
@@ -72,13 +74,13 @@ class PopupWithForm{
     this._nextPoemButton.querySelector('.popup__poem-button-icon').src = arrowNextActive;
   }
 
-  _setNextPoem(poemIndex){
-    this._poem.innerHTML = this._poems[poemIndex + 1];
-  }
+  // _setNextPoem(poemIndex){
+  //   this._poem.innerHTML = this._poems[poemIndex + 1];
+  // }
 
-  _setPrevPoem(poemIndex){
-    this._poem.innerHTML = this._poems[poemIndex-1];
-  }
+  // _setPrevPoem(poemIndex){
+  //   this._poem.innerHTML = this._poems[poemIndex - 1];
+  // }
 
 
   _isChecked(){
@@ -106,42 +108,41 @@ class PopupWithForm{
     this._poems = poems;
 
     this._backButton.addEventListener('click', () => {
+      // this._form.reset();
       this.close();
     });
 
-    this._backToMainPageButton.addEventListener('click', () => {
-      // this.close();
-      this._closeAllPopup();
-    });
+    // this._backToMainPageButton.addEventListener('click', () => {
+    //   this._closeAllPopup();
+    // });
 
-    this._form.addEventListener('submit', (evt) => {
-      console.log(1212)
-      evt.preventDefault();
-      this._submitForm(this._getInputValues(category, this._poems));
-      this._form.reset();
-    });
+    // this._form.addEventListener('submit', (evt) => {
+    //   evt.preventDefault();
+    //   this._submitForm(this._getInputValues(category, this._poems));
+    //   this._form.reset();
+    // });
 
     this._nextPoemButton.addEventListener('click', () => {
-  
+      console.log(this._poems)
       if((this._poems.length > this.count) && (this._poems.length > (this.count + 2))) {
         this._enablePrevButton();
-        this._setNextPoem(this.count);
+        this._setPoem(this._poems, this.count + 1);
       } else {
+        this._setPoem(this._poems, this.count + 1);
         this._enablePrevButton();
-        this._setNextPoem(this.count);
         this._disableNextButton();
       }
       this.count =  this.count + 1
     })
 
     this._prevPoemButton.addEventListener('click', () => {
-      
+      console.log(this._poems)
       if(this.count <= 1) {
-        this._setPrevPoem(this.count);
+        this._setPoem(this._poems, this.count - 1);
         this._disablePrevButton();
         this._enableNextButton();
       } else {
-        this._setPrevPoem(this.count);
+        this._setPoem(this._poems, this.count - 1);
         this._enableNextButton();
       }
       this.count =  this.count - 1
