@@ -1,5 +1,6 @@
 .popup__news-image {
-  max-width: 45vw;
-  max-height: 42vh;
   margin: 16px 0 31px;
-}
+  width: 320px;
+  height: 176px;
+  border-radius: 16px;
+};

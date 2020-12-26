@@ -27,38 +27,7 @@
 
     <section class="news" id="news">
       <h2 class="news__heading">Новости</h2>
-      <ul class="card-list">
-        <li class="card">
-          <div class="card__text-wrapper">
-            <h3 class="card__heading">Установка знаков после ДТП</h3>
-            <h4 class="card__city">г. Мурманск</h4>
-          </div>
-          <div>
-            <button class="card__like-button button" type="button" aria-label="Поставить лайк"></button>
-            <p class="card__like-counter">163</p>
-          </div>
-        </li>
-        <li class="card">
-          <div class="card__text-wrapper">
-            <h3 class="card__heading">Борьба с гололёдицей</h3>
-            <h4 class="card__city">г. Волгоград</h4>
-          </div>
-          <div>
-            <button class="card__like-button button" type="button" aria-label="Поставить лайк"></button>
-            <p class="card__like-counter">244</p>
-          </div>
-        </li>
-        <li class="card">
-          <div class="card__text-wrapper">
-            <h3 class="card__heading">Уборка кварталов</h3>
-            <h4 class="card__city">г. Екатеринбург</h4>
-          </div>
-          <div>
-            <button class="card__like-button button" type="button" aria-label="Поставить лайк"></button>
-            <p class="card__like-counter">138</p>
-          </div>
-        </li>
-      </ul>
+      <ul class="card-list"></ul>
       <div class="ticker">
         <p class="ticker__line">#ПРОВЕРЕНО_ДЛЯ_ЦЕНЗУРЫ&nbsp;&nbsp;&nbsp;#ПРОВЕРЕНО_ДЛЯ_ЦЕНЗУРЫ</p>
       </div>
@@ -133,8 +102,14 @@
 
     <section class="popup popup_news">
       <div class="popup__container popup__container_news">
-        <button class="popup__close-button button" type="button" aria-label="Закрыть окно"></button>
-        <img  class ="popup__news-image" src="<%=require('./images/news-znaki.jpg')%>" alt="Фото новость">
+        <div class="popup__news-wrapper">
+          <p class="popup__close-text">Закрыть</p>
+          <button class="popup__close-button button" type="button" aria-label="Закрыть окно"></button>
+        </div>
+        <div class="popup__image-wrapper">
+          <img class="popup__news-image" src="<%=require('./images/news-znaki.jpg')%>" alt="Фото новость">
+          <p class="popup__news-city">Город</p>
+        </div>
         <h2 class="popup__heading">Заголовок</h2>
         <p class="popup__news-info">Описание новости со всеми подробностями</p>
       </div>
@@ -172,6 +147,19 @@
   <template class="popup-subcategory-template">
     <li class="problem problem_popup">
       <h3 class="problem__name"></h3>
+    </li>
+  </template>
+
+  <template class="card-template">
+    <li class="card">
+      <div class="card__text-wrapper">
+        <h3 class="card__heading"></h3>
+        <h4 class="card__city"></h4>
+      </div>
+      <div>
+        <button class="card__like-button button" type="button" aria-label="Поставить лайк"></button>
+        <p class="card__like-counter"></p>
+      </div>
     </li>
   </template>
 </body>

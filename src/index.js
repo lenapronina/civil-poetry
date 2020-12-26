@@ -13,6 +13,9 @@ import arrowNextActive from './images/right-arrow.png';
 import arrowPrevActive from './images/left-arrow.png';
 import { Api } from './components/Api.js';
 import PopupWithForm from './components/PopupWithForm.js'
+import popupZnaki from './images/popup-znaki.jpg';
+import popupBorba from './images/popup-borba.jpg';
+import popupUborka from './images/popup-uborka.jpg';
 
 // new Api instanse
 const api = new Api({
@@ -62,7 +65,7 @@ const goBackToSubcategoriesButton = document.querySelector('.popup__wrapper_resu
 
 const newsCards = Array.from(document.querySelectorAll('.card'));
 const newsPopup = document.querySelector('.popup_news');
-const newsPopupButton = newsPopup.querySelector('.button');
+const newsPopupButton = newsPopup.querySelector('.popup__news-wrapper');
 const template = document.querySelector('.popup-news-template');
 
 function renderClaim(claimArray, container) {
@@ -138,36 +141,76 @@ goBackToSubcategoriesButton.addEventListener('click', () => {
   formValidator.resetValidation();
 });
 
-//реализую открытие попапа по клику на новость, слушатель нажатия на лайк со счетчиком
-newsCards.forEach((card) => {
-  card.addEventListener('click', (evt) => {
-    if (evt.target.classList.contains('card')) {
-      getCardElement(card);
-      newsPopup.classList.add('popup_opened');
-    }
-  })
+const cardList = document.querySelector('.card-list');
+const createCardElement = (card, templateSelector) => {
+  const element = document.querySelector('.card-template').content.cloneNode(true);
+  element.querySelector('.card__heading').textContent = card.title;
+  element.querySelector('.card__city').textContent = card.city;
 
-  const newsLikeButton = card.querySelector('.card__like-button');
-  let count = card.querySelector('.card__like-counter').textContent;
-  newsLikeButton.addEventListener('click', function() {
-    newsLikeButton.classList.toggle('card__like-button_active');
-    if (newsLikeButton.classList.contains('card__like-button_active')) {
-      count = Number(count) + 1;
-    }
-    else {
-      count = Number(count) - 1;
-    }
-    card.querySelector('.card__like-counter').textContent = count;
+  return element;
+};
+
+api.getNews()
+  .then(res => {
+  const resArray = Array.from(res);
+  resArray.forEach((card) => {
+    const cardElement = createCardElement(card);
+    const backgroundCard = cardElement.querySelector(".card");
+
+    backgroundCard.style.backgroundImage = `linear-gradient(1turn,#191919,#000 .01%,hsla(0,0%,62%,0) 82.21%),
+    url(${card.link})`;
+
+    backgroundCard.addEventListener("click", (evt) => {
+      if (evt.target.classList.contains("card")) {
+        getCardElement(card);
+        newsPopup.classList.add("popup_opened");
+      }
+    });
+
+    const newsLikeButton = cardElement.querySelector(".card__like-button");
+    let count = cardElement.querySelector(".card__like-counter").textContent;
+    newsLikeButton.addEventListener("click", function () {
+      newsLikeButton.classList.toggle("card__like-button_active");
+      if (newsLikeButton.classList.contains("card__like-button_active")) {
+        count = Number(count) + 1;
+      } else {
+        count = Number(count) - 1;
+      }
+      cardElement.querySelector(".card__like-counter").textContent = count;
+    });
+
+    cardList.append(cardElement);
   });
-})
 
-newsPopupButton.addEventListener('click', function () {
-  newsPopup.classList.remove('popup_opened');
-})
+    newsPopupButton.addEventListener('click', function () {
+      newsPopup.classList.remove('popup_opened');
+    })
 
-const getCardElement = (card) => {
-  const newsName = newsPopup.querySelector('.popup__heading');
-  newsName.textContent = card.querySelector('.card__heading').textContent;
+    const getCardElement = (card) => {
+      const newsName = newsPopup.querySelector('.popup__heading');
+      const newsInfo = newsPopup.querySelector('.popup__news-info');
+      const newsCity = newsPopup.querySelector('.popup__news-city');
+      newsName.textContent = card.title;
+      newsInfo.textContent = card.description;
+      newsCity.textContent = card.city;
+      addPopupImage(card);
+    }
+  }
+    )
+  .catch(err => console.log(err))
+;
+
+function addPopupImage(card) {
+  const newsPopupImage = newsPopup.querySelector('.popup__news-image');
+  if (card.id == "5fe38d0d1b8497bea49b2772") {
+    newsPopupImage.src = popupZnaki;
+  }
+  else if (card.id == "5fe38dac1b8497bea49b2773") {
+    newsPopupImage.src = popupBorba;
+  }
+  else if (card.id == "5fe38dda1b8497bea49b2774") {
+    newsPopupImage.src = popupUborka;
+  }
 }
 
 //enable form validation
