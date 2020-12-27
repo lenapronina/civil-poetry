@@ -18,7 +18,7 @@
          отслеживать статус заявки.</p>
       <button class="hello__arrow-bottom"></button>
       <div class="ticker">
-        <p class="ticker__line">#ПРОВЕРЕНО_ДЛЯ_ЦЕНЗУРЫ&nbsp;&nbsp;&nbsp;#ПРОВЕРЕНО_ДЛЯ_ЦЕНЗУРЫ</p>
+        <p class="ticker__line">#ПРОВЕРЕНО_ДЛЯ_ЦЕНЗУРЫ&nbsp;&nbsp;&nbsp;#ПРОВЕРЕНО_ДЛЯ_ЦЕНЗУРЫ&nbsp;&nbsp;&nbsp;</p>
       </div>
     </section>
     <section class="problems-list">
@@ -83,21 +83,27 @@
           </div>
           <button type="button" class="popup__go-to-main-button">Вернуться на главную</button>
         </div>
-        <form class="popup__form" novalidate >
+        <form class="popup__form" method="POST" action="#" novalidate>
           <fieldset class="popup__fieldset">
-            <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="Имя"value="Аноним" minlength="2" maxlength="40" required>
-            <input class="popup__input popup__input_type_town" type="text" name="location"placeholder="Местоположение" minlength="2" maxlength="40" required>
+
+            <input class="popup__input popup__input_type_name" type="text" name="name" id="name" placeholder="Имя*" minlength="2" maxlength="40" required>
+            <span class="popup__caption" id="name-error">На вашу почту придёт уведомление о состоянии жалобы</span> 
+            <input class="popup__input popup__input_type_town" type="text" name="location" id="location" placeholder="Город*" minlength="2" maxlength="40" required> 
+            <span class="popup__caption" id="location-error">На вашу почту придёт уведомление о состоянии жалобы</span>  
+            <input class="popup__input popup__input_type_email" type="email" name="email" id="email" placeholder="Электронная почта">  
+            <span class="popup__caption popup__caption_email" id="email-error">На почту придёт уведомление о статусе жалобы</span> 
+
           </fieldset>
           <div class="popup__poem">
             <p class="popup__text"></p>
           </div>
-         <div class="popup__switch">
+          <div class="popup__switch">
             <button class="popup__poem-button popup__poem-button_prev" type="button">
-              <img class="popup__poem-button-icon" src="<%=require('./images/left-arrow.png')%>">
+              <img class="popup__poem-button-icon" src="<%=require('./images/left-arrow.svg')%>">
             </button>
             <p class="popup__text popup__text_switch">Смотреть больше стихов</p>
             <button class="popup__poem-button popup__poem-button_next" type="button">
-              <img class="popup__poem-button-icon" src="<%=require('./images/right-arrow.png')%>">
+              <img class="popup__poem-button-icon" src="<%=require('./images/right-arrow.svg')%>">
             </button>
          </div>
 
@@ -132,12 +138,12 @@
       <div class="popup__container popup__container_submit-success">
         <img class="popup__image" alt="Галочка вверх" src="<%=require('./images/popup-success-image.svg')%>">
         <h2 class="popup__heading popup__heading_submit-success">Успех!</h2>
-        <p class="popup__heading">Жалоба отправлена</p>
+        <p class="popup__heading popup__heading_send">Жалоба отправлена</p>
         <a class="popup__link" href="#news">Перейти к интересному</a>
       </div>
     </section>
 
-    <section class="popup popup_cookies popup_opened">
+    <section class="popup popup_cookies">
       <div class="popup__container popup__container_cookies">
         <p class="popup__text popup__text_cookies">Мы тоже используем куки, потому что без них ничего не работает.
           Не беспокойтесь о своей безопасности и анонимности, всё под контролем.</p>

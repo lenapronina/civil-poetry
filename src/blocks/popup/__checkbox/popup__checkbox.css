@@ -1,13 +1,13 @@
 .popup__checkbox {
   position: absolute;
-  width: 1px; /* если у элемента не будет размеров, некоторые браузеры посчитают, что его вообще нет */
+  width: 1px;
   height: 1px;
-  overflow: hidden; /* без этого свойства тоже сработает, но так наверняка. Мы его ещё изучим, оно скрывает элементы, выходящие за границы родителя */
+  overflow: hidden;
   clip: rect(0 0 0 0);
 }
 
 .popup__checkbox:checked + .popup__visible-checkbox {
-  background-image: url('../../../images/checkbox-checked.png');
+  background-image: url('../../../images/checkbox-checked.svg');
   background-position: center;
   background-size: contain;
 }

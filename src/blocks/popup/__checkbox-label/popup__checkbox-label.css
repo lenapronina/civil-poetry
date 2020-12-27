@@ -5,6 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #F36755;
 }
 
 .popup__checkbox:hover {
