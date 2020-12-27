@@ -1,0 +1,9 @@
+@media(min-width: 1024px) {
+    .transition-opacity {
+      transition: opacity linear 0.3s;
+    }
+    .transition-opacity:hover {
+      cursor: pointer;
+      opacity: 0.6;
+    }
+  }
