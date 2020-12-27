@@ -1,3 +1,7 @@
+const generateId =() => {
+  return '_' + Math.random().toString(36).substr(2, 9);
+};
+
 const animateTicker = (item, innerElementSelector, duration) => {
   const outerElement = item;
   const innerEl = outerElement.querySelector(innerElementSelector);
@@ -25,4 +29,4 @@ const animateTicker = (item, innerElementSelector, duration) => {
   });
 }
 
-export { animateTicker };
+export { generateId, animateTicker };

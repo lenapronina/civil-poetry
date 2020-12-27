@@ -1,6 +1,6 @@
 import './styles/index.css';
 
-import { animateTicker } from './utils/utils.js';
+import { generateId, animateTicker } from './utils/utils.js';
 import FormValidator from './components/FormValidator.js';
 import InitialSubcategories from './components/InitialSubcategories.js';
 import InitialCategories from './components/InicialCategories.js'
@@ -15,6 +15,8 @@ import popupBorba from './images/popup-borba.jpg';
 import popupUborka from './images/popup-uborka.jpg';
 
 
+const popupCookies = document.querySelector('.popup_cookies');
+
 // new Api instanse
 const api = new Api({
   baseUrl: 'https://civil-poetry-app.herokuapp.com',
@@ -23,18 +25,41 @@ const api = new Api({
   }
 });
 
+const popularButton = document.querySelector('.popular__button');
+const popularMore = document.querySelector('.popular__more');
+
+
 // form validation instance and validate method
 const formValidator = new FormValidator('.popup__form');
-formValidator.enableValidation();
+
 
 const popupSuccess = document.querySelector('.popup_submit-success');
 const popupAll = document.querySelectorAll('.popup');
 const newsLink = document.querySelector('.popup__link');
 
 const claimContainer = document.querySelector('.claim-list');
-const popupCookies = document.querySelector('.popup_cookies');
+
+const problemList = document.querySelector('.problems-list__wrapper');
+
+// пока так сделала прокрутку по клику, потом может перепишем на что-то получше
+const arrowBottom = document.querySelector('.hello__arrow-bottom');
+const problemsList = document.querySelector('.problems-list');
+
+//элементы для бегущей строки (пока для одной, потом в класс перепишу)
+const tickerArray = document.querySelectorAll('.ticker')
+
+const newsPopup = document.querySelector('.popup_news');
+const newsPopupButton = newsPopup.querySelector('.button');
+
+const cardList = document.querySelector('.card-list');
+
+if(!sessionStorage.getItem('id')){
+  sessionStorage.setItem('id', generateId());
+  popupCookies.classList.add('popup_opened')
+}
 
 
+formValidator.enableValidation();
 const submitNewClaim = (claimProps) => {
 
   api.postNewClaim(claimProps)
@@ -50,7 +75,6 @@ const submitNewClaim = (claimProps) => {
 
 
 newsLink.addEventListener('click', ()=>{
-  console.log(123)
   popupAll.forEach(popup => {
     closePopup(popup);
   })
@@ -60,14 +84,13 @@ const formPopup = new PopupWithForm('.popup_result', {
   submitForm: (claimProps)=>{
     submitNewClaim(claimProps);
     subCategory.deleteChildren();
-  }, 
+  },
   closeAllPopup: () => {
-    category.close();
+    subCategory.close();
+    formPopup.close();
   }
 });
 
-const popularButton = document.querySelector('.popular__button');
-const popularMore = document.querySelector('.popular__more');
 
 const getClaimsData = (container) => {
   api.getClaims()
@@ -100,14 +123,7 @@ const getClaimsData = (container) => {
 
 getClaimsData(claimContainer)
 
-const problemList = document.querySelector('.problems-list__wrapper');
 
-// пока так сделала прокрутку по клику, потом может перепишем на что-то получше
-const arrowBottom = document.querySelector('.hello__arrow-bottom');
-const problemsList = document.querySelector('.problems-list');
-
-//элементы для бегущей строки (пока для одной, потом в класс перепишу)
-const tickerArray = document.querySelectorAll('.ticker')
 tickerArray.forEach(item => {
   animateTicker(item, '.ticker__line', 10000);
 });
@@ -126,11 +142,7 @@ const openPopup = (popupToOpen) => {
   popupToOpen.classList.add('popup_opened');
 };
 
-const newsCards = Array.from(document.querySelectorAll('.card'));
-const newsPopup = document.querySelector('.popup_news');
-const newsPopupButton = newsPopup.querySelector('.button');
 
-const cardList = document.querySelector('.card-list');
 const createCardElement = (card, templateSelector) => {
   const element = document.querySelector('.card-template').content.cloneNode(true);
   element.querySelector('.card__heading').textContent = card.title;
