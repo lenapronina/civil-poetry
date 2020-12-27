@@ -9,7 +9,11 @@ class PopupWithForm{
     this._popup = document.querySelector(popupSelector);
     this._submitForm = submitForm;
     this._closeAllPopup = closeAllPopup;
+<<<<<<< HEAD
   
+=======
+    
+>>>>>>> dev
     this._form = this._popup.querySelector('.popup__form');
     this._backButton = this._popup.querySelector('.popup__wrapper_result');
     this._backToMainPageButton = this._popup.querySelector('.popup__go-to-main-button');
