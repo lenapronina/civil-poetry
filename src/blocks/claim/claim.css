@@ -8,3 +8,9 @@
 .claim:last-of-type {
   border-bottom: 1px solid rgba(255, 255, 255, 1);
 }
+
+@media(min-width: 1024px) {
+  .claim {
+    border: 1px solid #FFFFFF;
+  }
+}

@@ -3,3 +3,12 @@
   display: flex;
   flex-direction: column;
 }
+
+@media(min-width: 1024px) {
+  .claim-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 0;
+  }
+}

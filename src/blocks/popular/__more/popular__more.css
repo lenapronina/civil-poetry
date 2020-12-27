@@ -10,3 +10,8 @@
 }
 
 
+@media(min-width: 1024px) {
+  .popular__more {
+    margin-top: 40px;
+  }
+}
