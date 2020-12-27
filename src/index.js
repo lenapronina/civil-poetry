@@ -84,9 +84,6 @@ const formPopup = new PopupWithForm('.popup_result', {
   submitForm: (claimProps)=>{
     submitNewClaim(claimProps);
     subCategory.deleteChildren();
-  },
-  deleteChildren: ()=>{
-    subCategory.deleteChildren();
   }, 
   closeAllPopup: () => {
     subCategory.close();
