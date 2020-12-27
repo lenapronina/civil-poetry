@@ -3,16 +3,35 @@
   box-sizing: border-box;
   text-align: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  border: 1px solid #F36755;
+  border: 1px solid #f36755;
   border-radius: 16px;
   color: #191919;
   line-height: 20px;
   overflow: scroll;
-  scrollbar-color: #FF4040 #D0D0D0;
+  scrollbar-color: #ff4040 #d0d0d0;
   align-items: flex-start;
   background-clip: content-box;
-  padding: 20px;
-  height: calc(100vh - 630px);
+  padding: 20px 40px;
+  height: calc(100vh - 550px);
 }
+
+@media (max-width: 1024px) {
+  .popup__poem {
+    height: calc(100vh - 635px);
+  }
+}
+
+@media (max-width: 360px) {
+  .popup__poem {
+    height: 45px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .popup__poem {
+    height: calc(100vh - 688px);
+  }
+}
+

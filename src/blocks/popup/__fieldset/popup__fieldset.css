@@ -6,3 +6,10 @@
     padding: 0;
     margin-bottom: 16px;
 }
+
+@media screen and (min-width: 1440px) {
+  .popup__fieldset {
+    max-width: 542px;
+    margin-right: 33px;
+  }
+}

@@ -2,14 +2,19 @@
   width: 100%;
   height: 100%;
   min-height: 48px;
-  border: 1px solid #F36755;
+  border: 1px solid #f36755;
   box-shadow: none;
+  max-width: 736px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
 }
 
-@media(min-width: 1024px) {
+@media (min-width: 1024px) {
   .problem_popup:hover {
-    color: #FFFFFF;
-    background-color: #F36755;
+    color: #ffffff;
+    background-color: #f36755;
     border: none;
     cursor: pointer;
   }

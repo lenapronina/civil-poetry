@@ -1,0 +1,13 @@
+.popup__form-image {
+  display: none;
+  width: 430px;
+  height: 370px;
+  position: absolute;
+  bottom: 0;
+}
+
+@media screen and (min-width: 1440px) {
+  .popup__form-image {
+    display: block;
+  }
+}

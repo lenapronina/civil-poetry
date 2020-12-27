@@ -68,6 +68,9 @@
 @import url(../blocks/popup/__close-button/popup__close-button.css);
 @import url(../blocks/popup/__news-info/popup__news-info.css);
 @import url(../blocks/popup/__news-image/popup__news-image.css);
+@import url(../blocks/popup/__heading/_subcategories/popup__heading_subcategories.css);
+@import url(../blocks/popup/__poem-wrapper/popup__poem-wrapper.css);
+@import url(../blocks/popup/__form-image/popup__form-image.css);
 
 @import url(../blocks/popup/__text/popup__text.css);
 @import url(../blocks/popup/__text/_switch/popup__text_switch.css);
