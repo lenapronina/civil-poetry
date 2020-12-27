@@ -15,7 +15,7 @@
          — мы предлагаем стихотворную жалобу.</p>
       <p class="hello__description">Не забудьте указать адрес электронной почты, чтобы
          отслеживать статус заявки.</p>
-      <button class="hello__arrow-bottom"></button>
+      <button class="hello__arrow-bottom transition-opacity"></button>
       <div class="ticker">
         <p class="ticker__line">#ПРОВЕРЕНО_ДЛЯ_ЦЕНЗУРЫ&nbsp;&nbsp;&nbsp;#ПРОВЕРЕНО_ДЛЯ_ЦЕНЗУРЫ&nbsp;&nbsp;&nbsp;</p>
       </div>
@@ -42,7 +42,7 @@
       <h2 class="popular__heading">Популярное</h2>
       <ul class="claim-list"></ul>
       <h4 class="popular__more">Смотреть больше</h4>
-      <button class="popular__button"></button>
+      <button class="popular__button transition-opacity"></button>
     </section>
 
     <div class="ticker ticker_footer">
@@ -51,23 +51,23 @@
 
     <footer class="footer">
       <nav class="footer__nav">
-        <a class="footer__link" href="https://praktikum.yandex.ru/" target="_blank" rel="noopener noreferrer">
+        <a class="footer__ transition-opacity" href="https://praktikum.yandex.ru/" target="_blank" rel="noopener noreferrer">
           <img class="footer__icon-link" src="<%=require('./images/yandex-icon.png')%>" alt="ссылка на Яндекс">
         </a>
-        <a class="footer__link" href="https://vk.com/yandex.praktikum" target="_blank" rel="noopener noreferrer">
+        <a class="footer__link transition-opacity" href="https://vk.com/yandex.praktikum" target="_blank" rel="noopener noreferrer">
           <img class="footer__icon-link" src="<%=require('./images/vk-icon.png')%>" alt="ссылка на Вконтакте">
         </a>
-        <a class="footer__link" href="https://www.facebook.com/yandex.praktikum/" target="_blank" rel="noopener noreferrer">
+        <a class="footer__link transition-opacity" href="https://www.facebook.com/yandex.praktikum/" target="_blank" rel="noopener noreferrer">
           <img class="footer__icon-link" src="<%=require('./images/fb-icon.png')%>" alt="ссылка на Фэйсбук">
         </a>
       </nav>
       <p class="footer__copyright">&laquo;Гражданин Поэт&raquo;</p>
-      <a class="footer__link" href="#">Политика конфиденциальности</a>
+      <a class="footer__link transition-opacity" href="#">Политика конфиденциальности</a>
     </footer>
 
     <section class="popup popup_subcategories">
       <div class="popup__container">
-        <div class="popup__wrapper popup__wrapper_subcategories">
+        <div class="popup__wrapper popup__wrapper_subcategories transition-opacity">
           <button class="popup__backward-button button"></button>
           <p class="popup__back-text">Назад</p>
         </div>
@@ -81,11 +81,11 @@
     <section class="popup popup_result">
       <div class="popup__container popup__container_result">
         <div class="popup__header">
-          <div class="popup__wrapper popup__wrapper_result">
+          <div class="popup__wrapper popup__wrapper_result transition-opacity">
             <button class="popup__backward-button button"></button>
             <p class="popup__back-text">Назад</p>
           </div>
-          <button type="button" class="popup__go-to-main-button">Вернуться на главную</button>
+          <button type="button" class="popup__go-to-main-button transition-opacity">Вернуться на главную</button>
         </div>
         <form class="popup__form" method="POST" action="#" novalidate>
           <fieldset class="popup__fieldset">
@@ -102,11 +102,11 @@
             <p class="popup__text"></p>
           </div>
           <div class="popup__switch">
-            <button class="popup__poem-button popup__poem-button_prev" type="button">
+            <button class="popup__poem-button popup__poem-button_prev transition-opacity" type="button">
               <img class="popup__poem-button-icon" src="<%=require('./images/left-arrow.svg')%>">
             </button>
             <p class="popup__text popup__text_switch">Смотреть больше стихов</p>
-            <button class="popup__poem-button popup__poem-button_next" type="button">
+            <button class="popup__poem-button popup__poem-button_next transition-opacity" type="button">
               <img class="popup__poem-button-icon" src="<%=require('./images/right-arrow.svg')%>">
             </button>
          </div>
@@ -118,7 +118,7 @@
               <span>Сохранить в ленте</span>
             </label>
           </fieldset>
-          <button class="popup__submit-button" type="submit">Пожаловаться</button>
+          <button class="popup__submit-button transition-opacity" type="submit">Пожаловаться</button>
         </form>
       </div>
     </section>
@@ -127,7 +127,7 @@
       <div class="popup__container popup__container_news">
         <div class="popup__news-wrapper">
           <p class="popup__close-text">Закрыть</p>
-          <button class="popup__close-button button" type="button" aria-label="Закрыть окно"></button>
+          <button class="popup__close-button button transition-opacity" type="button" aria-label="Закрыть окно"></button>
         </div>
         <div class="popup__image-wrapper">
           <img class="popup__news-image" src="<%=require('./images/news-znaki.jpg')%>" alt="Фото новость">
@@ -143,7 +143,7 @@
         <img class="popup__image" alt="Галочка вверх" src="<%=require('./images/popup-success-image.svg')%>">
         <h2 class="popup__heading popup__heading_submit-success">Успех!</h2>
         <p class="popup__heading popup__heading_send">Жалоба отправлена</p>
-        <a class="popup__link" href="#news">Перейти к интересному</a>
+        <a class="popup__link transition-opacity" href="#news">Перейти к интересному</a>
       </div>
     </section>
 
@@ -151,7 +151,7 @@
       <div class="popup__container popup__container_cookies">
         <p class="popup__text popup__text_cookies">Мы тоже используем куки, потому что без них ничего не работает.
           Не беспокойтесь о своей безопасности и анонимности, всё под контролем.</p>
-        <button type="button" class="popup__go-button" href="#hello">Понятно</button>
+        <button type="button" class="popup__go-button transition-opacity" href="#hello">Понятно</button>
       </div>
     </section>
 
@@ -172,7 +172,7 @@
             <h3 class="claim__cathegory">Категория</h3>
             <p class="claim__city">Город</p>
           </div>
-          <button class="claim__open-button"></button>
+          <button class="claim__open-button transition-opacity"></button>
           <p class="claim__verse">Стих</p>
       </div>
     </li>
@@ -191,7 +191,7 @@
         <h4 class="card__city"></h4>
       </div>
       <div>
-        <button class="card__like-button button" type="button" aria-label="Поставить лайк"></button>
+        <button class="card__like-button button transition-opacity" type="button" aria-label="Поставить лайк"></button>
         <p class="card__like-counter"></p>
       </div>
     </div>
