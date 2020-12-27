@@ -28,6 +28,7 @@
         justify-content: space-around;
         padding: 0 100px;
         text-align: left;
+        border-radius: 0;
     }
 }
 
