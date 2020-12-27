@@ -103,7 +103,7 @@ const getClaimsData = (container) => {
   api.getClaims()
     .then(res => {
       const allClaims = res.filter(item => item.checked === 'checked');
-      let startElemntIndex = allClaims.length - 3;
+      let startElemntIndex = allClaims.length - 6;
       let lastElementIndex = allClaims.length;
       let initialClaims = allClaims.slice(startElemntIndex, lastElementIndex);
       initialClaims.forEach( item => {
@@ -112,14 +112,14 @@ const getClaimsData = (container) => {
       })
       popularButton.addEventListener('click', ()=> {
         if(!(startElemntIndex<=0)){
-          let nextClaims = allClaims.slice(startElemntIndex - 3, lastElementIndex - 3);
+          let nextClaims = allClaims.slice(startElemntIndex - 6, lastElementIndex - 6);
 
           nextClaims.reverse().forEach( item => {
             const claimItem = new Claim('.claim-template', item);
             container.append(claimItem.createClaimElement());
           })
-          startElemntIndex = startElemntIndex - 3;
-          lastElementIndex = lastElementIndex - 3;
+          startElemntIndex = startElemntIndex - 6;
+          lastElementIndex = lastElementIndex - 6;
         } else {
           popularMore.textContent = "Всё!";
         }
@@ -151,10 +151,9 @@ const openPopup = (popupToOpen) => {
 
 
 const createCardElement = (card, templateSelector) => {
-  const element = document.querySelector('.card-template').content.cloneNode(true);
+  const element = document.querySelector(templateSelector).content.cloneNode(true);
   element.querySelector('.card__heading').textContent = card.title;
   element.querySelector('.card__city').textContent = card.city;
-
   return element;
 };
 
@@ -162,7 +161,7 @@ api.getNews()
   .then(res => {
   const resArray = Array.from(res);
   resArray.forEach((card) => {
-    const cardElement = createCardElement(card);
+    const cardElement = createCardElement(card, '.card-template');
     const backgroundCard = cardElement.querySelector(".card");
 
     backgroundCard.style.backgroundImage = `linear-gradient(1turn,#191919,#000 .01%,hsla(0,0%,62%,0) 82.21%),
@@ -174,6 +173,7 @@ api.getNews()
         newsPopup.classList.add("popup_opened");
       }
     });
+   
 
     const newsLikeButton = cardElement.querySelector(".card__like-button");
 
@@ -205,7 +205,8 @@ api.getNews()
     cardList.append(cardElement);
   });
 
-const allCards = document.querySelectorAll('.card')
+const allCards = document.querySelectorAll('.card');
+const swiperSlides = document.querySelectorAll('.swiper-slide')
 let index = 1; 
 allCards.forEach( card => {
   card['data-hash'] = `hash-${index}`
@@ -224,22 +225,27 @@ if (screen.width <= 600 ) {
     }  
   })
 
-  newsPopupButton.addEventListener('click', function () {
-    newsPopup.classList.remove('popup_opened');
-    
-  })
+ 
 } else {
   const swiper = new Swiper('.swiper-container', {
-    slidesPerView: 2,
-    spaceBetween: 30,
+    slidesPerView: 3,
+    spaceBetween: 40,
     loop: true,
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
-    }})
+    }
+  })
+  swiperSlides.forEach( card => {
+    card.classList.add('card_new')
+  })
+  
 }
 
-
+newsPopupButton.addEventListener('click', function () {
+  newsPopup.classList.remove('popup_opened');
+  
+})
     
 
     const getCardElement = (card) => {

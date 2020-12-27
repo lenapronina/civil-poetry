@@ -94,9 +94,9 @@
 @import url(../blocks/hello/__description/hello__description.css);
 @import url(../blocks/hello/__arrow-bottom/hello__arrow-bottom.css);
 @import url(../blocks/hello/__subheading/hello__subheading.css);
-@import url(../blocks/swiper-container/swiper-container.css);
+/* @import url(../blocks/swiper-container/swiper-container.css);
 @import url(../blocks/swiper-slide/swiper-slide.css);
-@import url(../blocks/swiper-pagination-bullet/swiper-pagination-bullet.css);
+@import url(../blocks/swiper-pagination-bullet/swiper-pagination-bullet.css); */
 
 @import url(../blocks/popup/__switch/popup__switch.css);
 @import url(../blocks/popup/__text/popup__text.css);
@@ -137,15 +137,14 @@
 @media (min-width: 500px) {
   
   .swiper-container {
-    width: 100% - 100px;
+    height: 500px;
   }
-  
-}
+  .swiper-wrapper {
+    width: 400px;
+    height: 500px;
+  }
 
-@media (min-width: 900px) {
-  
-  .swiper-container {
-    width: 100% - 320px;
+  .swiper-slide{
+    height: 400px;
   }
-  
 }
