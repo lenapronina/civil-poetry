@@ -5,12 +5,11 @@ import arrowPrevActive from '../images/left-arrow.svg';
 
 class PopupWithForm{
   
-  constructor(popupSelector, { submitForm, deleteChildren, closeAllPopup }) {
+  constructor(popupSelector, { submitForm, closeAllPopup }) {
     this._popup = document.querySelector(popupSelector);
     this._submitForm = submitForm;
     this._closeAllPopup = closeAllPopup;
-    this._deleteChildren = deleteChildren;
-
+    
     this._form = this._popup.querySelector('.popup__form');
     this._backButton = this._popup.querySelector('.popup__wrapper_result');
     this._backToMainPageButton = this._popup.querySelector('.popup__go-to-main-button');
