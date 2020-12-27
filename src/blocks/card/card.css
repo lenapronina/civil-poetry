@@ -23,24 +23,3 @@
   object-fit: cover;
   border-radius: 16px;
 }
-
-@media screen and (min-width: 675px) {
-  .card {
-    background-color: blue;
-   
-  }
-}
-
-@media screen and (min-width: 600px) {
-  .card {
-    width: 544px;
-    height: 675px; 
-  }
-
-  .swiper-slide {
-    width: 544px;
-    height: 675px; 
-  }
-  
-}
-

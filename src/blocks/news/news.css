@@ -2,25 +2,3 @@
   background-color: white;
   padding: 64px 0 80px;
 }
-
-
-@media screen and (min-width: 531px) {
-  .news {
-    background-color: red;
-  }
-}
-
-@media screen and (min-width: 675px) {
-  .news {
-    background-color: blue;
-   
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .news {
-    background-color: grey;
-  
-  }
-  
-}

@@ -1,4 +1,5 @@
 import 'swiper/swiper-bundle.css';
+import 'swiper/swiper-bundle.min.css';
 import './styles/index.css';
 import Swiper from 'swiper/bundle';
 
@@ -210,34 +211,36 @@ allCards.forEach( card => {
   card['data-hash'] = `hash-${index}`
   return index++
 })
-
-const swiper = new Swiper('.swiper-container', {
-  
-  hashNavigation: {
-    watchState: true,
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    type: 'bullets',
-    clickable: 'true', 
-  },
-  breakpoints: {
-    // when window width is <= 499px
-    499: {
-        slidesPerView: 1,
-        spaceBetweenSlides: 24
+if (screen.width <= 600 ) {
+  const swiper = new Swiper('.swiper-container', {
+    spaceBetween: 24,
+    hashNavigation: {
+      watchState: true,
     },
-    // when window width is <= 999px
-    999: {
-        slidesPerView: 2,
-        spaceBetweenSlides: 50
-    }
-}
-})
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: 'true', 
+    }  
+  })
 
-    newsPopupButton.addEventListener('click', function () {
-      newsPopup.classList.remove('popup_opened');
-    })
+  newsPopupButton.addEventListener('click', function () {
+    newsPopup.classList.remove('popup_opened');
+    
+  })
+} else {
+  const swiper = new Swiper('.swiper-container', {
+    slidesPerView: 2,
+    spaceBetween: 30,
+    loop: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    }})
+}
+
+
+    
 
     const getCardElement = (card) => {
       const newsName = newsPopup.querySelector('.popup__heading');
