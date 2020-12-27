@@ -190,22 +190,29 @@ api.getNews()
       }
       cardElement.querySelector(".card__like-counter").textContent = count;
     });
-
     cardList.append(cardElement);
-    const swiper = new Swiper('.swiper-container', {
-      spaceBetween: 24,
-      
-      
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
-        clickable: 'true',
-       
-      }
-      
-    })
-   
+    
+    
   });
+
+const allCards = document.querySelectorAll('.card')
+let index = 1; 
+allCards.forEach( card => {
+  card['data-hash'] = `hash-${index}`
+  return index++
+})
+
+const swiper = new Swiper('.swiper-container', {
+  spaceBetween: 24,
+  hashNavigation: {
+    watchState: true,
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'bullets',
+    clickable: 'true', 
+  }  
+})
 
     newsPopupButton.addEventListener('click', function () {
       newsPopup.classList.remove('popup_opened');
@@ -220,8 +227,7 @@ api.getNews()
       newsCity.textContent = card.city;
       addPopupImage(card);
     }
-  }
-    )
+  })
   .catch(err => console.log(err))
 ;
 
