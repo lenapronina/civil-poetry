@@ -11,8 +11,8 @@
 
 @media screen and (min-width: 1024px) {
   .popup__container {
-    max-width: 80vw;
-    max-height: 87%;
+    width: 80vw;
+    height: 87%;
     border-radius: 16px;
   }
 }
