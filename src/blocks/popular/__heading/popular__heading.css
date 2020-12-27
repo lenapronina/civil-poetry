@@ -8,3 +8,11 @@
   line-height: 31px;
   color: #191919;
 }
+
+
+@media(min-width: 1024px) {
+  .popular__heading {
+    margin-bottom: 56px;
+    font-size: 40px;
+  }
+}

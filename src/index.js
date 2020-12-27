@@ -1,4 +1,7 @@
+import 'swiper/swiper-bundle.css';
+import 'swiper/swiper-bundle.min.css';
 import './styles/index.css';
+import Swiper from 'swiper/bundle';
 
 import { generateId, animateTicker } from './utils/utils.js';
 import FormValidator from './components/FormValidator.js';
@@ -24,6 +27,7 @@ const api = new Api({
     'Content-Type': 'application/json'
   }
 });
+
 
 const popularButton = document.querySelector('.popular__button');
 const popularMore = document.querySelector('.popular__more');
@@ -99,7 +103,7 @@ const getClaimsData = (container) => {
   api.getClaims()
     .then(res => {
       const allClaims = res.filter(item => item.checked === 'checked');
-      let startElemntIndex = allClaims.length - 3;
+      let startElemntIndex = allClaims.length - 6;
       let lastElementIndex = allClaims.length;
       let initialClaims = allClaims.slice(startElemntIndex, lastElementIndex);
       initialClaims.forEach( item => {
@@ -108,14 +112,14 @@ const getClaimsData = (container) => {
       })
       popularButton.addEventListener('click', ()=> {
         if(!(startElemntIndex<=0)){
-          let nextClaims = allClaims.slice(startElemntIndex - 3, lastElementIndex - 3);
+          let nextClaims = allClaims.slice(startElemntIndex - 6, lastElementIndex - 6);
 
           nextClaims.reverse().forEach( item => {
             const claimItem = new Claim('.claim-template', item);
             container.append(claimItem.createClaimElement());
           })
-          startElemntIndex = startElemntIndex - 3;
-          lastElementIndex = lastElementIndex - 3;
+          startElemntIndex = startElemntIndex - 6;
+          lastElementIndex = lastElementIndex - 6;
         } else {
           popularMore.textContent = "Всё!";
         }
@@ -147,10 +151,9 @@ const openPopup = (popupToOpen) => {
 
 
 const createCardElement = (card, templateSelector) => {
-  const element = document.querySelector('.card-template').content.cloneNode(true);
+  const element = document.querySelector(templateSelector).content.cloneNode(true);
   element.querySelector('.card__heading').textContent = card.title;
   element.querySelector('.card__city').textContent = card.city;
-
   return element;
 };
 
@@ -158,7 +161,7 @@ api.getNews()
   .then(res => {
   const resArray = Array.from(res);
   resArray.forEach((card) => {
-    const cardElement = createCardElement(card);
+    const cardElement = createCardElement(card, '.card-template');
     const backgroundCard = cardElement.querySelector(".card");
 
     backgroundCard.style.backgroundImage = `linear-gradient(1turn,#191919,#000 .01%,hsla(0,0%,62%,0) 82.21%),
@@ -170,52 +173,94 @@ api.getNews()
         newsPopup.classList.add("popup_opened");
       }
     });
+   
 
     const newsLikeButton = cardElement.querySelector(".card__like-button");
-    let count = cardElement.querySelector(".card__like-counter").textContent;
-    newsLikeButton.addEventListener("click", function () {
-      newsLikeButton.classList.toggle("card__like-button_active");
-      if (newsLikeButton.classList.contains("card__like-button_active")) {
-        count = Number(count) + 1;
-      } else {
-        count = Number(count) - 1;
-      }
-      cardElement.querySelector(".card__like-counter").textContent = count;
-    });
 
+    if((sessionStorage.getItem(`liked-${card.id}`)) == 'yes'){
+      newsLikeButton.classList.add("card__like-button_active");
+    }
+    const likeCount = cardElement.querySelector(".card__like-counter");
+    let count = card.likes
+    
+    if(!sessionStorage.getItem(`likes-${card.id}`)){
+      sessionStorage.setItem(`likes-${card.id}`, card.likes);
+    }
+    
+    likeCount.textContent = sessionStorage.getItem(`likes-${card.id}`);
+    newsLikeButton.addEventListener("click", function () {
+
+      if (newsLikeButton.classList.contains("card__like-button_active")) {
+        newsLikeButton.classList.remove("card__like-button_active");
+        sessionStorage.setItem(`liked-${card.id}`, 'no');
+        sessionStorage.setItem(`likes-${card.id}`, card.likes);
+        
+      } else {
+        newsLikeButton.classList.add("card__like-button_active");
+        sessionStorage.setItem(`liked-${card.id}`, 'yes');
+        sessionStorage.setItem(`likes-${card.id}`, card.likes + 1);
+      }
+      likeCount.textContent =  sessionStorage.getItem(`likes-${card.id}`);
+    });
     cardList.append(cardElement);
   });
 
-    newsPopupButton.addEventListener('click', function () {
-      newsPopup.classList.remove('popup_opened');
-    })
+const allCards = document.querySelectorAll('.card');
+const swiperSlides = document.querySelectorAll('.swiper-slide')
+let index = 1; 
+allCards.forEach( card => {
+  card['data-hash'] = `hash-${index}`
+  return index++
+})
+if (screen.width <= 600 ) {
+  const swiper = new Swiper('.swiper-container', {
+    spaceBetween: 24,
+    hashNavigation: {
+      watchState: true,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: 'true', 
+    }  
+  })
+
+ 
+} else {
+  const swiper = new Swiper('.swiper-container', {
+    slidesPerView: 3,
+    spaceBetween: 40,
+    loop: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    }
+  })
+  swiperSlides.forEach( card => {
+    card.classList.add('card_new')
+  })
+  
+}
+
+newsPopupButton.addEventListener('click', function () {
+  newsPopup.classList.remove('popup_opened');
+  
+})
+    
 
     const getCardElement = (card) => {
       const newsName = newsPopup.querySelector('.popup__heading');
       const newsInfo = newsPopup.querySelector('.popup__news-info');
       const newsCity = newsPopup.querySelector('.popup__news-city');
+      const newsPopupImage = newsPopup.querySelector('.popup__news-image');
+      newsPopupImage.src = card.popuplink;
       newsName.textContent = card.title;
       newsInfo.textContent = card.description;
       newsCity.textContent = card.city;
-      addPopupImage(card);
+      
     }
-  }
-    )
-  .catch(err => console.log(err))
-;
-
-function addPopupImage(card) {
-  const newsPopupImage = newsPopup.querySelector('.popup__news-image');
-  if (card.id == "5fe38d0d1b8497bea49b2772") {
-    newsPopupImage.src = popupZnaki;
-  }
-  else if (card.id == "5fe38dac1b8497bea49b2773") {
-    newsPopupImage.src = popupBorba;
-  }
-  else if (card.id == "5fe38dda1b8497bea49b2774") {
-    newsPopupImage.src = popupUborka;
-  }
-}
+  })
+  .catch(err => console.log(err));
 
 // категории, субкатегории, вот это всё
 const subCategory = new InitialSubcategories('.popup_subcategories', {

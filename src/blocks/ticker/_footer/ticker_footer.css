@@ -1,3 +1,9 @@
 .ticker_footer {
     margin-top: 48px;
   }
+
+@media(min-width: 1024px) {
+  .ticker_footer {
+    margin-top: 72px;
+  }
+}

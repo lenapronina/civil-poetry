@@ -6,3 +6,10 @@
   line-height: 21px;
   color: #191919;
 }
+
+@media(min-width: 1024px) {
+  .claim__author {
+    font-size: 20px;
+    line-height: 26px;
+  }
+}

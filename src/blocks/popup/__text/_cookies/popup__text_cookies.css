@@ -1,3 +1,9 @@
 .popup__text_cookies {
     margin: 0;
 }
+
+@media(min-width: 1024px) {
+    .popup__text_cookies {
+        max-width: 600px;
+    }
+}

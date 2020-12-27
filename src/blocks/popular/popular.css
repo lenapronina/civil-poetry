@@ -1,4 +1,22 @@
 .popular {
-  background-color: #C5E1EF;
+  background-color: #C1F1FC;
   padding: 48px 0 28px;
+}
+
+@media(min-width: 768px) {
+  .popular {
+    padding: 40px 80px 28px;
+  }
+}
+
+@media(min-width: 1024px) {
+  .popular {
+    padding: 80px 100px 64px;
+  }
+}
+
+@media(min-width: 1280px) {
+  .popular {
+    padding: 80px 160px 64px;
+  }
 }
