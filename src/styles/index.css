@@ -109,25 +109,6 @@
 @import url(../blocks/ticker/_footer/ticker_footer.css);
 
 
-.swiper-container {
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  overflow: hidden;
-  list-style: none;
-  padding: 0;
-  z-index: 0;
-  width: 100%;
-  height: 245px;
-}
-
-.swiper-slide {
-  margin: 0;
-  width: 320px;
-  height: 209px;
-  object-fit: cover;
-  border-radius: 16px;
-}
 .swiper-pagination-bullet {
   width: 8px;
   height: 8px;

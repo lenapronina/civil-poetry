@@ -28,11 +28,6 @@ const api = new Api({
 });
 
 
-
-
-
-// Swiper.use([Navigation, Pagination]);
-
 const popularButton = document.querySelector('.popular__button');
 const popularMore = document.querySelector('.popular__more');
 
@@ -180,19 +175,33 @@ api.getNews()
     });
 
     const newsLikeButton = cardElement.querySelector(".card__like-button");
-    let count = cardElement.querySelector(".card__like-counter").textContent;
+
+    if((sessionStorage.getItem(`liked-${card.id}`)) == 'yes'){
+      newsLikeButton.classList.add("card__like-button_active");
+    }
+    const likeCount = cardElement.querySelector(".card__like-counter");
+    let count = card.likes
+    
+    if(!sessionStorage.getItem(`likes-${card.id}`)){
+      sessionStorage.setItem(`likes-${card.id}`, card.likes);
+    }
+    
+    likeCount.textContent = sessionStorage.getItem(`likes-${card.id}`);
     newsLikeButton.addEventListener("click", function () {
-      newsLikeButton.classList.toggle("card__like-button_active");
+
       if (newsLikeButton.classList.contains("card__like-button_active")) {
-        count = Number(count) + 1;
+        newsLikeButton.classList.remove("card__like-button_active");
+        sessionStorage.setItem(`liked-${card.id}`, 'no');
+        sessionStorage.setItem(`likes-${card.id}`, card.likes);
+        
       } else {
-        count = Number(count) - 1;
+        newsLikeButton.classList.add("card__like-button_active");
+        sessionStorage.setItem(`liked-${card.id}`, 'yes');
+        sessionStorage.setItem(`likes-${card.id}`, card.likes + 1);
       }
-      cardElement.querySelector(".card__like-counter").textContent = count;
+      likeCount.textContent =  sessionStorage.getItem(`likes-${card.id}`);
     });
     cardList.append(cardElement);
-    
-    
   });
 
 const allCards = document.querySelectorAll('.card')
@@ -203,7 +212,7 @@ allCards.forEach( card => {
 })
 
 const swiper = new Swiper('.swiper-container', {
-  spaceBetween: 24,
+  
   hashNavigation: {
     watchState: true,
   },
@@ -211,7 +220,19 @@ const swiper = new Swiper('.swiper-container', {
     el: '.swiper-pagination',
     type: 'bullets',
     clickable: 'true', 
-  }  
+  },
+  breakpoints: {
+    // when window width is <= 499px
+    499: {
+        slidesPerView: 1,
+        spaceBetweenSlides: 24
+    },
+    // when window width is <= 999px
+    999: {
+        slidesPerView: 2,
+        spaceBetweenSlides: 50
+    }
+}
 })
 
     newsPopupButton.addEventListener('click', function () {
@@ -222,27 +243,15 @@ const swiper = new Swiper('.swiper-container', {
       const newsName = newsPopup.querySelector('.popup__heading');
       const newsInfo = newsPopup.querySelector('.popup__news-info');
       const newsCity = newsPopup.querySelector('.popup__news-city');
+      const newsPopupImage = newsPopup.querySelector('.popup__news-image');
+      newsPopupImage.src = card.popuplink;
       newsName.textContent = card.title;
       newsInfo.textContent = card.description;
       newsCity.textContent = card.city;
-      addPopupImage(card);
+      
     }
   })
-  .catch(err => console.log(err))
-;
-
-function addPopupImage(card) {
-  const newsPopupImage = newsPopup.querySelector('.popup__news-image');
-  if (card.id == "5fe38d0d1b8497bea49b2772") {
-    newsPopupImage.src = popupZnaki;
-  }
-  else if (card.id == "5fe38dac1b8497bea49b2773") {
-    newsPopupImage.src = popupBorba;
-  }
-  else if (card.id == "5fe38dda1b8497bea49b2774") {
-    newsPopupImage.src = popupUborka;
-  }
-}
+  .catch(err => console.log(err));
 
 // категории, субкатегории, вот это всё
 const subCategory = new InitialSubcategories('.popup_subcategories', {

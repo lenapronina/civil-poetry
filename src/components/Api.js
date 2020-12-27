@@ -25,10 +25,6 @@ class Api {
     .then(res => this._checkResStatus(res));
   }
 
-  getAllInitialData(){
-    return Promise.all([this.getNews(), this.getClaims()])
-  }
-
   postNewClaim(claimData){
     return fetch(`${this._baseURL}/claims`, {
       method: 'POST',
@@ -44,22 +40,23 @@ class Api {
     })
     .then(res => this._checkResStatus(res));
   }
+/// Пока не работают
+  // addLike(newsId, data){
+  //   return fetch(`${this._baseURL}/newslists/likes/${newsId}`, {
+  //     method: 'PUT',
+  //     headers: this._headers,
+  //     body: JSON.stringify(data)
+  //   })
+  //   .then(res => this._checkResStatus(res));
+  // }
 
-  addLike(newsId){
-    return fetch(`${this._baseURL}/news/likes/${newsId}`, {
-      method: 'PUT',
-      headers: this._headers
-    })
-    .then(res => this._checkResStatus(res));
-  }
-
-  deleteLike(newsId){
-    return fetch(`${this._baseURL}/news/likes/${newsId}`, {
-      method: 'DELETE',
-      headers: this._headers
-    })
-    .then(res => this._checkResStatus(res));
-  }
+  // deleteLike(newsId){
+  //   return fetch(`${this._baseURL}/newslists/${newsId}/likes/`, {
+  //     method: 'DELETE',
+  //     headers: this._headers
+  //   })
+  //   .then(res => this._checkResStatus(res));
+  // }
 }
 
 export { Api };
