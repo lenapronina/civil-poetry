@@ -1,0 +1,21 @@
+.hello__subheading {
+    display: none;
+}
+
+@media(min-width: 1024px) {
+    .hello__subheading {
+        display: block;
+        text-align: center;
+        width: 90%;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 52px;
+        margin: 0 auto;
+    }
+}
+
+@media(min-width: 1400px) {
+    .hello__subheading {
+        margin-top: 10px;
+    }
+}

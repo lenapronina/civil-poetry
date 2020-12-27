@@ -9,3 +9,11 @@
   margin-top: 8px;
   color: #191919;
 }
+
+@media(min-width: 1024px) {
+  .claim__verse {
+    font-size: 18px;
+    line-height: 23px;
+    margin: 0 70px 0 30px ;
+  }
+}

@@ -28,7 +28,6 @@
 @import url(../blocks/claim/__cathegory/claim__cathegory.css);
 @import url(../blocks/claim/__verse/claim__verse.css);
 @import url(../blocks/claim/__city/claim__city.css);
-@import url(../blocks/claim/__control/claim__control.css);
 @import url(../blocks/claim/__open-button/claim__open-button.css);
 @import url(../blocks/claim/__author/claim__author.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
@@ -90,11 +89,11 @@
 @import url(../blocks/popup/__go-button/popup__go-button.css);
 
 @import url(../blocks/hello/hello.css);
-@import url(../blocks/hello/__container/hello__container.css);
 @import url(../blocks/hello/__image/hello__image.css);
 @import url(../blocks/hello/__heading/hello__heading.css);
 @import url(../blocks/hello/__description/hello__description.css);
 @import url(../blocks/hello/__arrow-bottom/hello__arrow-bottom.css);
+@import url(../blocks/hello/__subheading/hello__subheading.css);
 @import url(../blocks/swiper-container/swiper-container.css);
 @import url(../blocks/swiper-slide/swiper-slide.css);
 @import url(../blocks/swiper-pagination-bullet/swiper-pagination-bullet.css);
