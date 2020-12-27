@@ -1,4 +1,7 @@
 .claim__open-button {
+  position: absolute;
+  top: 0px;
+  right: 0px;
   width: 24px;
   height: 24px;
   border: none;

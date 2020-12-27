@@ -12,5 +12,6 @@
 @media(min-width: 1024px) {
   .claim {
     border: 1px solid #FFFFFF;
+    padding: 20px;
   }
 }
