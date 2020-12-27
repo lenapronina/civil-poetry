@@ -10,3 +10,29 @@
     box-sizing: border-box;
     text-align: center;
 }
+
+@media(min-width: 540px) {
+    .popup__container_cookies {
+        width: 70%;
+    }
+}
+
+@media(min-width: 768px) {
+    .popup__container_cookies {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 150px;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0 100px;
+        text-align: left;
+    }
+}
+
+@media(min-width: 1024px) {
+    .popup__container_cookies {
+        padding: 0 200px;
+    }
+}

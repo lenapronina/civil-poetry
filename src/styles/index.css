@@ -14,6 +14,7 @@
 @import url(../blocks/popup/popup.css);
 
 /* подключаем элементы */
+@import url(../blocks/transition-opacity/transition-opacity.css);
 @import url(../blocks/problems-list/__heading/problems-list__heading.css);
 @import url(../blocks/problems-list/__wrapper/problems-list__wrapper.css);
 @import url(../blocks/problem/__name/problem__name.css);
