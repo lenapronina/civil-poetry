@@ -19,3 +19,9 @@
       transform: translateY(-10px);
     }
   }
+
+@media(min-width: 768px) {
+  .hello__arrow-bottom {
+    margin-top: 30px;
+  }
+}
