@@ -18,7 +18,7 @@
          отслеживать статус заявки.</p>
       <button class="hello__arrow-bottom"></button>
       <div class="ticker">
-        <p class="ticker__line">#ПРОВЕРЕНО_ДЛЯ_ЦЕНЗУРЫ&nbsp;&nbsp;&nbsp;#ПРОВЕРЕНО_ДЛЯ_ЦЕНЗУРЫ</p>
+        <p class="ticker__line">#ПРОВЕРЕНО_ДЛЯ_ЦЕНЗУРЫ&nbsp;&nbsp;&nbsp;#ПРОВЕРЕНО_ДЛЯ_ЦЕНЗУРЫ&nbsp;&nbsp;&nbsp;</p>
       </div>
     </section>
     <section class="problems-list">
@@ -83,20 +83,16 @@
           </div>
           <button type="button" class="popup__go-to-main-button">Вернуться на главную</button>
         </div>
-        <form class="popup__form" novalidate >
+        <form class="popup__form" method="POST" action="#" novalidate>
           <fieldset class="popup__fieldset">
-<<<<<<< HEAD
-=======
 
->>>>>>> dev
-            <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="Имя*"value="Аноним" minlength="2" maxlength="40" required>
-            <input class="popup__input popup__input_type_town" type="text" name="location" placeholder="Город*" minlength="2" maxlength="40" required>  
-            <input class="popup__input popup__input_type_email" type="email" name="email" placeholder="Электронная почта">  
-            <span class="popup__caption">На вашу почту придёт уведомление о состоянии жалобы</span> 
-<<<<<<< HEAD
-=======
+            <input class="popup__input popup__input_type_name" type="text" name="name" id="name" placeholder="Имя*" minlength="2" maxlength="40" required>
+            <span class="popup__caption" id="name-error">На вашу почту придёт уведомление о состоянии жалобы</span> 
+            <input class="popup__input popup__input_type_town" type="text" name="location" id="location" placeholder="Город*" minlength="2" maxlength="40" required> 
+            <span class="popup__caption" id="location-error">На вашу почту придёт уведомление о состоянии жалобы</span>  
+            <input class="popup__input popup__input_type_email" type="email" name="email" id="email" placeholder="Электронная почта">  
+            <span class="popup__caption popup__caption_email" id="email-error">На почту придёт уведомление о статусе жалобы</span> 
 
->>>>>>> dev
           </fieldset>
           <div class="popup__poem">
             <p class="popup__text"></p>

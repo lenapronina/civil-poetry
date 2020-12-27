@@ -101,6 +101,7 @@
 @import url(../blocks/popup/__switch/popup__switch.css);
 @import url(../blocks/popup/__text/popup__text.css);
 @import url(../blocks/popup/__caption/popup__caption.css);
+@import url(../blocks/popup/__caption/_error/popup__caption_error.css);
 
 @import url(../blocks/ticker/ticker.css);
 @import url(../blocks/ticker/__line/ticker__line.css);

@@ -1,4 +1,18 @@
 .popup__caption {
+  opacity: 0;
+  margin-left: 12px;
+  margin-bottom: 14px;
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.popup__caption_email {
+  opacity: 1;
+  margin-left: 12px;
+  margin-bottom: 14px;
   font-family: 'PT Sans';
   font-style: normal;
   font-weight: normal;
