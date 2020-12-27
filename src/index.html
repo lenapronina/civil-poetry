@@ -67,7 +67,7 @@
           <button class="popup__backward-button button"></button>
           <p class="popup__back-text">Назад</p>
         </div>
-        <h2 class="popup__heading">Подкатегория</h2>
+        <h2 class="popup__heading popup__heading_subcategories">Подкатегория</h2>
         <ul class= "problems-list__wrapper problems-list__wrapper_popup">
 
         </ul>
@@ -76,6 +76,7 @@
 
     <section class="popup popup_result">
       <div class="popup__container popup__container_result">
+        <img class="popup__form-image" src="<%=require('./images/form-pic.jpg')%>" alt="Картинка для заполнения пространства">
         <div class="popup__header">
           <div class="popup__wrapper popup__wrapper_result">
             <button class="popup__backward-button button"></button>
@@ -94,27 +95,29 @@
             <span class="popup__caption popup__caption_email" id="email-error">На почту придёт уведомление о статусе жалобы</span>
 
           </fieldset>
-          <div class="popup__poem">
-            <p class="popup__text"></p>
-          </div>
-          <div class="popup__switch">
-            <button class="popup__poem-button popup__poem-button_prev" type="button">
-              <img class="popup__poem-button-icon" src="<%=require('./images/left-arrow.svg')%>">
-            </button>
-            <p class="popup__text popup__text_switch">Смотреть больше стихов</p>
-            <button class="popup__poem-button popup__poem-button_next" type="button">
-              <img class="popup__poem-button-icon" src="<%=require('./images/right-arrow.svg')%>">
-            </button>
-         </div>
+          <div class="popup__poem-wrapper">
+            <div class="popup__poem">
+              <p class="popup__text"></p>
+            </div>
+            <div class="popup__switch">
+              <button class="popup__poem-button popup__poem-button_prev" type="button">
+                <img class="popup__poem-button-icon" src="<%=require('./images/left-arrow.svg')%>">
+              </button>
+              <p class="popup__text popup__text_switch">Смотреть больше стихов</p>
+              <button class="popup__poem-button popup__poem-button_next" type="button">
+                <img class="popup__poem-button-icon" src="<%=require('./images/right-arrow.svg')%>">
+              </button>
+            </div>
 
-          <fieldset class="popup__checkbox-field">
-            <label class="popup__checkbox-label" for="checkbox">
-              <input class="popup__checkbox" type="checkbox" id="checkbox">
-              <span class="popup__visible-checkbox"></span>
-              <span>Сохранить в ленте</span>
-            </label>
-          </fieldset>
-          <button class="popup__submit-button" type="submit">Пожаловаться</button>
+            <fieldset class="popup__checkbox-field">
+              <label class="popup__checkbox-label" for="checkbox">
+                <input class="popup__checkbox" type="checkbox" id="checkbox">
+                <span class="popup__visible-checkbox"></span>
+                <span>Сохранить в ленте</span>
+              </label>
+            </fieldset>
+            <button class="popup__submit-button" type="submit">Пожаловаться</button>
+          </div>
         </form>
       </div>
     </section>
@@ -176,7 +179,7 @@
   </template>
 
   <template class="popup-subcategory-template">
-    <li class="problem problem_popup">
+    <li class="problem_popup">
       <h3 class="problem__name"></h3>
     </li>
   </template>

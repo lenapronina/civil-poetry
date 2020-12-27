@@ -12,7 +12,7 @@ export default class InitialSubcategories {
   _updateHeading(data){
     this._heading.textContent = data.name;
   }
-  
+
   updatePopup(data) {
     this._data = data;
     this._updateHeading(this._data);
@@ -48,7 +48,7 @@ export default class InitialSubcategories {
   _renderElements(dataArray, category){
     dataArray.forEach( item => {
       const subType = this._createChildElement(item)
-      const subTypeButton = subType.querySelector('.problem')
+      const subTypeButton = subType.querySelector('.problem_popup')
       subTypeButton.addEventListener('click', ()=> {
         this._openPopupWithForm(item, category);
       })
@@ -61,10 +61,10 @@ export default class InitialSubcategories {
       this.close();
     });
   }
-  
+
    deleteChildren(){
     while (this._childrenContainrer.firstChild) {
       this._childrenContainrer.removeChild(this._childrenContainrer.firstChild);
     }
-  }  
+  }
 }
