@@ -102,15 +102,15 @@ const getClaimsData = (container) => {
       let startElemntIndex = allClaims.length - 3;
       let lastElementIndex = allClaims.length;
       let initialClaims = allClaims.slice(startElemntIndex, lastElementIndex);
-      initialClaims.forEach( item => { 
+      initialClaims.forEach( item => {
         const claimItem = new Claim('.claim-template', item);
         container.prepend(claimItem.createClaimElement());
       })
       popularButton.addEventListener('click', ()=> {
         if(!(startElemntIndex<=0)){
           let nextClaims = allClaims.slice(startElemntIndex - 3, lastElementIndex - 3);
-        
-          nextClaims.reverse().forEach( item => { 
+
+          nextClaims.reverse().forEach( item => {
             const claimItem = new Claim('.claim-template', item);
             container.append(claimItem.createClaimElement());
           })
@@ -230,12 +230,12 @@ const createSubcategoryPopup = (data) => {
 
 categoriesList.forEach(category => {
   const categoryCard = new InitialCategories(
-    category.name, 
-    category.src, 
-    category.subcategories, 
+    category.name,
+    category.src,
+    category.subcategories,
     '.problem-template', {
-      createSubcategoryPopup: ()=> { 
-        createSubcategoryPopup(category) 
+      createSubcategoryPopup: ()=> {
+        createSubcategoryPopup(category)
       }
     });
   problemList.append(categoryCard.createCategory());
