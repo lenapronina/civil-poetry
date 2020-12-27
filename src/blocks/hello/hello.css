@@ -1,9 +1,8 @@
 .hello {
-  padding: 84px 0 48px;
-  min-height:100vh;
+  padding: 35px 0 45px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #ffffff;
   box-sizing: border-box;
 }
