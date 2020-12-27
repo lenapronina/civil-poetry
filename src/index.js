@@ -1,4 +1,6 @@
+import 'swiper/swiper-bundle.css';
 import './styles/index.css';
+import Swiper from 'swiper/bundle';
 
 import { generateId, animateTicker } from './utils/utils.js';
 import FormValidator from './components/FormValidator.js';
@@ -24,6 +26,12 @@ const api = new Api({
     'Content-Type': 'application/json'
   }
 });
+
+
+
+
+
+// Swiper.use([Navigation, Pagination]);
 
 const popularButton = document.querySelector('.popular__button');
 const popularMore = document.querySelector('.popular__more');
@@ -184,6 +192,19 @@ api.getNews()
     });
 
     cardList.append(cardElement);
+    const swiper = new Swiper('.swiper-container', {
+      spaceBetween: 24,
+      
+      
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: 'true',
+       
+      }
+      
+    })
+   
   });
 
     newsPopupButton.addEventListener('click', function () {

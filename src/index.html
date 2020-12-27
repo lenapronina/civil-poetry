@@ -30,7 +30,12 @@
 
     <section class="news" id="news">
       <h2 class="news__heading">Новости</h2>
-      <ul class="card-list"></ul>
+      <div class="swiper-container">
+        <div class="card-list swiper-wrapper"></div>
+        
+        <div class="swiper-pagination"></div>
+      </div>
+      
 
     </section>
 
@@ -182,7 +187,7 @@
   </template>
 
   <template class="card-template">
-    <li class="card">
+    <div class="card swiper-slide">
       <div class="card__text-wrapper">
         <h3 class="card__heading"></h3>
         <h4 class="card__city"></h4>
@@ -191,7 +196,7 @@
         <button class="card__like-button button" type="button" aria-label="Поставить лайк"></button>
         <p class="card__like-counter"></p>
       </div>
-    </li>
+    </div>
   </template>
 </body>
 </html>
