@@ -5,3 +5,10 @@
   line-height: 23px;
   margin: 10px 0 8px;
 }
+
+@media screen and (min-width: 1440px) {
+  .problem__name {
+    font-size: 32px;
+    line-height: 41px;
+  }
+}

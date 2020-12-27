@@ -17,6 +17,7 @@
 @import url(../blocks/problems-list/__heading/problems-list__heading.css);
 @import url(../blocks/problems-list/__wrapper/problems-list__wrapper.css);
 @import url(../blocks/problem/__name/problem__name.css);
+@import url(../blocks/problem/__image/problem__image.css);
 @import url(../blocks/news/__heading/news__heading.css);
 @import url(../blocks/card/__heading/card__heading.css);
 @import url(../blocks/popular/__heading/popular__heading.css);
