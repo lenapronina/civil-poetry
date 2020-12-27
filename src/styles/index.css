@@ -95,9 +95,9 @@
 @import url(../blocks/hello/__description/hello__description.css);
 @import url(../blocks/hello/__arrow-bottom/hello__arrow-bottom.css);
 @import url(../blocks/hello/__subheading/hello__subheading.css);
-@import url(../blocks/swiper-container/swiper-container.css);
+/* @import url(../blocks/swiper-container/swiper-container.css);
 @import url(../blocks/swiper-slide/swiper-slide.css);
-@import url(../blocks/swiper-pagination-bullet/swiper-pagination-bullet.css);
+@import url(../blocks/swiper-pagination-bullet/swiper-pagination-bullet.css); */
 
 @import url(../blocks/popup/__switch/popup__switch.css);
 @import url(../blocks/popup/__text/popup__text.css);
@@ -107,6 +107,21 @@
 @import url(../blocks/ticker/ticker.css);
 @import url(../blocks/ticker/__line/ticker__line.css);
 @import url(../blocks/ticker/_footer/ticker_footer.css);
+
+
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  margin: 0 8px;
+  background: #C1F1FC;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: #F36755;
+}
+
+
 
 
 .swiper-container {
@@ -120,22 +135,17 @@
   width: 100%;
   height: 245px;
 }
+@media (min-width: 500px) {
+  
+  .swiper-container {
+    height: 500px;
+  }
+  .swiper-wrapper {
+    width: 400px;
+    height: 500px;
+  }
 
-.swiper-slide {
-  margin: 0;
-  width: 320px;
-  height: 209px;
-  object-fit: cover;
-  border-radius: 16px;
-}
-.swiper-pagination-bullet {
-  width: 8px;
-  height: 8px;
-  margin: 0 8px;
-  background: #C1F1FC;
-  opacity: 1;
-}
-
-.swiper-pagination-bullet-active {
-  background: #F36755;
+  .swiper-slide{
+    height: 400px;
+  }
 }

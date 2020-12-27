@@ -2,3 +2,22 @@
   background-color: white;
   padding: 64px 0 80px;
 }
+
+
+@media(min-width: 768px) {
+  .news {
+    padding: 40px 80px 28px;
+  }
+}
+
+@media(min-width: 1024px) {
+  .news {
+    padding: 80px 100px 64px;
+  }
+}
+
+@media(min-width: 1280px) {
+  .news {
+    padding: 80px 160px 64px;
+  }
+}
