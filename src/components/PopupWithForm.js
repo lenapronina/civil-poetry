@@ -1,21 +1,26 @@
-import arrowNextInactive from '../images/right-arrow-inactive.png';
-import arrowPrevInactive from '../images/left-arrow-inactive.png';
+import arrowNextInactive from '../images/right-arrow-inactive.svg';
+import arrowPrevInactive from '../images/left-arrow-inactive.svg';
 import arrowNextActive from '../images/right-arrow.svg';
 import arrowPrevActive from '../images/left-arrow.svg';
 
 class PopupWithForm{
   
-  constructor(popupSelector, { submitForm, closeAllPopup }) {
+  constructor(popupSelector, { submitForm, hideErrors, closeAllPopup }) {
     this._popup = document.querySelector(popupSelector);
     this._submitForm = submitForm;
+    this._hideErrors = hideErrors;
     this._closeAllPopup = closeAllPopup;
-    
+
     this._form = this._popup.querySelector('.popup__form');
+    this._inputList = this._form.querySelectorAll('.popup__input');
+
     this._backButton = this._popup.querySelector('.popup__wrapper_result');
     this._backToMainPageButton = this._popup.querySelector('.popup__go-to-main-button');
     this._submitButton = this._popup.querySelector('.popup__submit-button');
     this._checkbox = this._popup.querySelector('.popup__checkbox');
     this._poem = this._form.querySelector('.popup__text');
+
+    this._popupTextSwitch = this._form.querySelector(' .popup__text_switch')
 
     this._prevPoemButton = this._form.querySelector('.popup__poem-button_prev');
     this._nextPoemButton = this._form.querySelector('.popup__poem-button_next');  
@@ -30,6 +35,9 @@ class PopupWithForm{
     this._item = item;
     this._poems = this._item.poems;
     
+    this._inputList.forEach(inputElement => {
+      inputElement.classList.add('popup__input_initial');
+    })
     this._submitButton.classList.add('popup__submit-button_inactive');
     this._checkedPoemsLength(this._poems);
     this._setPoem(item.poems, this.count);
@@ -43,7 +51,7 @@ class PopupWithForm{
   
     this._nextPoemButton.removeEventListener('click', this._setNextPoem);
     this._prevPoemButton.removeEventListener('click', this._setPrevPoem);
-  
+    this._popupTextSwitch.classList.remove('popup__text_switch_inactive')
     this.count = 0;
     this._form.reset();
   }
@@ -52,6 +60,7 @@ class PopupWithForm{
     if(poems.length <= 1) {
       this._disableNextButton();
       this._disablePrevButton();
+      this._popupTextSwitch.classList.add('popup__text_switch_inactive')
     } else {
       this._disablePrevButton();
       this._enableNextButton();
@@ -94,7 +103,6 @@ class PopupWithForm{
     const type = category;
     const poemsList = poems;
     this._formValues = {};
-    this._inputList = this._form.querySelectorAll('.popup__input');
     this._inputList.forEach(input => this._formValues[input.name] = input.value);
     this._formValues.poems = poemsList[this.count];
     this._formValues.type = type.name;
@@ -132,16 +140,26 @@ class PopupWithForm{
     this._backButton.addEventListener('click', () => {
       this._form.reset();
       this.close();
+      this._inputList.forEach(inputElement => {
+        this._hideErrors(inputElement);
+      })
     });
 
     this._backToMainPageButton.addEventListener('click', () => {
       this._closeAllPopup();
+      this._form.reset();
+      this._inputList.forEach(inputElement => {
+        this._hideErrors(inputElement);
+      })
     });
 
     this._form.addEventListener('submit', (evt) => {
       evt.preventDefault();
       this._submitForm(this._getInputValues(category, this._poems));
       this._form.reset();
+      this._inputList.forEach(inputElement => {
+        this._hideErrors(inputElement);
+      })
     });
 
     this._nextPoemButton.addEventListener('click', this._setNextPoem)

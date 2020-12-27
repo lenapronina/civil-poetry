@@ -1,4 +1,9 @@
 .popup__input_invalid {
+    border-color: #FF0000;
+    box-shadow: none;
+}
+
+.popup__input_initial {
     border-color: #EFD3BE;
     box-shadow: none;
 }

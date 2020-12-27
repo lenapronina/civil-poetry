@@ -3,7 +3,7 @@
   box-sizing: border-box;
   min-height: 30px;
   height: 44px;
-  margin-bottom: 16px;
+  margin: 0;
   padding-left: 12px;
   border: 1px solid #F36755;
   box-shadow: none;
@@ -14,6 +14,7 @@
   font-size: 16px;
   line-height: 21px;
   color: #191919;
+  outline: none;
 }
 
 .popup__input:last-of-type {

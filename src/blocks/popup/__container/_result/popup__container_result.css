@@ -1,3 +1,4 @@
 .popup__container_result {
   padding-bottom: 40px;
+  overflow: scroll;
 }

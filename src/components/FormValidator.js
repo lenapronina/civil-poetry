@@ -3,11 +3,36 @@ export default class FormValidator {
     this._formElement = document.querySelector(formSelector);   
   }
 
+
+  _showInputError (inputElement, errorMessage){
+    const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
+    inputElement.classList.remove('popup__input_initial');
+    inputElement.classList.add('popup__input_invalid');
+    errorElement.classList.add('popup__caption_error');
+    errorElement.textContent = errorMessage;
+  }
+
+  hideInputError (inputElement){
+    const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
+    inputElement.classList.remove('popup__input_invalid');
+    errorElement.classList.remove('popup__caption_error');
+    errorElement.textContent = '';
+    if(inputElement.id =="email") {
+      errorElement.textContent = 'На почту придёт уведомление о статусе жалобы';
+      errorElement.classList.add('popup__caption_email');
+      
+    }
+  }
+
   _isValid(inputElement) {
     if (!inputElement.validity.valid) {
-      inputElement.classList.add('popup__input_invalid');
+      if(inputElement.id == 'email'){
+        this._showInputError(inputElement, 'Проверьте правильность заполнения адреса почты');
+      } else {
+        this._showInputError(inputElement, 'Это обязательное поле');
+      }
     } else {
-      inputElement.classList.remove('popup__input_invalid');
+      this.hideInputError(inputElement);
     };
   };
 
