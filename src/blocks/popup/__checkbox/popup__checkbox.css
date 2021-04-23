@@ -1,0 +1,13 @@
+.popup__checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.popup__checkbox:checked + .popup__visible-checkbox {
+  background-image: url('../../../images/checkbox-checked.svg');
+  background-position: center;
+  background-size: contain;
+}

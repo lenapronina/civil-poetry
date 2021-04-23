@@ -1,0 +1,15 @@
+.card {
+  list-style: none;
+  border-radius: 16px;
+  min-width: 100%;
+  height: 208px;
+  margin: 0 17px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  background-size: cover;
+}
+
+.card:last-of-type {
+  margin: 0;
+}

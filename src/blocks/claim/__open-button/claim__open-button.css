@@ -1,0 +1,16 @@
+.claim__open-button {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-color: rgba(0,0,0,0);
+  transform: rotate(180deg);
+  background-image: url(../../../images/claim-arrow.svg);
+  background-repeat: no-repeat;
+}
+
+.claim__open-button:hover{
+  cursor: pointer;
+}

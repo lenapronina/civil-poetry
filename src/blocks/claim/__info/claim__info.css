@@ -1,0 +1,21 @@
+.claim__info {
+  position: relative;
+  align-self: start;
+  margin: 0 0 0 42px;
+  width: 100%;
+}
+
+@media(min-width: 1024px) {
+  .claim__info {
+    display: flex;
+    align-items: flex-start;
+    min-height: 100%;
+    margin: auto 0 auto 30px;
+  }
+}
+
+.claim__header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}

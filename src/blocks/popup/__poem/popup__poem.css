@@ -1,0 +1,37 @@
+.popup__poem {
+  margin: 0;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #f36755;
+  border-radius: 16px;
+  color: #191919;
+  line-height: 20px;
+  overflow: scroll;
+  scrollbar-color: #ff4040 #d0d0d0;
+  align-items: flex-start;
+  background-clip: content-box;
+  padding: 20px 40px;
+  height: calc(100vh - 550px);
+}
+
+@media (max-width: 1024px) {
+  .popup__poem {
+    height: calc(100vh - 635px);
+  }
+}
+
+@media (max-width: 360px) {
+  .popup__poem {
+    height: 45px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .popup__poem {
+    height: calc(100vh - 688px);
+  }
+}
+

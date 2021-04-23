@@ -1,0 +1,15 @@
+.ticker {
+  overflow: hidden;
+  min-height: 36px;
+  border-top: 1px solid #F36755;
+  border-bottom: 1px solid #F36755;
+  white-space: nowrap;
+  cursor: default;
+  user-select: none;
+}
+
+@media(min-width: 1024px) {
+  .ticker {
+    min-height: 40px;
+  }
+}

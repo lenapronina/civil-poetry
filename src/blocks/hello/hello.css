@@ -1,0 +1,29 @@
+.hello {
+  padding: 35px 0 45px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+@media(min-width: 640px) {
+  .hello {
+    width: 100%;
+    max-height: 100vh;
+    display: inline-block;
+    position: relative;
+    padding: 48px 0 72px;
+    background-image: url('../../images/hello-rectangle.png');
+    background-size: 100% 222px;
+    background-repeat: no-repeat;
+    background-position-y: 107px;
+  }
+}
+
+@media(min-width: 1400px) {
+  .hello {
+    padding-top: 88px;
+    background-position-y: 147px;
+  }
+}

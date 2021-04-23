@@ -1,0 +1,9 @@
+.problems-list__wrapper_popup {
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  width: 100%;
+  min-height: calc(100% - 120px);
+  box-sizing: border-box;
+  align-content: center;
+}

@@ -1,0 +1,9 @@
+.card__heading {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 23px;
+  color: #FFFFFF;
+  margin: 0;
+  width: fit-content;
+}

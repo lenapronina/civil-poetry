@@ -1,0 +1,12 @@
+.popup__go-to-main-button {
+  background: none;
+  border: none;
+  text-shadow: none;
+  color: #F36755;
+  text-decoration: none;
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 21px;
+}

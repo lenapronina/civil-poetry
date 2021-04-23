@@ -1,0 +1,14 @@
+.claim__id {
+  width: 56px;
+  height: 56px;
+  align-self: start;
+  background-color: white;
+  border-radius: 100%;
+}
+
+@media(min-width: 1024px) {
+  .claim__id {
+    width: 68px;
+    height: 68px;
+  }
+}

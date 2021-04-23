@@ -1,0 +1,10 @@
+.popup__heading_submit-success {
+  font-family: "PT Sans Caption";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 41px;
+  text-align: center;
+  color: #F5D751;
+  margin: 16px 0 0 0;
+}

@@ -1,0 +1,10 @@
+.popup__poem-button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    background-color: inherit;
+    outline: none;
+    cursor: pointer;
+}

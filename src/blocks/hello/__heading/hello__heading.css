@@ -1,0 +1,35 @@
+.hello__heading {
+  margin: 0 0 10px 0;
+  max-width: 320px;
+  align-self: center;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 41px;
+  text-align: center;
+  color: #343434;
+  font-family: 'PT Sans Caption';
+}
+
+@media(min-width: 415px) {
+  .hello__heading {
+    max-width: 100%;
+  }
+}
+
+@media(min-width: 1024px) {
+  .hello__heading {
+    font-size: 64px;
+    line-height: 83px;
+    max-width: 500px;
+    position: absolute;
+    top: 132px;
+    right: 15px;
+  }
+}
+
+@media(min-width: 1400px) {
+  .hello__heading {
+    right: 167px;
+    top: 175px;
+  }
+}

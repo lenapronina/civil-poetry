@@ -1,0 +1,18 @@
+.popular__heading {
+  width: fit-content;
+  margin: 0 auto 24px;
+  font-family: "PT Sans Caption";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 31px;
+  color: #191919;
+}
+
+
+@media(min-width: 1024px) {
+  .popular__heading {
+    margin-bottom: 56px;
+    font-size: 40px;
+  }
+}

@@ -1,0 +1,24 @@
+.hello__image {
+  width: 100%;
+  object-fit: contain;
+}
+
+@media(min-width: 640px) {
+  .hello__image {
+    width: 640px;
+    margin-left: 20px;
+  }
+}
+
+@media(min-width: 1024px) {
+  .hello__image {
+    width: 640px;
+    margin-left: 70px;
+  }
+}
+
+@media(min-width: 1400px) {
+  .hello__image {
+    margin-left: 161px;
+  }
+}

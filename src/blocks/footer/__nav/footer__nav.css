@@ -1,0 +1,14 @@
+.footer__nav {
+  display: flex;
+  justify-content: space-between;
+  width: 184px;
+  margin: 0 auto;
+}
+
+@media(min-width: 1024px) {
+  .footer__nav {
+    width: 300px;
+  }
+}
+
+

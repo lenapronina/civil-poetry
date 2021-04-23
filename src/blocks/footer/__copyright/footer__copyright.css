@@ -1,0 +1,9 @@
+.footer__copyright {
+  margin: 24px 0 0;
+}
+
+@media(min-width: 1024px) {
+  .footer__copyright {
+    margin-top: 56px;
+  }
+}

@@ -1,0 +1,27 @@
+.hello__arrow-bottom {
+  margin: 13px 0 23px 0;
+  padding: 0;
+  width: 100%;
+  height: 70px;
+  align-self: center;
+  background-color: rgba(0,0,0,0);
+  background-image: url(../../../images/hello-arrow-bottom.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
+  animation: bounce 3s infinite ease-in-out;
+  cursor: pointer;
+}
+
+@keyframes bounce {
+  50% {
+      transform: translateY(-10px);
+    }
+  }
+
+@media(min-width: 768px) {
+  .hello__arrow-bottom {
+    margin-top: 30px;
+  }
+}

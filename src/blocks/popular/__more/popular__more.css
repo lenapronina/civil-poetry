@@ -1,0 +1,18 @@
+.popular__more {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 21px;  
+  color: #191919;
+  width: fit-content;
+  margin: 26px auto 14px;
+}
+
+
+@media(min-width: 1024px) {
+  .popular__more {
+    margin-top: 40px;
+    font-size: 24px;
+  }
+}

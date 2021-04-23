@@ -1,0 +1,29 @@
+.hello__description {
+  margin: 20px 0 0 0;
+  max-width: 309px;
+  align-self: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 21px;
+  text-align: center;
+  color: #191919;
+  font-family: PT Sans;
+  font-weight: 400;
+}
+
+@media(min-width: 416px) {
+  .hello__description {
+    margin: 10px auto 0;
+    max-width: 90%;
+  }
+}
+
+@media(min-width: 768px) {
+  .hello__description {
+    margin: 40px auto 0;
+    max-width: 73%;
+    font-size: 24px;
+    line-height: 31px;
+  }
+}

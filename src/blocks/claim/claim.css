@@ -1,0 +1,17 @@
+.claim {
+  padding: 20px 28px;
+  border-top: 1px solid rgba(255, 255, 255, 1);
+  display: flex;
+  align-items: center;
+}
+
+.claim:last-of-type {
+  border-bottom: 1px solid rgba(255, 255, 255, 1);
+}
+
+@media(min-width: 1024px) {
+  .claim {
+    border: 1px solid #FFFFFF;
+    padding: 20px;
+  }
+}
